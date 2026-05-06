@@ -1,0 +1,51 @@
+{
+  "subject": "Design of Electronic Device & Circuit",
+  "code": "S3",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Circuit Design Basics",
+      "audio": "assets/audio/subject3/chap1.mp3",
+      "duration": "15 mins",
+      "keyPoints": ["Schematic design", "Breadboarding", "PCB layout"],
+      "content": "Designing electronic circuits starts with drawing schematics and testing on breadboards.",
+      "quiz": []
+    },
+    {
+      "id": 2,
+      "title": "Analog Circuit Design",
+      "audio": "assets/audio/subject3/chap2.mp3",
+      "duration": "20 mins",
+      "keyPoints": ["Amplifier design", "Filter design", "Oscillator design"],
+      "content": "Analog circuits process continuous electrical signals.",
+      "quiz": []
+    },
+    {
+      "id": 3,
+      "title": "Digital Circuit Design",
+      "audio": "assets/audio/subject3/chap3.mp3",
+      "duration": "18 mins",
+      "keyPoints": ["Logic gates", "Flip-flops", "Microcontrollers"],
+      "content": "Digital circuits process binary signals (0s and 1s).",
+      "quiz": []
+    },
+    {
+      "id": 4,
+      "title": "PCB Design",
+      "audio": "assets/audio/subject3/chap4.mp3",
+      "duration": "22 mins",
+      "keyPoints": ["Footprints", "Routing", "Gerber files"],
+      "content": "Printed Circuit Boards (PCBs) connect electronic components permanently.",
+      "quiz": []
+    },
+    {
+      "id": 5,
+      "title": "Testing & Troubleshooting",
+      "audio": "assets/audio/subject3/chap5.mp3",
+      "duration": "20 mins",
+      "keyPoints": ["Multimeter use", "Oscilloscope use", "Debugging techniques"],
+      "content": "Testing ensures circuits work as designed and helps find faults.",
+      "quiz": []
+    }
+  ]
+}

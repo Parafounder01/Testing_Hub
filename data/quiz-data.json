@@ -1,0 +1,38 @@
+{
+  "subject1": [
+    {
+      "q": "What is Microwave frequency range?",
+      "options": ["1-300 GHz", "1-10 Hz", "100-200 MHz"],
+      "answer": 0
+    },
+    {
+      "q": "Which of these is a microwave application?",
+      "options": ["WiFi", "Flashlight", "Bicycle bell"],
+      "answer": 0
+    }
+  ],
+  "subject2": [
+    {
+      "q": "What component stores electrical charge?",
+      "options": ["Capacitor", "Resistor", "Inductor"],
+      "answer": 0
+    },
+    {
+      "q": "Which component amplifies signals?",
+      "options": ["Transistor", "Diode", "Fuse"],
+      "answer": 0
+    }
+  ],
+  "subject3": [
+    {
+      "q": "What does PCB stand for?",
+      "options": ["Printed Circuit Board", "Power Control Box", "Personal Computer BIOS"],
+      "answer": 0
+    },
+    {
+      "q": "Which tool measures voltage?",
+      "options": ["Multimeter", "Hammer", "Screwdriver"],
+      "answer": 0
+    }
+  ]
+}

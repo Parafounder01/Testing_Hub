@@ -1,160 +1,114 @@
-// Professor EasyBot - Text to Speech (TTS) Module
-// From prompt_setting.md - Web Speech API
+// ============================================
+// FILE: assets/js/tts.js
+// Text to Speech using Web Speech API
+// ============================================
 
-let currentSpeech = null;
-let lastSpokenText = '';
-let isPaused = false;
+const TTS = {
 
-// Initialize speech synthesis
-function speakText(text) {
-  // Stop any current speech
-  window.speechSynthesis.cancel();
-  
-  if (!text || text.trim() === '') {
-    console.log('No text to speak');
-    return;
-  }
-  
-  // Store last spoken text for repeat function
-  lastSpokenText = text;
-  
-  // Create speech utterance
-  const speech = new SpeechSynthesisUtterance(text);
-  speech.rate = 0.8;   // Slow speed for slow learner
-  speech.pitch = 1;
-  speech.lang = 'en-IN'; // Indian English
-  speech.volume = 1;
-  
-  // Store reference
-  currentSpeech = speech;
-  isPaused = false;
-  
-  // Speak
-  window.speechSynthesis.speak(speech);
-  
-  // Update button states
-  updateAudioButtons('speaking');
-  
-  // When done
-  speech.onend = function() {
-    updateAudioButtons('stopped');
-  };
-  
-  speech.onerror = function(event) {
-    console.log('Speech error:', event.error);
-    updateAudioButtons('stopped');
-  };
-}
+  synth: window.speechSynthesis,
+  utterance: null,
+  isPlaying: false,
+  currentRate: 0.8,
 
-// Listen button - speak the main content of the page
-function listenToContent() {
-  const contentDiv = document.getElementById('chapter-content');
-  if (!contentDiv) {
-    console.log('No chapter-content found');
-    return;
-  }
-  
-  const text = contentDiv.innerText || contentDiv.textContent;
-  speakText(text);
-}
+  // Initialize TTS
+  init: function() {
+    this.currentRate = parseFloat(localStorage.getItem('audio-speed')) || 0.8;
+    this.setupControls();
+  },
 
-// Pause button
-function pauseAudio() {
-  if (window.speechSynthesis.speaking && !isPaused) {
-    window.speechSynthesis.pause();
-    isPaused = true;
-    updateAudioButtons('paused');
-  } else if (isPaused) {
-    window.speechSynthesis.resume();
-    isPaused = false;
-    updateAudioButtons('speaking');
-  }
-}
-
-// Repeat button - repeat last point
-function repeatAudio() {
-  if (lastSpokenText) {
-    speakText(lastSpokenText);
-  } else {
-    listenToContent();
-  }
-}
-
-// Show/Hide notes
-function toggleNotes() {
-  const notesDiv = document.getElementById('notes');
-  if (notesDiv) {
-    notesDiv.classList.toggle('show');
-    const btn = document.getElementById('notes-btn');
-    if (btn) {
-      if (notesDiv.classList.contains('show')) {
-        btn.textContent = '📝 HIDE NOTES';
-      } else {
-        btn.textContent = '📝 NOTES';
-      }
+  // Speak text
+  speak: function(text, lang = 'en-IN') {
+    if (this.isPlaying) {
+      this.stop();
+      return;
     }
-  }
-}
 
-// Update button states
-function updateAudioButtons(state) {
-  const listenBtn = document.getElementById('listen-btn');
-  const pauseBtn = document.getElementById('pause-btn');
-  const repeatBtn = document.getElementById('repeat-btn');
-  
-  if (listenBtn) {
-    if (state === 'speaking') {
-      listenBtn.textContent = '🔊 SPEAKING...';
-      listenBtn.disabled = true;
+    this.utterance = new SpeechSynthesisUtterance(text);
+    this.utterance.lang = lang;
+    this.utterance.rate = this.currentRate;
+    this.utterance.pitch = 1;
+
+    this.utterance.onstart = () => {
+      this.isPlaying = true;
+      this.updateButton('playing');
+    };
+
+    this.utterance.onend = () => {
+      this.isPlaying = false;
+      this.updateButton('stopped');
+    };
+
+    this.utterance.onerror = (e) => {
+      console.error('TTS Error:', e);
+      this.isPlaying = false;
+      this.updateButton('stopped');
+    };
+
+    this.synth.speak(this.utterance);
+  },
+
+  // Stop speaking
+  stop: function() {
+    this.synth.cancel();
+    this.isPlaying = false;
+    this.updateButton('stopped');
+  },
+
+  // Pause/Resume (not supported in all browsers)
+  pause: function() {
+    if (this.synth.paused) {
+      this.synth.resume();
     } else {
-      listenBtn.textContent = '🔊 LISTEN';
-      listenBtn.disabled = false;
+      this.synth.pause();
     }
-  }
-  
-  if (pauseBtn) {
-    if (state === 'speaking') {
-      pauseBtn.textContent = '⏸️ PAUSE';
-    } else if (state === 'paused') {
-      pauseBtn.textContent = '▶️ RESUME';
-    } else {
-      pauseBtn.textContent = '⏸️ PAUSE';
-    }
-  }
-}
+  },
 
-// Initialize when page loads
-document.addEventListener('DOMContentLoaded', function() {
-  // Check if browser supports speech synthesis
-  if (!window.speechSynthesis) {
-    alert('Sorry, your browser does not support Text-to-Speech. Try Chrome or Edge.');
-    return;
+  // Set speech rate
+  setRate: function(rate) {
+    this.currentRate = rate;
+    localStorage.setItem('audio-speed', rate);
+    if (this.utterance && this.isPlaying) {
+      this.stop();
+      this.speak(this.utterance.text);
+    }
+  },
+
+  // Setup TTS controls on page
+  setupControls: function() {
+    const speedSlider = document.getElementById('audio-speed');
+    const speedValue = document.getElementById('speed-value');
+    if (speedSlider) {
+      speedSlider.value = this.currentRate;
+      if (speedValue) speedValue.textContent = this.currentRate;
+      speedSlider.addEventListener('input', (e) => {
+        this.setRate(parseFloat(e.target.value));
+        if (speedValue) speedValue.textContent = e.target.value;
+      });
+    }
+  },
+
+  // Update play button state
+  updateButton: function(state) {
+    const btn = document.getElementById('tts-play-btn');
+    if (!btn) return;
+    if (state === 'playing') {
+      btn.textContent = '⏹ Stop';
+      btn.setAttribute('aria-label', 'Stop reading');
+    } else {
+      btn.textContent = '▶ Play';
+      btn.setAttribute('aria-label', 'Play text');
+    }
+  },
+
+  // Read selected text or full content
+  readPage: function() {
+    const content = document.querySelector('.chapter-content') || document.querySelector('main');
+    if (content) {
+      this.speak(content.innerText);
+    }
   }
-  
-  // Attach button events
-  const listenBtn = document.getElementById('listen-btn');
-  const pauseBtn = document.getElementById('pause-btn');
-  const repeatBtn = document.getElementById('repeat-btn');
-  const notesBtn = document.getElementById('notes-btn');
-  
-  if (listenBtn) {
-    listenBtn.addEventListener('click', listenToContent);
-  }
-  
-  if (pauseBtn) {
-    pauseBtn.addEventListener('click', pauseAudio);
-  }
-  
-  if (repeatBtn) {
-    repeatBtn.addEventListener('click', repeatAudio);
-  }
-  
-  if (notesBtn) {
-    notesBtn.addEventListener('click', toggleNotes);
-  }
-  
-  // Stop speech when leaving page
-  window.addEventListener('beforeunload', function() {
-    window.speechSynthesis.cancel();
-  });
-});
+
+};
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', () => TTS.init());

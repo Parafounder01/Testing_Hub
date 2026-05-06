@@ -2,13 +2,34 @@
 /* From prompt_setting.md - Colors for Slow Learner */
 
 :root {
-  --background: #FFFDE7;   /* Soft Yellow */
-  --text: #212121;          /* Dark for reading */
-  --primary: #1565C0;       /* Blue buttons */
-  --success: #2E7D32;       /* Green correct */
-  --highlight: #FF6F00;     /* Orange keywords */
-  --font-size: 20px;        /* Large text */
-  --line-height: 1.8;       /* Spaced lines */
+  /* Design System Colors */
+  --color-primary: #0F172A;
+  --color-secondary: #334155;
+  --color-cta: #0369A1;
+  --color-background: #F8FAFC;
+  --color-text: #020617;
+  /* Legacy variables for compatibility */
+  --background: var(--color-background);
+  --text: var(--color-text);
+  --primary: var(--color-primary);
+  --success: #2E7D32;
+  --highlight: #FF6F00;
+  /* Typography */
+  --font-heading: 'Baloo 2', sans-serif;
+  --font-body: 'Comic Neue', sans-serif;
+  --font-size: 20px;
+  --line-height: 1.8;
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 32px;
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+  --shadow-xl: 0 20px 25px rgba(0,0,0,0.15);
 }
 
 * {
@@ -18,45 +39,66 @@
 }
 
 body {
-  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-family: var(--font-body);
   font-size: var(--font-size);
   line-height: var(--line-height);
-  background-color: var(--background);
-  color: var(--text);
-  padding: 20px;
-  max-width: 800px;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  padding: var(--space-xl);
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Large text for slow learners */
-h1 { font-size: 32px; margin-bottom: 20px; }
-h2 { font-size: 28px; margin: 24px 0 16px; }
-h3 { font-size: 24px; margin: 20px 0 12px; }
-p { margin-bottom: 16px; }
+/* Design System Typography */
+h1, h2, h3 { font-family: var(--font-heading); }
+h1 { font-size: 32px; margin-bottom: var(--space-lg); color: var(--color-primary); }
+h2 { font-size: 28px; margin: var(--space-xl) 0 var(--space-md); color: var(--color-primary); }
+h3 { font-size: 24px; margin: var(--space-lg) 0 var(--space-sm); color: var(--color-primary); }
+p { margin-bottom: var(--space-md); }
 
-/* Large buttons - minimum 44x44px for touch targets */
+/* Design System Buttons */
 .btn {
   display: inline-block;
-  background-color: var(--primary);
-  color: white;
-  padding: 16px 32px;
-  font-size: var(--font-size);
-  font-family: 'Atkinson Hyperlegible', sans-serif;
-  border: none;
+  padding: 12px 24px;
   border-radius: 8px;
+  font-weight: 600;
+  transition: all 200ms ease;
   cursor: pointer;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: var(--font-size);
   min-height: 44px;
   min-width: 44px;
-  transition: background-color 300ms;
-  text-decoration: none;
 }
 
-.btn:hover {
-  background-color: #0D47A1;
+.btn-primary {
+  background: var(--color-cta);
+  color: white;
+  border: none;
 }
 
-.btn:focus-visible {
-  outline: 3px solid var(--primary);
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btn-primary:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  opacity: 0.9;
+}
+
+.btn-secondary:focus-visible {
+  outline: 3px solid var(--color-primary);
   outline-offset: 2px;
 }
 
@@ -68,18 +110,29 @@ p { margin-bottom: 16px; }
   background-color: #1B5E20;
 }
 
-/* Subject cards */
-.subject-card {
-  background: white;
-  border: 3px solid var(--primary);
+/* Design System Cards */
+.card {
+  background: var(--color-background);
   border-radius: 12px;
-  padding: 24px;
-  margin: 20px 0;
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  transition: all 200ms ease;
+  cursor: pointer;
+  margin: var(--space-lg) 0;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+}
+
+.subject-card {
   text-align: center;
+  border: 2px solid var(--color-primary);
 }
 
 .subject-card h2 {
-  color: var(--primary);
+  color: var(--color-primary);
   margin-top: 0;
 }
 
@@ -87,29 +140,34 @@ p { margin-bottom: 16px; }
 .progress-bar {
   width: 100%;
   height: 24px;
-  background-color: #E0E0E0;
+  background-color: #E2E8F0;
   border-radius: 12px;
-  margin: 20px 0;
+  margin: var(--space-lg) 0;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
-  background-color: var(--success);
-  transition: width 300ms;
+  background-color: var(--color-cta);
+  transition: width 200ms ease;
 }
 
-/* Audio controls */
+/* TTS Audio controls */
 .audio-controls {
   background: white;
-  border: 2px solid var(--primary);
+  border: 2px solid var(--color-primary);
   border-radius: 8px;
-  padding: 16px;
-  margin: 20px 0;
+  padding: var(--space-md);
+  margin: var(--space-lg) 0;
   display: flex;
-  gap: 12px;
+  gap: var(--space-sm);
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.audio-controls .btn {
+  padding: 12px 20px;
+  font-size: var(--font-size);
 }
 
 .audio-controls .btn {
@@ -205,13 +263,23 @@ p { margin-bottom: 16px; }
   background: #FFF9C4;
   border: 2px solid var(--highlight);
   border-radius: 8px;
-  padding: 16px;
-  margin: 20px 0;
+  padding: var(--space-md);
+  margin: var(--space-lg) 0;
   display: none;
 }
 
 .notes-panel.show {
   display: block;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 60px;
+  padding: var(--space-xl) 0;
+  border-top: 2px solid #E2E8F0;
+  font-size: var(--font-size);
+  color: var(--color-secondary);
 }
 
 /* Navigation */
@@ -276,7 +344,7 @@ p { margin-bottom: 16px; }
 
 /* Focus visible for accessibility */
 a:focus-visible, button:focus-visible {
-  outline: 3px solid var(--primary);
+  outline: 3px solid var(--color-primary);
   outline-offset: 2px;
 }
 

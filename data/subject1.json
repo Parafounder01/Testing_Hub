@@ -1,0 +1,61 @@
+{
+  "subject": "Microwave Engineering",
+  "code": "S1",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Introduction to Microwaves",
+      "audio": "assets/audio/subject1/chap1.mp3",
+      "duration": "15 mins",
+      "keyPoints": [
+        "What is Microwave?",
+        "Frequency Range",
+        "Real Life Uses"
+      ],
+      "content": "Hello student! Today we learn about Microwaves. Microwaves are a type of electromagnetic wave with frequency between 1 GHz and 300 GHz.",
+      "quiz": [
+        {
+          "q": "What is Microwave frequency range?",
+          "options": ["1-300 GHz","1-10 Hz","100-200 MHz"],
+          "answer": 0
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Microwave Transmission Lines",
+      "audio": "assets/audio/subject1/chap2.mp3",
+      "duration": "20 mins",
+      "keyPoints": ["Types of transmission lines", "Characteristic impedance", "S-parameters"],
+      "content": "Transmission lines carry microwave signals from one point to another with minimal loss.",
+      "quiz": []
+    },
+    {
+      "id": 3,
+      "title": "Microwave Components",
+      "audio": "assets/audio/subject1/chap3.mp3",
+      "duration": "18 mins",
+      "keyPoints": ["Waveguides", "Couplers", "Isolators"],
+      "content": "Microwave components help direct, split, or block microwave signals.",
+      "quiz": []
+    },
+    {
+      "id": 4,
+      "title": "Microwave Antennas",
+      "audio": "assets/audio/subject1/chap4.mp3",
+      "duration": "22 mins",
+      "keyPoints": ["Horn antennas", "Parabolic antennas", "Microstrip antennas"],
+      "content": "Antennas convert microwave signals between electrical currents and electromagnetic waves.",
+      "quiz": []
+    },
+    {
+      "id": 5,
+      "title": "Microwave Applications",
+      "audio": "assets/audio/subject1/chap5.mp3",
+      "duration": "20 mins",
+      "keyPoints": ["Radar", "Satellite communication", "Microwave ovens"],
+      "content": "Microwaves are used in many everyday and industrial applications.",
+      "quiz": []
+    }
+  ]
+}

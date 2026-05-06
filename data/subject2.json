@@ -1,0 +1,51 @@
+{
+  "subject": "Electronics Circuit",
+  "code": "S2",
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Basic Components",
+      "audio": "assets/audio/subject2/chap1.mp3",
+      "duration": "15 mins",
+      "keyPoints": ["Resistors", "Capacitors", "Inductors"],
+      "content": "Electronic circuits are built using basic components that control the flow of electricity.",
+      "quiz": []
+    },
+    {
+      "id": 2,
+      "title": "Diodes & Transistors",
+      "audio": "assets/audio/subject2/chap2.mp3",
+      "duration": "20 mins",
+      "keyPoints": ["PN junction diode", "BJT transistors", "MOSFETs"],
+      "content": "Diodes and transistors are the building blocks of modern electronics.",
+      "quiz": []
+    },
+    {
+      "id": 3,
+      "title": "Amplifiers",
+      "audio": "assets/audio/subject2/chap3.mp3",
+      "duration": "18 mins",
+      "keyPoints": ["Common emitter amplifier", "Operational amplifiers", "Feedback"],
+      "content": "Amplifiers increase the strength of electrical signals.",
+      "quiz": []
+    },
+    {
+      "id": 4,
+      "title": "Oscillators",
+      "audio": "assets/audio/subject2/chap4.mp3",
+      "duration": "20 mins",
+      "keyPoints": ["RC oscillators", "LC oscillators", "Crystal oscillators"],
+      "content": "Oscillators generate periodic electrical signals.",
+      "quiz": []
+    },
+    {
+      "id": 5,
+      "title": "Power Supplies",
+      "audio": "assets/audio/subject2/chap5.mp3",
+      "duration": "18 mins",
+      "keyPoints": ["Rectifiers", "Filters", "Voltage regulators"],
+      "content": "Power supplies convert AC mains electricity to stable DC voltage for circuits.",
+      "quiz": []
+    }
+  ]
+}

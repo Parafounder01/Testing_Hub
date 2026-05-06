@@ -1,14 +1,20 @@
-// Service Worker for Professor EasyBot PWA
-// Caches files for offline use
+// ============================================
+// FILE: sw.js
+// Makes App Work OFFLINE 📴
+// ============================================
 
-const CACHE_NAME = 'easybot-v1';
-const urlsToCache = [
+const CACHE_NAME = 'amie-ece-v1';
+
+// All files to save for offline use (match existing project structure)
+const FILES_TO_CACHE = [
   '/',
   '/index.html',
+  '/manifest.json',
   '/assets/css/style.css',
+  '/assets/js/app.js',
   '/assets/js/tts.js',
   '/assets/js/quiz.js',
-  '/assets/js/app.js',
+  '/assets/js/storage.js',
   '/subject1/chap1.html',
   '/subject1/chap2.html',
   '/subject1/chap3.html',
@@ -26,41 +32,45 @@ const urlsToCache = [
   '/subject3/chap5.html',
   '/quiz/quiz-s1.html',
   '/quiz/quiz-s2.html',
-  '/quiz/quiz-s3.html'
+  '/quiz/quiz-s3.html',
+  '/data/subject1.json',
+  '/data/subject2.json',
+  '/data/subject3.json',
+  '/data/quiz-data.json',
+  '/assets/fonts/OpenDyslexic.woff2',
+  '/assets/fonts/Atkinson.woff2'
 ];
 
-// Install event - cache files
-self.addEventListener('install', function(event) {
+// Install — Save files to cache
+self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(function(cache) {
-        console.log('Opened cache');
-        return cache.addAll(urlsToCache);
+      .then(cache => {
+        console.log('📦 Caching all files...');
+        return cache.addAll(FILES_TO_CACHE);
       })
   );
 });
 
-// Fetch event - serve from cache if offline
-self.addEventListener('fetch', function(event) {
+// Fetch — Serve from cache when offline
+self.addEventListener('fetch', event => {
   event.respondWith(
     caches.match(event.request)
-      .then(function(response) {
-        // Return cached version or fetch from network
+      .then(response => {
         return response || fetch(event.request);
-      }
-    )
+      })
   );
 });
 
-// Activate event - clean old caches
-self.addEventListener('activate', function(event) {
+// Activate — Clean old cache
+self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(function(cacheNames) {
+    caches.keys().then(keyList => {
       return Promise.all(
-        cacheNames.map(function(cacheName) {
-          if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
-            return caches.delete(cacheName);
+        keyList.map(key => {
+          if(key !== CACHE_NAME) {
+            console.log('🗑️ Removing old cache:', key);
+            return caches.delete(key);
           }
         })
       );

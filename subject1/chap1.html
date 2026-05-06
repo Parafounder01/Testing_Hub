@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 1: What is Microwave? - Microwave Engineering</title>
+  <title>AMIE ECE Learner - Chapter 1: What is Microwave?</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -21,12 +21,10 @@
       </div>
     </section>
     
-    <!-- Audio Controls -->
+    <!-- TTS Audio Controls -->
     <div class="audio-controls">
-      <button class="btn" id="listen-btn">🔊 LISTEN</button>
-      <button class="btn" id="pause-btn">⏸️ PAUSE</button>
-      <button class="btn" id="repeat-btn">🔁 REPEAT</button>
-      <button class="btn" id="notes-btn">📝 NOTES</button>
+      <button class="btn btn-primary" id="tts-play-btn" aria-label="Play chapter text">▶ Play</button>
+      <button class="btn btn-secondary" id="notes-btn" aria-label="Toggle notes panel">Notes</button>
     </div>
     
     <!-- Chapter Content -->
@@ -34,14 +32,14 @@
       <h1>Chapter 1: What is Microwave?</h1>
       
       <div class="chapter-section">
-        <h3>📌 WHAT IS MICROWAVE?</h3>
+        <h3>WHAT IS MICROWAVE?</h3>
         <p>Microwave is a type of wave. It is like light, but you cannot see it.</p>
         <p><strong>Simple definition:</strong> Microwave is a wave that carries signals through the air.</p>
         <p><strong>Real-life example:</strong> When you use WiFi at home, microwave waves carry the internet signal to your phone. Your mobile phone also uses microwave waves to talk to the tower.</p>
       </div>
       
       <div class="chapter-section">
-        <h3>📌 WHY IS IT IMPORTANT?</h3>
+        <h3>WHY IS IT IMPORTANT?</h3>
         <p>Microwave is important because:</p>
         <ul style="font-size:20px; line-height:1.8; padding-left:24px;">
           <li>It helps your phone connect to the internet</li>
@@ -51,7 +49,7 @@
       </div>
       
       <div class="chapter-section">
-        <h3>📌 HOW DOES IT WORK?</h3>
+        <h3>HOW DOES IT WORK?</h3>
         <p>Let me explain in simple steps:</p>
         <ul class="steps">
           <li><strong>Step 1:</strong> A device (like your phone) sends out a microwave wave</li>
@@ -62,7 +60,7 @@
       </div>
       
       <div class="revision-points">
-        <h3>🔁 LET'S REMEMBER:</h3>
+        <h3>LET'S REMEMBER:</h3>
         <ul>
           <li>Microwave is a wave you cannot see</li>
           <li>WiFi and mobile phones use microwaves</li>
@@ -73,7 +71,7 @@
       
       <!-- Notes Panel -->
       <div class="notes-panel" id="notes">
-        <h3>📝 SIMPLE NOTES:</h3>
+        <h3>SIMPLE NOTES:</h3>
         <ul>
           <li>Microwave = Invisible wave</li>
           <li>Used in: WiFi, Mobile, Oven</li>
@@ -84,25 +82,44 @@
     </div>
     
     <!-- Quiz and Navigation -->
-    <div class="nav-links">
-      <a href="../index.html" class="btn">← Back to Home</a>
-      <a href="chap2.html" class="btn">Next Chapter →</a>
-    </div>
+      <div class="nav-links">
+        <a href="../index.html" class="btn btn-secondary">← Back to Home</a>
+        <a href="chap2.html" class="btn btn-primary">Next Chapter →</a>
+      </div>
     
-    <div style="text-align:center; margin:32px 0;">
-      <a href="../quiz/quiz-s1.html" class="btn btn-success">✅ TAKE QUIZ</a>
-    </div>
+      <div style="text-align:center; margin:32px 0;">
+        <a href="../quiz/quiz-s1.html" class="btn btn-primary">TAKE QUIZ</a>
+      </div>
     
-    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
+    <footer class="footer">
       <p>Subject 1: Microwave Engineering — Chapter 1 of 5</p>
     </footer>
   </main>
   
   <script src="../assets/js/tts.js"></script>
+  <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
   <script>
     // Mark chapter as viewed
     markChapterViewed(1, 1);
+
+    // TTS: Play chapter text
+    const ttsBtn = document.getElementById('tts-play-btn');
+    if (ttsBtn) {
+      ttsBtn.addEventListener('click', () => {
+        const content = document.getElementById('chapter-content');
+        if (content) TTS.speak(content.innerText);
+      });
+    }
+
+    // Toggle notes panel
+    const notesBtn = document.getElementById('notes-btn');
+    const notesPanel = document.getElementById('notes');
+    if (notesBtn && notesPanel) {
+      notesBtn.addEventListener('click', () => {
+        notesPanel.classList.toggle('show');
+      });
+    }
   </script>
 </body>
 </html>

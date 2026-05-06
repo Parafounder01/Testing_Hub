@@ -27,10 +27,10 @@ function updateOverallProgress() {
 function getOverallProgress() {
   let completed = 0;
   let total = 15; // 3 subjects × 5 chapters
-  
+
   for (let s = 1; s <= 3; s++) {
     for (let c = 1; c <= 5; c++) {
-      const key = `quiz-s${s}-chap${c}`;
+      const key = `quiz_${s}_chap${c}`;
       const data = localStorage.getItem(key);
       if (data) {
         const parsed = JSON.parse(data);
@@ -38,7 +38,7 @@ function getOverallProgress() {
       }
     }
   }
-  
+
   return { completed: completed, total: total };
 }
 
@@ -62,7 +62,7 @@ function setupNavigation() {
 
 // Mark chapter as viewed
 function markChapterViewed(subject, chapter) {
-  const key = `viewed-s${subject}-chap${chapter}`;
+  const key = `viewed_${subject}_chap${chapter}`;
   localStorage.setItem(key, JSON.stringify({
     viewed: true,
     date: new Date().toISOString()
@@ -71,7 +71,7 @@ function markChapterViewed(subject, chapter) {
 
 // Check if chapter is completed
 function isChapterCompleted(subject, chapter) {
-  const key = `quiz-s${subject}-chap${chapter}`;
+  const key = `quiz_${subject}_chap${chapter}`;
   const data = localStorage.getItem(key);
   if (data) {
     const parsed = JSON.parse(data);
