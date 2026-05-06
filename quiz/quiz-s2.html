@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz: Electronics Circuit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <main id="main-content">
+    <!-- Header -->
+    <header style="text-align:center; padding:32px 0;">
+      <h1>✅ Quiz: Electronics Circuit</h1>
+      <p style="font-size:20px;">Test what you learned in Chapters 1-5!</p>
+    </header>
+    
+    <!-- Progress Bar -->
+    <section style="margin:20px 0;">
+      <p style="font-size:18px; margin-bottom:8px;">Quiz Progress</p>
+      <div class="progress-bar" id="quiz-progress-bar">
+        <div class="progress-fill" id="quiz-progress" style="width:0%;"></div>
+      </div>
+    </section>
+    
+    <!-- Overall Progress -->
+    <section style="margin:20px 0;">
+      <p style="font-size:18px; margin-bottom:8px;">Overall Progress</p>
+      <div class="progress-bar" id="overall-progress-bar">
+        <div class="progress-fill" id="overall-progress" style="width:0%;"></div>
+      </div>
+      <p style="text-align:center; font-size:18px;" id="progress-text">0 out of 15 chapters completed</p>
+    </section>
+    
+    <!-- Quiz Container -->
+    <div id="quiz-container">
+      <div class="quiz-question" style="text-align:center;">
+        <h2>Ready to start?</h2>
+        <p style="font-size:20px; margin:20px 0;">You will get 3 simple questions about Electronics Circuit.</p>
+        <button class="btn" onclick="startQuiz()" style="font-size:22px; padding:20px 40px;">Start Quiz</button>
+      </div>
+    </div>
+    
+    <!-- Navigation -->
+    <div class="nav-links">
+      <a href="../subject2/chap5.html" class="btn">← Back to Last Chapter</a>
+      <a href="../index.html" class="btn">Home</a>
+    </div>
+    
+    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
+      <p>Subject 2: Electronics Circuit — Quiz</p>
+    </footer>
+  </main>
+  
+  <script src="../assets/js/quiz.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script>
+    // Quiz questions for Subject 2: Electronics Circuit
+    const s2Questions = [
+      {
+        question: "What is electronics?",
+        options: ["The study of how to use electric power to run devices", "A type of battery", "A wire that carries water", "A box that heats food"],
+        correct: 0,
+        explanation: "Electronics is about using electricity to make things work. It is inside your TV, fan, and phone!"
+      },
+      {
+        question: "What does a resistor do in a circuit?",
+        options: ["Makes electricity flow faster", "Slows down electricity like a narrow pipe", "Stores electricity for later", "Turns the circuit OFF"],
+        correct: 1,
+        explanation: "A resistor slows down electricity. Think of it like a narrow pipe — water (electricity) flows slower through a narrow pipe."
+      },
+      {
+        question: "What is a simple circuit?",
+        options: ["A circle of electricity that makes a device work", "A straight line of wire", "A type of battery", "A box that stores power"],
+        correct: 0,
+        explanation: "A simple circuit is a loop or circle. Electricity flows from battery → device → back to battery. When the circle is complete, the device works!"
+      }
+    ];
+    
+    // Start quiz function
+    function startQuiz() {
+      loadQuiz('s2', 'all', s2Questions);
+    }
+    
+    // Update overall progress on load
+    updateOverallProgress();
+  </script>
+</body>
+</html>

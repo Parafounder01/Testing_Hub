@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professor EasyBot - Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <!-- Skip link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
+  <main id="main-content">
+    <!-- Header -->
+    <header style="text-align:center; padding:32px 0;">
+      <h1>🎓 Professor EasyBot</h1>
+      <p style="font-size:24px; margin:16px 0;">Hello! I am your friendly teacher.</p>
+      <p style="font-size:20px; color:#555;">I teach slow, so you understand well.</p>
+    </header>
+    
+    <!-- Overall Progress -->
+    <section style="margin:32px 0;">
+      <h2 style="text-align:center;">Your Progress</h2>
+      <div class="progress-bar" id="overall-progress-bar">
+        <div class="progress-fill" id="overall-progress" style="width:0%;"></div>
+      </div>
+      <p style="text-align:center; font-size:18px;" id="progress-text">0 out of 15 chapters completed</p>
+    </section>
+    
+    <!-- 3 Subject Cards -->
+    <section style="margin:40px 0;">
+      <h2 style="text-align:center; margin-bottom:32px;">Pick a Subject</h2>
+      
+      <!-- Subject 1: Microwave Engineering -->
+      <div class="subject-card" id="subject1-card">
+        <h2>1️⃣ Microwave Engineering</h2>
+        <p style="font-size:20px; margin:16px 0;">Learn about microwaves, signals, and wireless technology.</p>
+        <p style="font-size:18px; color:#555;">Chapters 1 to 5 • Simple language</p>
+        <a href="subject1/chap1.html" class="btn">Start Learning</a>
+      </div>
+      
+      <!-- Subject 2: Electronics Circuit -->
+      <div class="subject-card" id="subject2-card">
+        <h2>2️⃣ Electronics Circuit</h2>
+        <p style="font-size:20px; margin:16px 0;">Learn about circuits, components, and how electricity flows.</p>
+        <p style="font-size:18px; color:#555;">Chapters 1 to 5 • Simple language</p>
+        <a href="subject2/chap1.html" class="btn">Start Learning</a>
+      </div>
+      
+      <!-- Subject 3: Design of Electronic Device -->
+      <div class="subject-card" id="subject3-card">
+        <h2>3️⃣ Design of Electronic Device & Circuit</h2>
+        <p style="font-size:20px; margin:16px 0;">Learn to design and build your own circuits.</p>
+        <p style="font-size:18px; color:#555;">Chapters 1 to 5 • Simple language</p>
+        <a href="subject3/chap1.html" class="btn">Start Learning</a>
+      </div>
+    </section>
+    
+    <!-- Settings (Optional) -->
+    <section style="background:white; padding:24px; border-radius:12px; margin:40px 0; border:2px solid #1565C0;">
+      <h3 style="margin-top:0;">Settings</h3>
+      <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
+        <div>
+          <label for="font-size-select" style="font-size:18px;">Font Size:</label>
+          <select id="font-size-select" style="font-size:18px; padding:8px; margin-left:8px;">
+            <option value="18px">Normal</option>
+            <option value="20px" selected>Large</option>
+            <option value="24px">Extra Large</option>
+          </select>
+        </div>
+        <div>
+          <label for="audio-speed" style="font-size:18px;">Audio Speed:</label>
+          <input type="range" id="audio-speed" min="0.5" max="1.5" step="0.1" value="0.8" style="margin-left:8px;">
+          <span id="speed-value" style="font-size:18px;">0.8</span>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
+      <p>Professor EasyBot — Teaching AMIE-ECE Students</p>
+      <p>Chapters 1 to 5 Only • Slow & Friendly Learning</p>
+    </footer>
+  </main>
+  
+  <script src="assets/js/app.js"></script>
+  <script>
+    // Font size changer
+    const fontSizeSelect = document.getElementById('font-size-select');
+    fontSizeSelect.addEventListener('change', function() {
+      document.body.style.fontSize = this.value;
+      localStorage.setItem('font-size', this.value);
+    });
+    
+    // Audio speed changer
+    const audioSpeed = document.getElementById('audio-speed');
+    const speedValue = document.getElementById('speed-value');
+    audioSpeed.addEventListener('input', function() {
+      speedValue.textContent = this.value;
+      localStorage.setItem('audio-speed', this.value);
+    });
+    
+    // Load saved settings
+    const savedFontSize = localStorage.getItem('font-size');
+    if (savedFontSize) {
+      document.body.style.fontSize = savedFontSize;
+      fontSizeSelect.value = savedFontSize;
+    }
+    
+    const savedSpeed = localStorage.getItem('audio-speed');
+    if (savedSpeed) {
+      audioSpeed.value = savedSpeed;
+      speedValue.textContent = savedSpeed;
+    }
+    
+    // Update progress on load
+    updateOverallProgress();
+  </script>
+</body>
+</html>

@@ -1,0 +1,296 @@
+/* Professor EasyBot Teaching Platform - Style Sheet */
+/* From prompt_setting.md - Colors for Slow Learner */
+
+:root {
+  --background: #FFFDE7;   /* Soft Yellow */
+  --text: #212121;          /* Dark for reading */
+  --primary: #1565C0;       /* Blue buttons */
+  --success: #2E7D32;       /* Green correct */
+  --highlight: #FF6F00;     /* Orange keywords */
+  --font-size: 20px;        /* Large text */
+  --line-height: 1.8;       /* Spaced lines */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
+  background-color: var(--background);
+  color: var(--text);
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Large text for slow learners */
+h1 { font-size: 32px; margin-bottom: 20px; }
+h2 { font-size: 28px; margin: 24px 0 16px; }
+h3 { font-size: 24px; margin: 20px 0 12px; }
+p { margin-bottom: 16px; }
+
+/* Large buttons - minimum 44x44px for touch targets */
+.btn {
+  display: inline-block;
+  background-color: var(--primary);
+  color: white;
+  padding: 16px 32px;
+  font-size: var(--font-size);
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  min-height: 44px;
+  min-width: 44px;
+  transition: background-color 300ms;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #0D47A1;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.btn-success {
+  background-color: var(--success);
+}
+
+.btn-success:hover {
+  background-color: #1B5E20;
+}
+
+/* Subject cards */
+.subject-card {
+  background: white;
+  border: 3px solid var(--primary);
+  border-radius: 12px;
+  padding: 24px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.subject-card h2 {
+  color: var(--primary);
+  margin-top: 0;
+}
+
+/* Progress bar */
+.progress-bar {
+  width: 100%;
+  height: 24px;
+  background-color: #E0E0E0;
+  border-radius: 12px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--success);
+  transition: width 300ms;
+}
+
+/* Audio controls */
+.audio-controls {
+  background: white;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 20px 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.audio-controls .btn {
+  padding: 12px 20px;
+  font-size: 18px;
+}
+
+/* Chapter content */
+.chapter-section {
+  background: white;
+  border-left: 4px solid var(--highlight);
+  padding: 16px;
+  margin: 20px 0;
+}
+
+.chapter-section h3 {
+  color: var(--highlight);
+  margin-top: 0;
+}
+
+/* Steps list */
+.steps {
+  list-style: none;
+  padding-left: 0;
+}
+
+.steps li {
+  padding: 12px 0;
+  border-bottom: 1px solid #E0E0E0;
+}
+
+.steps li:before {
+  content: "→ ";
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* Quiz */
+.quiz-question {
+  background: white;
+  border: 2px solid var(--primary);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+.quiz-options {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+
+.quiz-options li {
+  margin: 12px 0;
+}
+
+.quiz-option {
+  display: block;
+  padding: 16px;
+  background: #F5F5F5;
+  border: 2px solid #BDBDBD;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: var(--font-size);
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  width: 100%;
+  text-align: left;
+  transition: background-color 200ms;
+}
+
+.quiz-option:hover {
+  background: #E3F2FD;
+  border-color: var(--primary);
+}
+
+.quiz-option:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.quiz-option.correct {
+  background: #C8E6C9;
+  border-color: var(--success);
+}
+
+.quiz-option.incorrect {
+  background: #FFCDD2;
+  border-color: #C62828;
+}
+
+/* Notes panel */
+.notes-panel {
+  background: #FFF9C4;
+  border: 2px solid var(--highlight);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 20px 0;
+  display: none;
+}
+
+.notes-panel.show {
+  display: block;
+}
+
+/* Navigation */
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  margin: 32px 0;
+  gap: 16px;
+}
+
+.nav-links .btn {
+  flex: 1;
+  text-align: center;
+}
+
+/* Revision points */
+.revision-points {
+  background: #E8F5E9;
+  border: 2px solid var(--success);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 20px 0;
+}
+
+.revision-points ul {
+  padding-left: 24px;
+}
+
+.revision-points li {
+  padding: 8px 0;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  body {
+    padding: 12px;
+    font-size: 18px;
+  }
+  
+  h1 { font-size: 28px; }
+  h2 { font-size: 24px; }
+  h3 { font-size: 20px; }
+  
+  .audio-controls {
+    flex-direction: column;
+  }
+  
+  .nav-links {
+    flex-direction: column;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  body.dark-mode {
+    --background: #121212;
+    --text: #F5F5F5;
+    background-color: var(--background);
+    color: var(--text);
+  }
+}
+
+/* Focus visible for accessibility */
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Skip link for screen readers */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--primary);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
