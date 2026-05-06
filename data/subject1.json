@@ -1,61 +1,477 @@
 {
   "subject": "Microwave Engineering",
-  "code": "S1",
+  "code": "EC 413",
   "chapters": [
     {
       "id": 1,
-      "title": "Introduction to Microwaves",
+      "title": "Waveguide Theory & Modes",
       "audio": "assets/audio/subject1/chap1.mp3",
-      "duration": "15 mins",
+      "duration": "25 mins",
       "keyPoints": [
-        "What is Microwave?",
-        "Frequency Range",
-        "Real Life Uses"
+        "What is Waveguide?",
+        "TE/TM Modes",
+        "Cutoff Frequency",
+        "Phase vs Group Velocity"
       ],
-      "content": "Hello student! Today we learn about Microwaves. Microwaves are a type of electromagnetic wave with frequency between 1 GHz and 300 GHz.",
+      "content": "Hello student! Today we learn about Waveguides. A waveguide is like a pipe that carries microwaves from one place to another. Unlike regular wires, waveguides use the air inside metal pipes to guide electromagnetic waves.",
+      "derivations": [
+        {
+          "title": "Telegrapher's Equations from Maxwell",
+          "steps": [
+            "Start with Maxwell's equations in phasor form",
+            "Apply to coaxial line geometry",
+            "Derive: ∂V/∂z = -(R+jωL)I",
+            "Derive: ∂I/∂z = -(G+jωC)V",
+            "Result: Wave equation ∂²V/∂z² = γ²V"
+          ],
+          "formula": "γ = √((R+jωL)(G+jωC)) [propagation constant]"
+        },
+        {
+          "title": "Characteristic Impedance Z₀",
+          "steps": [
+            "For lossless line: R=0, G=0",
+            "γ = jω√(LC)",
+            "Z₀ = V+/I+ = √(L/C)",
+            "For coaxial: Z₀ = (1/2π)√(μ/ε) × ln(b/a)"
+          ],
+          "formula": "Z₀ = √(L/C) = (60/√εᵣ) × ln(b/a) for coaxial"
+        },
+        {
+          "title": "Cutoff Frequency for Rectangular Waveguide",
+          "steps": [
+            "For TE₁₀ mode in rectangular waveguide",
+            "Cutoff wavelength λc = 2a (a = wider dimension)",
+            "fc = c/λc = c/(2a)",
+            "Higher modes have higher cutoff frequencies"
+          ],
+          "formula": "fc = c/(2a) for TE₁₀ mode"
+        },
+        {
+          "title": "Phase and Group Velocity",
+          "steps": [
+            "Phase velocity: vp = ω/β",
+            "Group velocity: vg = dω/dβ",
+            "For waveguides: vp = c/√(1-(fc/f)²)",
+            "vg = c×√(1-(fc/f)²)",
+            "Note: vp × vg = c² (product constant)"
+          ],
+          "formula": "vp = fλg = ω/β, vg = dω/dβ = c√(1-(fc/f)²)"
+        },
+        {
+          "title": "Waveguide Impedance",
+          "steps": [
+            "For TE modes: Z_w = β/(ωε) = η/√(1-(fc/f)²)",
+            "For TM modes: Z_w = η×√(1-(fc/f)²)",
+            "η = √(μ/ε) = intrinsic impedance",
+            "At f >> fc: Z_w ≈ η"
+          ],
+          "formula": "Z_TE = η/√(1-(fc/f)²), Z_TM = η√(1-(fc/f)²)"
+        }
+      ],
+      "numericalProblems": [
+        {
+          "question": "Find cutoff frequency for WR-90 waveguide (a=0.9\", b=0.4\")",
+          "given": "a = 0.9 inch = 0.02286 m, c = 3×10⁸ m/s",
+          "solution": "fc = c/(2a) = 3×10⁸/(2×0.02286) = 6.56 GHz",
+          "answer": "6.56 GHz"
+        },
+        {
+          "question": "Calculate guide wavelength λg at f=10 GHz for a=2.286 cm waveguide",
+          "given": "a = 2.286 cm, f = 10 GHz, fc = c/(2a) = 6.56 GHz",
+          "solution": "λg = λ/√(1-(fc/f)²) = (3×10⁸/10⁹)/√(1-(6.56/10)²) = 3.6 cm",
+          "answer": "3.6 cm"
+        },
+        {
+          "question": "Find S-parameters for a lossless transmission line of length l",
+          "given": "Characteristic impedance Z₀, electrical length θ=βl",
+          "solution": "S₁₁ = S₂₂ = 0 (matched), S₂₁ = S₁₂ = e^(-jθ) (transmission)",
+          "answer": "S-matrix = [[0, e^(-jθ)], [e^(-jθ), 0]]"
+        }
+      ],
       "quiz": [
         {
-          "q": "What is Microwave frequency range?",
-          "options": ["1-300 GHz","1-10 Hz","100-200 MHz"],
+          "q": "What is cutoff frequency formula for rectangular waveguide TE₁₀?",
+          "options": ["fc = c/(2a)", "fc = c/a", "fc = 2a/c"],
+          "answer": 0
+        },
+        {
+          "q": "Which velocity is faster than light in waveguides?",
+          "options": ["Phase velocity", "Group velocity", "Both are same"],
+          "answer": 0
+        },
+        {
+          "q": "What is characteristic impedance Z₀ formula?",
+          "options": ["Z₀ = √(L/C)", "Z₀ = L/C", "Z₀ = √(LC)"],
           "answer": 0
         }
-      ]
+      ],
+      "pdfSources": [
+        "Pozar - Microwave Engineering 4th Ed (Ch 3, 4)",
+        "RF & Microwave Engineering PDF (Cambridge) - Unit 2",
+        "iieinstitution.com/RF-Microwave-Engineering.pdf"
+      ],
+      "tanglishNotes": "Indha waveguide-oda, frequency 6.56 GHz ku mela signal poga mudiyum. Rectangular pipe madiri irukum. Aprm, phase velocity-um group velocity-um different dhan. Namma calculate pannina: fc = c/(2a) nu formula use pannanum."
     },
     {
       "id": 2,
-      "title": "Microwave Transmission Lines",
+      "title": "Microwave Passive Components",
       "audio": "assets/audio/subject1/chap2.mp3",
-      "duration": "20 mins",
-      "keyPoints": ["Types of transmission lines", "Characteristic impedance", "S-parameters"],
-      "content": "Transmission lines carry microwave signals from one point to another with minimal loss.",
-      "quiz": []
+      "duration": "22 mins",
+      "keyPoints": [
+        "Directional Couplers",
+        "Circulators & Isolators",
+        "Attenuators & Phase Shifters"
+      ],
+      "content": "Microwave passive components help split, combine, or control microwave signals without adding power. They are like water pipes with valves and splitters.",
+      "derivations": [
+        {
+          "title": "S-Matrix for Directional Coupler",
+          "steps": [
+            "4-port network: input, output, coupled, isolated",
+            "Forward coupling: S₃₁ = C (coupling factor)",
+            "Through path: S₂₁ = T (transmission)",
+            "Isolation: S₄₁ = 0 (ideal)",
+            "Reciprocity: Sᵢⱼ = Sⱼᵢ"
+          ],
+          "formula": "|S₃₁|² = coupling, |S₂₁|² = 1-coupling (ideal)"
+        },
+        {
+          "title": "VSWR from Reflection Coefficient",
+          "steps": [
+            "Reflection coefficient: Γ = (ZL-Z₀)/(ZL+Z₀)",
+            "VSWR = (1+|Γ|)/(1-|Γ|)",
+            "Return loss = -20log|Γ| dB",
+            "For perfect match: Γ=0, VSWR=1"
+          ],
+          "formula": "VSWR = (1+|Γ|)/(1-|Γ|), RL = -20log₁₀|Γ| dB"
+        },
+        {
+          "title": "Insertion Loss",
+          "steps": [
+            "IL = 10log₁₀(P_in/P_out) dB",
+            "IL = 10log₁₀(1/|S₂₁|²) dB",
+            "For coupler: IL = -10log₁₀(1-|C|²)",
+            "Mismatch loss also contributes"
+          ],
+          "formula": "IL = 10log₁₀(1/|S₂₁|²) dB"
+        },
+        {
+          "title": "Phase Shifter Group Delay",
+          "steps": [
+            "Phase shift φ = βl = (2π/λg)l",
+            "Group delay τg = dφ/dω = l/vg",
+            "For f=10 GHz, l=λg/4: φ = 90°",
+            "Electrical length: θ = βl radians"
+          ],
+          "formula": "τg = dφ/dω = l/vg = l√(1-(fc/f)²)/c"
+        },
+        {
+          "title": "Wilkinson Power Divider",
+          "steps": [
+            "2-way divider with isolation resistors",
+            "Input matched: Z_in = Z₀",
+            "Output ports isolated: S₃₂ = 0",
+            "Power division: P₂ = P₃ = P₁/2"
+          ],
+          "formula": "Z_in = Z₀, P_out = P_in/2 (3 dB split)"
+        }
+      ],
+      "numericalProblems": [
+        {
+          "question": "Design 10 dB directional coupler (find coupling, isolation)",
+          "given": "C = 10 dB = 0.1 (linear), P_coupled/P_in = 0.1",
+          "solution": "Coupling = 10log₁₀(0.1) = -10 dB, Through = 10log₁₀(0.9) = -0.46 dB",
+          "answer": "Coupling = -10 dB, Through = -0.46 dB"
+        },
+        {
+          "question": "Find VSWR given return loss = 20 dB",
+          "given": "RL = 20 dB → |Γ| = 10^(-20/20) = 0.1",
+          "solution": "VSWR = (1+0.1)/(1-0.1) = 1.22",
+          "answer": "VSWR = 1.22:1"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What is VSWR formula?",
+          "options": ["(1+|Γ|)/(1-|Γ|)", "(1-|Γ|)/(1+|Γ|)", "1+|Γ|"],
+          "answer": 0
+        }
+      ],
+      "pdfSources": [
+        "Pozar - Microwave Engineering (Ch 7)",
+        "RF & Microwave Engineering PDF - Unit 7"
+      ],
+      "tanglishNotes": "Indha directional coupler-la, signal-a split pannum. Oru part direct pokum, inoru part coupled port-ku pokum. VSWR na vala signal reflect aagudhu nu katurudhu."
     },
     {
       "id": 3,
-      "title": "Microwave Components",
+      "title": "Microwave Generators & Amplifiers",
       "audio": "assets/audio/subject1/chap3.mp3",
-      "duration": "18 mins",
-      "keyPoints": ["Waveguides", "Couplers", "Isolators"],
-      "content": "Microwave components help direct, split, or block microwave signals.",
-      "quiz": []
+      "duration": "24 mins",
+      "keyPoints": [
+        "Klystrons & Magnetrons",
+        "TWT & GAPNs",
+        "Microwave Transistors"
+      ],
+      "content": "Microwave generators create high-frequency signals. Klystrons use electron beams, Magnetrons create microwaves for ovens, TWTs amplify signals over wide bandwidths.",
+      "derivations": [
+        {
+          "title": "Small-Signal Gain for BJT at Microwave",
+          "steps": [
+            "S₂₁ = forward transmission coefficient",
+            "|S₂₁|² = power gain (linear)",
+            "Gain(dB) = 20log₁₀|S₂₁|",
+            "For unmatched: G = |S₂₁|²/(1-|S₁₁|²)"
+          ],
+          "formula": "Gain(dB) = 20log₁₀|S₂₁|"
+        },
+        {
+          "title": "Stability Factor K",
+          "steps": [
+            "K = (1-|S₁₁|²-|S₂₂|²-|Δ|²)/(2|S₁₂S₂₁|)",
+            "Δ = S₁₁S₂₂ - S₁₂S₂₁",
+            "K > 1 and |Δ| < 1 → Unconditionally stable",
+            "K < 1 → Potentially unstable"
+          ],
+          "formula": "K = (1-|S₁₁|²-|S₂₂|²-|Δ|²)/(2|S₁₂S₂₁|)"
+        },
+        {
+          "title": "Output Power for Class A Amplifier",
+          "steps": [
+            "P_out = (V_Cc - V_sat)²/(2R_L)",
+            "Collector efficiency: η = P_out/P_DC",
+            "P_DC = V_Cc × I_Cq",
+            "Max efficiency = 50% for Class A"
+          ],
+          "formula": "P_out = (V_cc - V_sat)²/(2R_L), η = P_out/(V_cc×I_cq)"
+        },
+        {
+          "title": "Transit Time Effects in Gunn Diodes",
+          "steps": [
+            "Gunn effect: transferred electron effect",
+            "Negative differential resistance (NDR)",
+            "Oscillation frequency: f = v_d/(2L) for domain",
+            "v_d = drift velocity, L = active region length"
+          ],
+          "formula": "f_osc = v_d/(2L)"
+        },
+        {
+          "title": "Two-Port Power Gain",
+          "steps": [
+            "Transducer gain: G_T = P_L/(available from source)",
+            "Available power: P_avs = |V_s|²/(8R_s)",
+            "G_T = (|S₂₁|²(1-|Γ_s|²)(1-|Γ_L|²))/(|(1-S₁₁Γ_s)(1-S₂₂Γ_L) - S₁₂S₂₁Γ_sΓ_L|²)",
+            "For matched: Γ_s = Γ_L = 0 → G_T = |S₂₁|²"
+          ],
+          "formula": "G_T = |S₂₁|² for matched input/output"
+        }
+      ],
+      "numericalProblems": [
+        {
+          "question": "Calculate gain in dB given |S₂₁| = 2.5",
+          "given": "|S₂₁| = 2.5",
+          "solution": "Gain(dB) = 20log₁₀(2.5) = 20×0.3979 = 7.96 dB",
+          "answer": "7.96 dB"
+        },
+        {
+          "question": "Find stability factor K for S-params: S₁₁=0.5∠0°, S₂₂=0.4∠0°, S₁₂=0.1∠0°, S₂₁=2.5∠0°",
+          "given": "Calculate Δ = S₁₁S₂₂ - S₁₂S₂₁ = 0.2 - 0.25 = -0.05",
+          "solution": "K = (1-0.25-0.16-0.0025)/(2×0.25) = 0.5875/0.5 = 1.175",
+          "answer": "K = 1.175 > 1, Stable"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What is stability condition for amplifiers?",
+          "options": ["K > 1", "K < 1", "K = 0"],
+          "answer": 0
+        }
+      ],
+      "pdfSources": [
+        "Pozar - Microwave Engineering (Ch 9, 10, 11)",
+        "RF & Microwave Engineering PDF - Unit 3, 4"
+      ],
+      "tanglishNotes": "Indha klystron amplifier-la, electron beam use pannitu signal-a amplify pannum. S₂₁ parameter use pannitu gain calculate pannalam. 7.96 dB-na indha amplifier-o gain."
     },
     {
       "id": 4,
-      "title": "Microwave Antennas",
+      "title": "Microwave Measurements & Propagation",
       "audio": "assets/audio/subject1/chap4.mp3",
-      "duration": "22 mins",
-      "keyPoints": ["Horn antennas", "Parabolic antennas", "Microstrip antennas"],
-      "content": "Antennas convert microwave signals between electrical currents and electromagnetic waves.",
-      "quiz": []
+      "duration": "26 mins",
+      "keyPoints": [
+        "S-Parameter Measurements",
+        "Smith Chart Impedance Matching",
+        "Link Budget Analysis"
+      ],
+      "content": "Measuring microwaves needs special tools like network analyzers. Smith chart is a graphical tool that helps match impedances. Link budget calculates how much power reaches the receiver.",
+      "derivations": [
+        {
+          "title": "Reflection Coefficient Γ",
+          "steps": [
+            "Γ = (ZL-Z₀)/(ZL+Z₀)",
+            "For open circuit: ZL=∞ → Γ=+1",
+            "For short circuit: ZL=0 → Γ=-1",
+            "For matched load: ZL=Z₀ → Γ=0"
+          ],
+          "formula": "Γ = (ZL-Z₀)/(ZL+Z₀) = |Γ|e^(jθ)"
+        },
+        {
+          "title": "Transmission Coefficient T",
+          "steps": [
+            "T = VL/VS = 2ZL/(ZL+Z₀) for voltage",
+            "Power transmission: τ = PL/Pin = 1-|Γ|²",
+            "For lossless: |T|² = 1-|Γ|²",
+            "Insertion loss = -10log₁₀|T|²"
+          ],
+          "formula": "T = 2ZL/(ZL+Z₀), τ = 1-|Γ|²"
+        },
+        {
+          "title": "Smith Chart Transformations",
+          "steps": [
+            "Impedance to admittance: rotate 180°",
+            "z = Z/Z₀ = (1+Γ)/(1-Γ)",
+            "y = Y/Y₀ = (1-Γ)/(1+Γ)",
+            "Adding reactance: move along constant |Γ| circle"
+          ],
+          "formula": "z = (1+Γ)/(1-Γ), y = 1/z"
+        },
+        {
+          "title": "Friis Link Budget Equation",
+          "steps": [
+            "P_r = P_t × G_t × G_r × (λ/(4πd))²",
+            "Path loss: L_fs = (4πd/λ)²",
+            "In dB: P_r(dBm) = P_t(dBm) + G_t(dB) + G_r(dB) - L_fs(dB)",
+            "L_fs(dB) = 20log₁₀(d) + 20log₁₀(f) - 147.55"
+          ],
+          "formula": "P_r = P_t G_t G_r (λ/4πd)²"
+        },
+        {
+          "title": "Return Loss",
+          "steps": [
+            "RL = -20log₁₀|Γ| dB",
+            "For VSWR = 2: |Γ| = (2-1)/(2+1) = 1/3",
+            "RL = -20log₁₀(1/3) = 9.54 dB",
+            "Better match → higher return loss"
+          ],
+          "formula": "RL(dB) = -20log₁₀|Γ| = 20log₁₀(VSWR+1)/(VSWR-1)"
+        }
+      ],
+      "numericalProblems": [
+        {
+          "question": "Use Smith chart to match 50Ω to 75Ω at 1 GHz",
+          "given": "Z_in = 50Ω, Z_L = 75Ω, normalize: z_L = 75/50 = 1.5",
+          "solution": "Use stub matching: add inductive stub at d/λg = 0.125 from load",
+          "answer": "Stub position: 0.125λg from load"
+        },
+        {
+          "question": "Calculate received power for P_t=1W, G_t=20 dBi, G_r=20 dBi, d=10 km, f=2.4 GHz",
+          "given": "L_fs = 20log₁₀(10⁴) + 20log₁₀(2.4×10⁹) - 147.55 = 40 + 67.6 - 147.55 = -39.95 dB",
+          "solution": "P_r = 30 + 20 + 20 - 39.95 = 30.05 dBm = 1 W",
+          "answer": "P_r = 1 W (30.05 dBm)"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What is Friis link budget equation?",
+          "options": ["P_r = P_t×G_t×G_r×(λ/4πd)²", "P_r = P_t/(G_t×G_r)", "P_r = P_t×d²"],
+          "answer": 0
+        }
+      ],
+      "pdfSources": [
+        "Pozar - Microwave Engineering (Ch 6)",
+        "RF & Microwave Engineering PDF - Unit 6"
+      ],
+      "tanglishNotes": "Smith chart-ula impedence match pannalam. Link budget-na: sender-ku evlo power kudukuranu, receiver-ku evlo kedaikudhu nu calculate pannudhu. Free space path loss formula: L = (4πd/λ)²."
     },
     {
       "id": 5,
-      "title": "Microwave Applications",
+      "title": "Microwave Integrated Circuits",
       "audio": "assets/audio/subject1/chap5.mp3",
-      "duration": "20 mins",
-      "keyPoints": ["Radar", "Satellite communication", "Microwave ovens"],
-      "content": "Microwaves are used in many everyday and industrial applications.",
-      "quiz": []
+      "duration": "24 mins",
+      "keyPoints": [
+        "Microstrip Lines",
+        "Stripline & Coplanar",
+        "MIC & MMIC"
+      ],
+      "content": "Microwave Integrated Circuits (MIC) put components on a single substrate. Microstrip lines are like tiny transmission lines on PCB. They're used in cell phones and WiFi devices.",
+      "derivations": [
+        {
+          "title": "Microstrip Characteristic Impedance",
+          "steps": [
+            "For W/h > 1: Z₀ = (87/√(εᵣ+1.41))ln(5.98h/W)",
+            "For W/h < 1: Z₀ = (60/√(εᵣ))ln(8h/W + W/4h)",
+            "εᵣ = (εᵣ+1)/2 + (εᵣ-1)/2×(1+12h/W)^(-1/2)",
+            "Effective dielectric constant"
+          ],
+          "formula": "Z₀ = (87/√(εᵣ+1.41))ln(5.98h/W) for W/h > 1"
+        },
+        {
+          "title": "Effective Dielectric Constant",
+          "steps": [
+            "ε_eff = (εᵣ+1)/2 + (εᵣ-1)/2×(1+12h/W)^(-1/2)",
+            "For wide strips: ε_eff ≈ (εᵣ+1)/2",
+            "Phase velocity: vp = c/√ε_eff",
+            "Wavelength: λg = λ₀/√ε_eff"
+          ],
+          "formula": "ε_eff = (εᵣ+1)/2 + (εᵣ-1)/2×(1+12h/W)^(-1/2)"
+        },
+        {
+          "title": "Attenuation in Microstrip",
+          "steps": [
+            "Conductor loss: α_c = Rs/(Z₀W) nepers/m",
+            "Rs = √(πfμ/σ) = surface resistance",
+            "Dielectric loss: α_d = (π/λ)×(εᵣ/ε_eff)×(ε_eff-1)/(εᵣ-1)×tanδ",
+            "Total: α = α_c + α_d"
+          ],
+          "formula": "α_c = Rs/(Z₀W) Np/m, Rs = √(πfμ/σ)"
+        },
+        {
+          "title": "Coupled Line Even/Odd Mode",
+          "steps": [
+            "Even mode: Z₀e = Z₀(1+C) (higher impedance)",
+            "Odd mode: Z₀o = Z₀(1-C) (lower impedance)",
+            "Coupling: C = (Z₀e-Z₀o)/(Z₀e+Z₀o)",
+            "For directional coupler: C = 10^(-C_dB/20)"
+          ],
+          "formula": "C = (Z₀e-Z₀o)/(Z₀e+Z₀o)"
+        },
+        {
+          "title": "Butterworth Filter Design",
+          "steps": [
+            "Low-pass prototype: |H(jω)|² = 1/(1+ω²ⁿ)",
+            "For n=3: poles at 60° intervals",
+            "g₀=g₄=1, g₁=g₃=2sin(π/2n), g₂=2sin(π/2n) for n=3",
+            "Transform to bandpass/bandstop"
+          ],
+          "formula": "|H(jω)|² = 1/(1+(ω/ωc)²ⁿ) for Butterworth"
+        }
+      ],
+      "numericalProblems": [
+        {
+          "question": "Design 50Ω microstrip on FR4 (εᵣ=4.4, h=1.6mm), find W",
+          "given": "For Z₀=50Ω, use Z₀ ≈ 60/√εᵣ × ln(8h/W) → W/h ≈ 2",
+          "solution": "W = 2×1.6 = 3.2 mm (approximate)",
+          "answer": "W ≈ 3.2 mm"
+        },
+        {
+          "question": "Calculate guide wavelength at 2.4 GHz on Rogers RO4350 (εᵣ=3.48)",
+          "given": "ε_eff ≈ (3.48+1)/2 = 2.24, λg = λ₀/√ε_eff = 12.5/1.5 = 8.33 cm",
+          "solution": "λg = 8.33 cm at 2.4 GHz",
+          "answer": "8.33 cm"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What is microstrip effective dielectric constant formula?",
+          "options": ["ε_eff = (εᵣ+1)/2 + (εᵣ-1)/2×(1+12h/W)^(-1/2)", "ε_eff = εᵣ", "ε_eff = 1"],
+          "answer": 0
+        }
+      ],
+      "pdfSources": [
+        "Pozar - Microwave Engineering (Ch 7)",
+        "RF & Microwave Engineering PDF - Unit 10"
+      ],
+      "tanglishNotes": "Indha microstrip line-oda, PCB melaya trace potu microwave signal-a poga vaikalam. Z₀ = 50Ω-nu calculate pannalam. ε_eff na effective dielectric constant. Indha RO4350 board-la 8.33 cm wavelength kedaikum."
     }
   ]
 }

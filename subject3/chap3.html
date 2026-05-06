@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 3: Schematic Diagrams - Design of Electronic Device</title>
+  <title>AMIE ECE Learner - Chapter 3: IC Design & Fabrication</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -15,93 +15,199 @@
   <main id="main-content">
     <!-- Progress Bar -->
     <section style="margin:20px 0;">
-      <p style="font-size:18px; margin-bottom:8px;">Chapter 3 of 5 — Design of Electronic Device</p>
+      <p style="font-size:18px; margin-bottom:8px;">Chapter 3 of 5 — Design of Electronic Devices & Circuits</p>
       <div class="progress-bar">
-        <div class="progress-fill" style="width:60%;"></div>
+        <div class="progress-fill" style="width:60%"></div>
       </div>
     </section>
     
-    <!-- Audio Controls -->
+    <!-- TTS Audio Controls -->
     <div class="audio-controls">
-      <button class="btn" id="listen-btn">🔊 LISTEN</button>
-      <button class="btn" id="pause-btn">⏸️ PAUSE</button>
-      <button class="btn" id="repeat-btn">🔁 REPEAT</button>
-      <button class="btn" id="notes-btn">📝 NOTES</button>
+      <button class="btn btn-primary" id="tts-play-btn" aria-label="Play chapter text">Play</button>
+      <button class="btn btn-secondary" id="tanglish-btn" aria-label="Toggle Tanglish mode">Tanglish: OFF</button>
+      <button class="btn btn-secondary" id="notes-btn" aria-label="Toggle notes panel">Notes</button>
     </div>
     
     <!-- Chapter Content -->
-    <div id="chapter-content">
-      <h1>Chapter 3: Schematic Diagrams</h1>
-      
-      <div class="chapter-section">
-        <h3>📌 WHAT IS A SCHEMATIC DIAGRAM?</h3>
-        <p>A schematic is a drawing that uses symbols to show how a circuit works.</p>
-        <p><strong>Simple definition:</strong> It is like a map with special signs for each part.</p>
-        <p><strong>Real-life example:</strong> A battery symbol looks like two lines (long and short). A resistor symbol looks like a zigzag. When you see the drawing, you know exactly what parts to use!</p>
+      <div id="chapter-content">
+        <h1>Chapter 3: IC Design & Fabrication</h1>
+        <div class="chapter-section">
+          <p>IC fabrication is like building tiny houses on silicon. Lithography transfers patterns using light. Oxidation grows controlled 'rust' that becomes insulator. Diffusion implants impurities.</p>
+        </div>
       </div>
-      
-      <div class="chapter-section">
-        <h3>📌 WHY IS IT IMPORTANT?</h3>
-        <p>Schematics are important because:</p>
-        <ul style="font-size:20px; line-height:1.8; padding-left:24px;">
-          <li>Anyone can read it and build the circuit</li>
-          <li>It uses simple symbols, not real pictures</li>
-          <li>Engineers all over the world use the same symbols</li>
-        </ul>
-      </div>
-      
-      <div class="chapter-section">
-        <h3>📌 HOW DOES IT WORK?</h3>
-        <p>Let me explain in simple steps:</p>
-        <ul class="steps">
-          <li><strong>Step 1:</strong> Draw symbols for each part (battery, LED, etc.)</li>
-          <li><strong>Step 2:</strong> Draw lines to show connections</li>
-          <li><strong>Step 3:</strong> Add values (like 220 ohm for resistor)</li>
-          <li><strong>Step 4:</strong> Now anyone can read and build it!</li>
-        </ul>
-      </div>
-      
+
       <div class="revision-points">
-        <h3>🔁 LET'S REMEMBER:</h3>
+        <h3>LET'S REMEMBER:</h3>
         <ul>
-          <li>Schematic = Symbol drawing</li>
-          <li>Special signs for each part</li>
-          <li>Battery = Two lines</li>
-          <li>Resistor = Zigzag line</li>
+          <li>CMOS Technology</li>
+          <li>Lithography Process</li>
+          <li>Oxidation & Diffusion</li>
+          <li>Layout Design Rules</li>
         </ul>
       </div>
-      
-      <!-- Notes Panel -->
+
+      <!-- Notes Panel (with Tanglish) -->
       <div class="notes-panel" id="notes">
-        <h3>📝 SIMPLE NOTES:</h3>
+        <h3>SIMPLE NOTES (Tanglish Supported):</h3>
         <ul>
-          <li>Schematic = Circuit map</li>
-          <li>Uses symbols (not photos)</li>
-          <li>Global standard symbols</li>
-          <li>Anyone can read it!</li>
+          <li>CMOS Technology</li>
+          <li>Lithography Process</li>
+          <li>Oxidation & Diffusion</li>
+          <li>Layout Design Rules</li>
+          <li><strong>Tanglish:</strong> Indha lithography process-ula, light use pannitu pattern transfer pannuvom. R = k₁λ/NA nu formula nyabagam vechukonga. Oxidation-ula SiO₂ layer valarkum. C(x,t) = C₀erfc(x/√(4Dt)) nu diffusion profile. CMOS inverter delay τ = (C_L×V_DD)/I_D.</li>
         </ul>
       </div>
-    </div>
+
+      <!-- Derivation Sums -->
+      <div class="derivation-section">
+        <h3>DERIVATION SUMS (Step-by-Step)</h3>
+        <div class="derivation-card">
+          <h4>1. Lithography Resolution (Rayleigh Criterion)</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>R = k₁λ/NA (minimum feature size)</li>
+            <li>λ = wavelength of light</li>
+            <li>NA = n sinθ (numerical aperture)</li>
+            <li>k₁ = process-dependent constant (~0.5)</li>
+            <li>Smaller λ or larger NA → finer features</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>R = k₁λ/NA</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>2. Oxidation Rate (Deal-Grove Model)</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Parabolic: x² = B(t+τ) for thick oxide</li>
+            <li>Linear: x = B/A·t for thin oxide</li>
+            <li>B = parabolic rate constant</li>
+            <li>A = linear rate constant</li>
+            <li>τ = time shift (initial rapid growth)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>x² = B(t+τ) [parabolic], x = (B/A)t [linear]</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>3. Diffusion Profile (Constant Source)</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>C(x,t) = C₀erfc(x/√(4Dt))</li>
+            <li>C₀ = surface concentration</li>
+            <li>D = diffusion coefficient</li>
+            <li>erfc = complementary error function</li>
+            <li>J = -D∂C/∂x (Fick's first law)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>C(x,t) = C₀erfc(x/√(4Dt))</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>4. CMOS Inverter Delay</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>τ = (C_L×V_DD)/I_D(sat) (switching delay)</li>
+            <li>I_D(sat) = (μ_nC_ox/2)(W/L)(V_DD-V_th)²</li>
+            <li>Propogation delay: t_pd = (t_pHL + t_pLH)/2</li>
+            <li>For equal rise/fall: W_p/W_n = μ_n/μ_p</li>
+            <li>Power: P = C_L×V_DD²×f (dynamic)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>τ = (C_L×V_DD)/I_D(sat)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>5. Layout Area for Transistor</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>A = (W+L)×(feature size)²</li>
+            <li>Feature size = minimum gate length L_min</li>
+            <li>Contact area adds overhead</li>
+            <li>Standard cell: fixed height, variable width</li>
+            <li>Area ∝ W×L for simple transistor</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>A ≈ (W+L)×L_min²</code></p>
+        </div>
+      </div>
+
+      <!-- Numerical Problems -->
+      <div class="numerical-section">
+        <h3>NUMERICAL PROBLEMS (Solved)</h3>
+        <div class="numerical-card">
+          <h4>Problem 1: Calculate oxide thickness: t=30min, B=0.1μm²/hr → find x</h4>
+          <p><strong>Given:</strong> x² = B(t+τ), assume τ≈0</p>
+          <p><strong>Solution:</strong> t = 30min = 0.5hr. x = √(0.1×0.5) = √0.05 = 0.2236μm = 223.6nm</p>
+          <p><strong>Answer:</strong> x ≈ 224nm</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 2: Find diffusion depth: t=10min, D=10^-12 m²/s</h4>
+          <p><strong>Given:</strong> C(x,t) = C₀erfc(x/√(4Dt))</p>
+          <p><strong>Solution:</strong> x = √(4Dt) for C/C₀ = erfc(1) ≈ 0.157. t = 600s. x = √(4×10^-12×600) = √2.4×10^-9 = 4.9×10^-5 m = 49μm</p>
+          <p><strong>Answer:</strong> x ≈ 49μm at 1% of surface</p>
+        </div>
+      </div>
+
+      <!-- PDF Resources -->
+      <div class="resources-section">
+        <h3>PDF RESOURCES</h3>
+        <ul>
+          <li>jit.ac.in (Analog Integrated Circuits)</li>
+          <li>vaia.com (Microelectronics circuit analysis)</li>
+        </ul>
+      </div>
+
     
     <!-- Quiz and Navigation -->
     <div class="nav-links">
-      <a href="chap2.html" class="btn">← Previous</a>
-      <a href="chap4.html" class="btn">Next Chapter →</a>
+      <a href="chap2.html" class="btn btn-secondary"><- Chapter 2</a>
+      <a href="chap4.html" class="btn btn-primary">Chapter 4 -></a>
     </div>
     
     <div style="text-align:center; margin:32px 0;">
-      <a href="../quiz/quiz-s3.html" class="btn btn-success">✅ TAKE QUIZ</a>
+      <a href="../quiz/quiz-s3.html" class="btn btn-primary">TAKE QUIZ</a>
     </div>
     
-    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
-      <p>Subject 3: Design of Electronic Device — Chapter 3 of 5</p>
+    <footer class="footer">
+      <p>Subject 3: Design of Electronic Devices & Circuits — Chapter 3 of 5</p>
     </footer>
   </main>
-  
+   
   <script src="../assets/js/tts.js"></script>
+  <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
   <script>
+    // Mark chapter as viewed
     markChapterViewed(3, 3);
+
+    // TTS: Play chapter text with Tanglish support
+    const ttsBtn = document.getElementById('tts-play-btn');
+    if (ttsBtn) {
+      ttsBtn.addEventListener('click', () => {
+        const content = document.getElementById('chapter-content');
+        if (content) {
+          // Auto-detect Tamil content
+          if (content.innerText.match(/[\u0B80-\u0BFF]/)) {
+            TTS.currentLang = 'ta-IN';
+            TTS.tanglishMode = true;
+          }
+          TTS.speak(content.innerText);
+        }
+      });
+    }
+
+    // Toggle notes panel
+    const notesBtn = document.getElementById('notes-btn');
+    const notesPanel = document.getElementById('notes');
+    if (notesBtn && notesPanel) {
+      notesBtn.addEventListener('click', () => {
+        notesPanel.classList.toggle('show');
+      });
+    }
+
+    // Initialize Tanglish button
+    const tanglishBtn = document.getElementById('tanglish-btn');
+    if (tanglishBtn) {
+      const isTanglish = localStorage.getItem('tanglish-mode') === 'true';
+      tanglishBtn.textContent = isTanglish ? 'Tanglish: ON' : 'Tanglish: OFF';
+      tanglishBtn.addEventListener('click', () => {
+        TTS.toggleTanglish();
+        const newState = TTS.tanglishMode;
+        tanglishBtn.textContent = newState ? 'Tanglish: ON' : 'Tanglish: OFF';
+      });
+    }
   </script>
 </body>
 </html>

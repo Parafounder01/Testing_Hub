@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 2: Microwave Oven - Microwave Engineering</title>
+  <title>AMIE ECE Learner - Chapter 2: Microwave Passive Components</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -17,92 +17,191 @@
     <section style="margin:20px 0;">
       <p style="font-size:18px; margin-bottom:8px;">Chapter 2 of 5 — Microwave Engineering</p>
       <div class="progress-bar">
-        <div class="progress-fill" style="width:40%;"></div>
+        <div class="progress-fill" style="width:40%"></div>
       </div>
     </section>
     
-    <!-- Audio Controls -->
+    <!-- TTS Audio Controls -->
     <div class="audio-controls">
-      <button class="btn" id="listen-btn">🔊 LISTEN</button>
-      <button class="btn" id="pause-btn">⏸️ PAUSE</button>
-      <button class="btn" id="repeat-btn">🔁 REPEAT</button>
-      <button class="btn" id="notes-btn">📝 NOTES</button>
+      <button class="btn btn-primary" id="tts-play-btn" aria-label="Play chapter text">Play</button>
+      <button class="btn btn-secondary" id="tanglish-btn" aria-label="Toggle Tanglish mode">Tanglish: OFF</button>
+      <button class="btn btn-secondary" id="notes-btn" aria-label="Toggle notes panel">Notes</button>
     </div>
     
     <!-- Chapter Content -->
-    <div id="chapter-content">
-      <h1>Chapter 2: Microwave Oven</h1>
-      
-      <div class="chapter-section">
-        <h3>📌 WHAT IS A MICROWAVE OVEN?</h3>
-        <p>A microwave oven is a box that heats your food using microwaves.</p>
-        <p><strong>Simple definition:</strong> It is a machine that uses invisible waves to make food hot.</p>
-        <p><strong>Real-life example:</strong> When mom heats milk at home, she puts the cup in the microwave oven. After 1 minute, the milk is hot! The oven uses microwaves to do this.</p>
+      <div id="chapter-content">
+        <h1>Chapter 2: Microwave Passive Components</h1>
+        <div class="chapter-section">
+          <p>Microwave passive components help split, combine, or control microwave signals without adding power. They are like water pipes with valves and splitters.</p>
+        </div>
       </div>
-      
-      <div class="chapter-section">
-        <h3>📌 WHY IS IT IMPORTANT?</h3>
-        <p>Microwave ovens are important because:</p>
-        <ul style="font-size:20px; line-height:1.8; padding-left:24px;">
-          <li>It heats food very fast — saves time</li>
-          <li>It is easy to use — just press a button</li>
-          <li>It uses microwaves to heat from inside out</li>
-        </ul>
-      </div>
-      
-      <div class="chapter-section">
-        <h3>📌 HOW DOES IT WORK?</h3>
-        <p>Let me explain in simple steps:</p>
-        <ul class="steps">
-          <li><strong>Step 1:</strong> You put food inside the microwave oven</li>
-          <li><strong>Step 2:</strong> The oven makes microwaves (invisible waves)</li>
-          <li><strong>Step 3:</strong> The waves go into the food</li>
-          <li><strong>Step 4:</strong> Water in the food vibrates and makes heat</li>
-          <li><strong>Step 5:</strong> The food becomes hot and ready to eat!</li>
-        </ul>
-      </div>
-      
+
       <div class="revision-points">
-        <h3>🔁 LET'S REMEMBER:</h3>
+        <h3>LET'S REMEMBER:</h3>
         <ul>
-          <li>Microwave oven heats food fast</li>
-          <li>It uses invisible microwave waves</li>
-          <li>Waves make water vibrate</li>
-          <li>Vibration creates heat</li>
+          <li>Directional Couplers</li>
+          <li>Circulators & Isolators</li>
+          <li>Attenuators & Phase Shifters</li>
         </ul>
       </div>
-      
-      <!-- Notes Panel -->
+
+      <!-- Notes Panel (with Tanglish) -->
       <div class="notes-panel" id="notes">
-        <h3>📝 SIMPLE NOTES:</h3>
+        <h3>SIMPLE NOTES (Tanglish Supported):</h3>
         <ul>
-          <li>Microwave Oven = Heats food fast</li>
-          <li>Uses: Invisible microwave waves</li>
-          <li>Waves → vibrate water → heat</li>
-          <li>Like a magic box for heating!</li>
+          <li>Directional Couplers</li>
+          <li>Circulators & Isolators</li>
+          <li>Attenuators & Phase Shifters</li>
+          <li><strong>Tanglish:</strong> Indha directional coupler-la, signal-a split pannum. Oru part direct pokum, inoru part coupled port-ku pokum. VSWR na vala signal reflect aagudhu nu katurudhu.</li>
         </ul>
       </div>
-    </div>
+
+      <!-- Derivation Sums -->
+      <div class="derivation-section">
+        <h3>DERIVATION SUMS (Step-by-Step)</h3>
+        <div class="derivation-card">
+          <h4>1. S-Matrix for Directional Coupler</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>4-port network: input, output, coupled, isolated</li>
+            <li>Forward coupling: S₃₁ = C (coupling factor)</li>
+            <li>Through path: S₂₁ = T (transmission)</li>
+            <li>Isolation: S₄₁ = 0 (ideal)</li>
+            <li>Reciprocity: Sᵢⱼ = Sⱼᵢ</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>|S₃₁|² = coupling, |S₂₁|² = 1-coupling (ideal)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>2. VSWR from Reflection Coefficient</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Reflection coefficient: Γ = (ZL-Z₀)/(ZL+Z₀)</li>
+            <li>VSWR = (1+|Γ|)/(1-|Γ|)</li>
+            <li>Return loss = -20log|Γ| dB</li>
+            <li>For perfect match: Γ=0, VSWR=1</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>VSWR = (1+|Γ|)/(1-|Γ|), RL = -20log₁₀|Γ| dB</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>3. Insertion Loss</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>IL = 10log₁₀(P_in/P_out) dB</li>
+            <li>IL = 10log₁₀(1/|S₂₁|²) dB</li>
+            <li>For coupler: IL = -10log₁₀(1-|C|²)</li>
+            <li>Mismatch loss also contributes</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>IL = 10log₁₀(1/|S₂₁|²) dB</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>4. Phase Shifter Group Delay</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Phase shift φ = βl = (2π/λg)l</li>
+            <li>Group delay τg = dφ/dω = l/vg</li>
+            <li>For f=10 GHz, l=λg/4: φ = 90°</li>
+            <li>Electrical length: θ = βl radians</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>τg = dφ/dω = l/vg = l√(1-(fc/f)²)/c</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>5. Wilkinson Power Divider</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>2-way divider with isolation resistors</li>
+            <li>Input matched: Z_in = Z₀</li>
+            <li>Output ports isolated: S₃₂ = 0</li>
+            <li>Power division: P₂ = P₃ = P₁/2</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Z_in = Z₀, P_out = P_in/2 (3 dB split)</code></p>
+        </div>
+      </div>
+
+      <!-- Numerical Problems -->
+      <div class="numerical-section">
+        <h3>NUMERICAL PROBLEMS (Solved)</h3>
+        <div class="numerical-card">
+          <h4>Problem 1: Design 10 dB directional coupler (find coupling, isolation)</h4>
+          <p><strong>Given:</strong> C = 10 dB = 0.1 (linear), P_coupled/P_in = 0.1</p>
+          <p><strong>Solution:</strong> Coupling = 10log₁₀(0.1) = -10 dB, Through = 10log₁₀(0.9) = -0.46 dB</p>
+          <p><strong>Answer:</strong> Coupling = -10 dB, Through = -0.46 dB</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 2: Find VSWR given return loss = 20 dB</h4>
+          <p><strong>Given:</strong> RL = 20 dB → |Γ| = 10^(-20/20) = 0.1</p>
+          <p><strong>Solution:</strong> VSWR = (1+0.1)/(1-0.1) = 1.22</p>
+          <p><strong>Answer:</strong> VSWR = 1.22:1</p>
+        </div>
+      </div>
+
+      <!-- PDF Resources -->
+      <div class="resources-section">
+        <h3>PDF RESOURCES</h3>
+        <ul>
+          <li>Pozar - Microwave Engineering (Ch 7)</li>
+          <li>RF & Microwave Engineering PDF - Unit 7</li>
+        </ul>
+      </div>
+
     
     <!-- Quiz and Navigation -->
     <div class="nav-links">
-      <a href="chap1.html" class="btn">← Previous</a>
-      <a href="chap3.html" class="btn">Next Chapter →</a>
+      <a href="chap1.html" class="btn btn-secondary"><- Chapter 1</a>
+      <a href="chap3.html" class="btn btn-primary">Chapter 3 -></a>
     </div>
     
     <div style="text-align:center; margin:32px 0;">
-      <a href="../quiz/quiz-s1.html" class="btn btn-success">✅ TAKE QUIZ</a>
+      <a href="../quiz/quiz-s1.html" class="btn btn-primary">TAKE QUIZ</a>
     </div>
     
-    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
+    <footer class="footer">
       <p>Subject 1: Microwave Engineering — Chapter 2 of 5</p>
     </footer>
   </main>
-  
+   
   <script src="../assets/js/tts.js"></script>
+  <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
   <script>
+    // Mark chapter as viewed
     markChapterViewed(1, 2);
+
+    // TTS: Play chapter text with Tanglish support
+    const ttsBtn = document.getElementById('tts-play-btn');
+    if (ttsBtn) {
+      ttsBtn.addEventListener('click', () => {
+        const content = document.getElementById('chapter-content');
+        if (content) {
+          // Auto-detect Tamil content
+          if (content.innerText.match(/[\u0B80-\u0BFF]/)) {
+            TTS.currentLang = 'ta-IN';
+            TTS.tanglishMode = true;
+          }
+          TTS.speak(content.innerText);
+        }
+      });
+    }
+
+    // Toggle notes panel
+    const notesBtn = document.getElementById('notes-btn');
+    const notesPanel = document.getElementById('notes');
+    if (notesBtn && notesPanel) {
+      notesBtn.addEventListener('click', () => {
+        notesPanel.classList.toggle('show');
+      });
+    }
+
+    // Initialize Tanglish button
+    const tanglishBtn = document.getElementById('tanglish-btn');
+    if (tanglishBtn) {
+      const isTanglish = localStorage.getItem('tanglish-mode') === 'true';
+      tanglishBtn.textContent = isTanglish ? 'Tanglish: ON' : 'Tanglish: OFF';
+      tanglishBtn.addEventListener('click', () => {
+        TTS.toggleTanglish();
+        const newState = TTS.tanglishMode;
+        tanglishBtn.textContent = newState ? 'Tanglish: ON' : 'Tanglish: OFF';
+      });
+    }
   </script>
 </body>
 </html>

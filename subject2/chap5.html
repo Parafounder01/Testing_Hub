@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 5: Power Supply - Electronics Circuit</title>
+  <title>AMIE ECE Learner - Chapter 5: Op-Amps, Power Amps & Supplies</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -15,93 +15,196 @@
   <main id="main-content">
     <!-- Progress Bar -->
     <section style="margin:20px 0;">
-      <p style="font-size:18px; margin-bottom:8px;">Chapter 5 of 5 — Electronics Circuit</p>
+      <p style="font-size:18px; margin-bottom:8px;">Chapter 5 of 5 — Electronic Circuits</p>
       <div class="progress-bar">
-        <div class="progress-fill" style="width:100%;"></div>
+        <div class="progress-fill" style="width:100%"></div>
       </div>
     </section>
     
-    <!-- Audio Controls -->
+    <!-- TTS Audio Controls -->
     <div class="audio-controls">
-      <button class="btn" id="listen-btn">🔊 LISTEN</button>
-      <button class="btn" id="pause-btn">⏸️ PAUSE</button>
-      <button class="btn" id="repeat-btn">🔁 REPEAT</button>
-      <button class="btn" id="notes-btn">📝 NOTES</button>
+      <button class="btn btn-primary" id="tts-play-btn" aria-label="Play chapter text">Play</button>
+      <button class="btn btn-secondary" id="tanglish-btn" aria-label="Toggle Tanglish mode">Tanglish: OFF</button>
+      <button class="btn btn-secondary" id="notes-btn" aria-label="Toggle notes panel">Notes</button>
     </div>
     
     <!-- Chapter Content -->
-    <div id="chapter-content">
-      <h1>Chapter 5: Power Supply</h1>
-      
-      <div class="chapter-section">
-        <h3>📌 WHAT IS A POWER SUPPLY?</h3>
-        <p>A power supply gives electricity to a device. It changes the electricity from the wall to the right type for your device.</p>
-        <p><strong>Simple definition:</strong> It is like a water pump that gives the right amount of water to your device.</p>
-        <p><strong>Real-life example:</strong> Your phone charger is a power supply. It takes big electricity from the wall and changes it to small electricity that your phone can use safely!</p>
+      <div id="chapter-content">
+        <h1>Chapter 5: Op-Amps, Power Amps & Supplies</h1>
+        <div class="chapter-section">
+          <p>Op-amps are versatile ICs that perform mathematical operations. Inverting amplifier flips signal, non-inverting keeps phase same. Class B power amps use two transistors for better efficiency.</p>
+        </div>
       </div>
-      
-      <div class="chapter-section">
-        <h3>📌 WHY IS IT IMPORTANT?</h3>
-        <p>Power supply is important because:</p>
-        <ul style="font-size:20px; line-height:1.8; padding-left:24px;">
-          <li>It gives devices the power they need</li>
-          <li>It protects devices from too much electricity</li>
-          <li>Without it, devices would burn or not work</li>
-        </ul>
-      </div>
-      
-      <div class="chapter-section">
-        <h3>📌 HOW DOES IT WORK?</h3>
-        <p>Let me explain in simple steps:</p>
-        <ul class="steps">
-          <li><strong>Step 1:</strong> Power supply takes electricity from the wall</li>
-          <li><strong>Step 2:</strong> It changes big high electricity to small safe electricity</li>
-          <li><strong>Step 3:</strong> It sends the right amount to your device</li>
-          <li><strong>Step 4:</strong> Your device runs safely and happily!</li>
-        </ul>
-      </div>
-      
+
       <div class="revision-points">
-        <h3>🔁 LET'S REMEMBER:</h3>
+        <h3>LET'S REMEMBER:</h3>
         <ul>
-          <li>Power Supply = Gives electricity</li>
-          <li>Changes wall power to device power</li>
-          <li>Phone charger = Power supply</li>
-          <li>Protects devices from damage</li>
+          <li>Ideal & Practical Op-Amps</li>
+          <li>Inverting & Non-Inverting</li>
+          <li>Class A/B Power Amplifiers</li>
+          <li>Voltage Regulators</li>
         </ul>
       </div>
-      
-      <!-- Notes Panel -->
+
+      <!-- Notes Panel (with Tanglish) -->
       <div class="notes-panel" id="notes">
-        <h3>📝 SIMPLE NOTES:</h3>
+        <h3>SIMPLE NOTES (Tanglish Supported):</h3>
         <ul>
-          <li>Power Supply = Electricity giver</li>
-          <li>Wall → Charger → Phone</li>
-          <li>Big power → Small safe power</li>
-          <li>Like a water pump for power</li>
+          <li>Ideal & Practical Op-Amps</li>
+          <li>Inverting & Non-Inverting</li>
+          <li>Class A/B Power Amplifiers</li>
+          <li>Voltage Regulators</li>
+          <li><strong>Tanglish:</strong> Op-amp-ula romba useful IC. Inverting amplifier-la output phase reverse aagum: Av = -Rf/R1. Non-inverting-la phase same: Av = 1+Rf/R1. Class A efficiency 50%, Class B efficiency 78.5%. LM317 regulator-ula V_out = 1.25×(1+R2/R1).</li>
         </ul>
       </div>
-    </div>
+
+      <!-- Derivation Sums -->
+      <div class="derivation-section">
+        <h3>DERIVATION SUMS (Step-by-Step)</h3>
+        <div class="derivation-card">
+          <h4>1. Inverting Amplifier Gain</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Virtual ground at inverting terminal (V- ≈ 0)</li>
+            <li>I_in = (V_in - 0)/R1 = V_in/R1</li>
+            <li>I_f = (0 - V_out)/Rf = -V_out/Rf</li>
+            <li>I_in = I_f (no current into op-amp)</li>
+            <li>V_out/V_in = -Rf/R1</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Av = V_out/V_in = -Rf/R1</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>2. Non-Inverting Amplifier Gain</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Voltage at inverting terminal: V- = V_out×R1/(R1+Rf)</li>
+            <li>V+ = V_in (virtual short: V+ = V-)</li>
+            <li>V_in = V_out×R1/(R1+Rf)</li>
+            <li>V_out/V_in = (R1+Rf)/R1 = 1 + Rf/R1</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Av = 1 + Rf/R1</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>3. Class A Maximum Efficiency</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>P_out = (Vcc/√2)²/R_L = Vcc²/(2R_L) (max before clipping)</li>
+            <li>P_DC = Vcc × I_cq = Vcc × (Vcc/2R_L) = Vcc²/(2R_L)</li>
+            <li>η_max = P_out/P_DC = 50%</li>
+            <li>Practical: η ≈ 25-40% due to V_sat, Re</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>η_max = 50% for Class A</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>4. Class B Maximum Efficiency</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Each transistor conducts 180° (half cycle)</li>
+            <li>P_out = (Vcc/√2)²/(2R_L) = Vcc²/(4R_L)</li>
+            <li>P_DC = 2×Vcc×(Vcc/πR_L) = 2Vcc²/(πR_L)</li>
+            <li>η_max = P_out/P_DC = π/4 ≈ 78.5%</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>η_max = π/4 ≈ 78.5% for Class B</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>5. Voltage Regulator Output (LM317)</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>V_out = V_ref×(1 + R2/R1) + I_adj×R2</li>
+            <li>V_ref ≈ 1.25V for LM317</li>
+            <li>I_adj ≈ 50μA (neglect for approximation)</li>
+            <li>V_out ≈ 1.25×(1 + R2/R1)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>V_out = 1.25×(1 + R2/R1) for LM317</code></p>
+        </div>
+      </div>
+
+      <!-- Numerical Problems -->
+      <div class="numerical-section">
+        <h3>NUMERICAL PROBLEMS (Solved)</h3>
+        <div class="numerical-card">
+          <h4>Problem 1: Design inverting amplifier: Av=-10, Rin=1kΩ → find Rf</h4>
+          <p><strong>Given:</strong> Av = -Rf/R1 = -10, R1 = 1kΩ</p>
+          <p><strong>Solution:</strong> Rf = -Av×R1 = 10×1k = 10kΩ</p>
+          <p><strong>Answer:</strong> Rf = 10kΩ</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 2: Calculate Class B power: Vcc=15V, RL=8Ω → find P_out, P_DC, η</h4>
+          <p><strong>Given:</strong> V_peak = Vcc = 15V (ideal)</p>
+          <p><strong>Solution:</strong> P_out = V_peak²/(2R_L) = 15²/(2×8) = 225/16 = 14.06W. P_DC = 2×15×(15/π×8) = 450/(25.13) = 17.9W. η = 14.06/17.9 = 78.5%</p>
+          <p><strong>Answer:</strong> P_out=14.06W, P_DC=17.9W, η=78.5%</p>
+        </div>
+      </div>
+
+      <!-- PDF Resources -->
+      <div class="resources-section">
+        <h3>PDF RESOURCES</h3>
+        <ul>
+          <li>eee.poriyaan.in (op-amp circuits)</li>
+          <li>edurev.in (analysis of amplifier circuits)</li>
+          <li>bestengineeringprojects.com (power amplifier design)</li>
+        </ul>
+      </div>
+
     
     <!-- Quiz and Navigation -->
     <div class="nav-links">
-      <a href="chap4.html" class="btn">← Previous</a>
-      <a href="../subject3/chap1.html" class="btn">Next Subject →</a>
+      <a href="chap4.html" class="btn btn-secondary"><- Chapter 4</a>
+      <a href="../index.html" class="btn btn-primary">Back to Home -></a>
     </div>
     
     <div style="text-align:center; margin:32px 0;">
-      <a href="../quiz/quiz-s2.html" class="btn btn-success">✅ TAKE QUIZ</a>
+      <a href="../quiz/quiz-s2.html" class="btn btn-primary">TAKE QUIZ</a>
     </div>
     
-    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
-      <p>Subject 2: Electronics Circuit — Chapter 5 of 5 (Completed!)</p>
+    <footer class="footer">
+      <p>Subject 2: Electronic Circuits — Chapter 5 of 5</p>
     </footer>
   </main>
-  
+   
   <script src="../assets/js/tts.js"></script>
+  <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
   <script>
+    // Mark chapter as viewed
     markChapterViewed(2, 5);
+
+    // TTS: Play chapter text with Tanglish support
+    const ttsBtn = document.getElementById('tts-play-btn');
+    if (ttsBtn) {
+      ttsBtn.addEventListener('click', () => {
+        const content = document.getElementById('chapter-content');
+        if (content) {
+          // Auto-detect Tamil content
+          if (content.innerText.match(/[\u0B80-\u0BFF]/)) {
+            TTS.currentLang = 'ta-IN';
+            TTS.tanglishMode = true;
+          }
+          TTS.speak(content.innerText);
+        }
+      });
+    }
+
+    // Toggle notes panel
+    const notesBtn = document.getElementById('notes-btn');
+    const notesPanel = document.getElementById('notes');
+    if (notesBtn && notesPanel) {
+      notesBtn.addEventListener('click', () => {
+        notesPanel.classList.toggle('show');
+      });
+    }
+
+    // Initialize Tanglish button
+    const tanglishBtn = document.getElementById('tanglish-btn');
+    if (tanglishBtn) {
+      const isTanglish = localStorage.getItem('tanglish-mode') === 'true';
+      tanglishBtn.textContent = isTanglish ? 'Tanglish: ON' : 'Tanglish: OFF';
+      tanglishBtn.addEventListener('click', () => {
+        TTS.toggleTanglish();
+        const newState = TTS.tanglishMode;
+        tanglishBtn.textContent = newState ? 'Tanglish: ON' : 'Tanglish: OFF';
+      });
+    }
   </script>
 </body>
 </html>

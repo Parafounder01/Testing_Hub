@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 2: Basic Components - Electronics Circuit</title>
+  <title>AMIE ECE Learner - Chapter 2: Amplifiers (Single & Multistage)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -15,92 +15,195 @@
   <main id="main-content">
     <!-- Progress Bar -->
     <section style="margin:20px 0;">
-      <p style="font-size:18px; margin-bottom:8px;">Chapter 2 of 5 — Electronics Circuit</p>
+      <p style="font-size:18px; margin-bottom:8px;">Chapter 2 of 5 — Electronic Circuits</p>
       <div class="progress-bar">
-        <div class="progress-fill" style="width:40%;"></div>
+        <div class="progress-fill" style="width:40%"></div>
       </div>
     </section>
     
-    <!-- Audio Controls -->
+    <!-- TTS Audio Controls -->
     <div class="audio-controls">
-      <button class="btn" id="listen-btn">🔊 LISTEN</button>
-      <button class="btn" id="pause-btn">⏸️ PAUSE</button>
-      <button class="btn" id="repeat-btn">🔁 REPEAT</button>
-      <button class="btn" id="notes-btn">📝 NOTES</button>
+      <button class="btn btn-primary" id="tts-play-btn" aria-label="Play chapter text">Play</button>
+      <button class="btn btn-secondary" id="tanglish-btn" aria-label="Toggle Tanglish mode">Tanglish: OFF</button>
+      <button class="btn btn-secondary" id="notes-btn" aria-label="Toggle notes panel">Notes</button>
     </div>
     
     <!-- Chapter Content -->
-    <div id="chapter-content">
-      <h1>Chapter 2: Basic Components</h1>
-      
-      <div class="chapter-section">
-        <h3>📌 WHAT ARE BASIC COMPONENTS?</h3>
-        <p>Basic components are small parts that go inside electronic circuits.</p>
-        <p><strong>Simple definition:</strong> They are like LEGO blocks — you put them together to build something.</p>
-        <p><strong>Real-life example:</strong> A resistor is like a narrow pipe for water — it slows electricity down. A capacitor is like a small water tank — it stores electricity for later!</p>
+      <div id="chapter-content">
+        <h1>Chapter 2: Amplifiers (Single & Multistage)</h1>
+        <div class="chapter-section">
+          <p>Amplifiers make signals bigger. CE (Common Emitter) gives high gain but inverts signal. CC (Common Collector) is emitter follower with gain≈1 but high input impedance.</p>
+        </div>
       </div>
-      
-      <div class="chapter-section">
-        <h3>📌 THREE BASIC COMPONENTS:</h3>
-        <ul style="font-size:20px; line-height:1.8; padding-left:24px;">
-          <li><strong>Resistor:</strong> Slows down electricity (like a narrow pipe)</li>
-          <li><strong>Capacitor:</strong> Stores electricity (like a small battery)</li>
-          <li><strong>Inductor:</strong> Resists changes in electricity flow</li>
-        </ul>
-      </div>
-      
-      <div class="chapter-section">
-        <h3>📌 HOW DOES IT WORK?</h3>
-        <p>Let me explain in simple steps:</p>
-        <ul class="steps">
-          <li><strong>Step 1:</strong> Resistor limits how much electricity flows</li>
-          <li><strong>Step 2:</strong> Capacitor saves some electricity for later use</li>
-          <li><strong>Step 3:</strong> Inductor keeps electricity flowing smoothly</li>
-          <li><strong>Step 4:</strong> Together, they make the circuit work right!</li>
-        </ul>
-      </div>
-      
+
       <div class="revision-points">
-        <h3>🔁 LET'S REMEMBER:</h3>
+        <h3>LET'S REMEMBER:</h3>
         <ul>
-          <li>Resistor = Slows electricity (narrow pipe)</li>
-          <li>Capacitor = Stores electricity (water tank)</li>
-          <li>Inductor = Keeps flow smooth</li>
-          <li>Like LEGO blocks for circuits</li>
+          <li>CE/CB/CC Configurations</li>
+          <li>Voltage & Current Gain</li>
+          <li>Input/Output Impedance</li>
+          <li>Multistage Gain</li>
         </ul>
       </div>
-      
-      <!-- Notes Panel -->
+
+      <!-- Notes Panel (with Tanglish) -->
       <div class="notes-panel" id="notes">
-        <h3>📝 SIMPLE NOTES:</h3>
+        <h3>SIMPLE NOTES (Tanglish Supported):</h3>
         <ul>
-          <li>Resistor = Slows flow</li>
-          <li>Capacitor = Stores power</li>
-          <li>Inductor = Smooth flow</li>
-          <li>All = Circuit building blocks</li>
+          <li>CE/CB/CC Configurations</li>
+          <li>Voltage & Current Gain</li>
+          <li>Input/Output Impedance</li>
+          <li>Multistage Gain</li>
+          <li><strong>Tanglish:</strong> Indha amplifier-la, signal-a peridhu peridhu pannum. CE configuration-la gain negative-ah irukum (phase reversal). Av = -hfe×RL'/hie nu formula use pannanum. Ri na input impedance, Ro na output impedance. 2-stage amplifier-ula total gain = Av1×Av2.</li>
         </ul>
       </div>
-    </div>
+
+      <!-- Derivation Sums -->
+      <div class="derivation-section">
+        <h3>DERIVATION SUMS (Step-by-Step)</h3>
+        <div class="derivation-card">
+          <h4>1. Voltage Gain Av for CE Amplifier</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Av = Vce/Vbe = -Ic×RL'/Ib×hie</li>
+            <li>Ic = hfe×Ib (approximate)</li>
+            <li>Av = -hfe×RL'/hie</li>
+            <li>With load: RL' = Rc||RL</li>
+            <li>Exact: Av = -hfe×RL'/(hie + (hfe×RL'×hre))</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Av = -hfe×RL'/hie (approx), Av = -hfe×RL'/(hie + hfe×RL'×hre) (exact)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>2. Input Impedance Ri for CE</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Ri = Vbe/Ib = hie + (1+hfe)×Re</li>
+            <li>With feedback: Ri = hie + hfe×hre×RL'</li>
+            <li>Source loading: Rin = Ri || Rth</li>
+            <li>For CC: Ric = hie + (1+hfe)×Re (high input Z)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Ri = hie + (1+hfe)×Re</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>3. Current Gain Ai for CE</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Ai = Ic/Ib = hfe/(1 + hoe×RL)</li>
+            <li>If hoe×RL << 1: Ai ≈ hfe</li>
+            <li>With source: Ais = Ai × Zin/(Zin + Rs)</li>
+            <li>For CC: Aic = -(1+hfe) ≈ -β</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Ai = hfe/(1 + hoe×RL)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>4. Output Impedance Ro for CE</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Ro = 1/hoe || Rc (approximate)</li>
+            <li>Exact: Ro = 1/(hoe - hfe×hre/(hie+Rs))</li>
+            <li>With load: Rout = Ro || RL</li>
+            <li>For CB: Rob = 1/hoe (very high)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Ro ≈ 1/hoe || Rc</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>5. Overall Gain for 2-Stage Amplifier</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Av_total = Av1 × Av2 (if stages isolated)</li>
+            <li>With loading: Av2_loaded = Av2 × Zin2/(Zin2 + Rout1)</li>
+            <li>Overall current gain: Ai_total = Ai1 × Ai2</li>
+            <li>Power gain: Ap = Av × Ai × cosφ</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Av_total = Av1 × Av2 (ideal), Av_total = Av1 × (Av2×Zin2/(Zin2+Rout1)) (loaded)</code></p>
+        </div>
+      </div>
+
+      <!-- Numerical Problems -->
+      <div class="numerical-section">
+        <h3>NUMERICAL PROBLEMS (Solved)</h3>
+        <div class="numerical-card">
+          <h4>Problem 1: Calculate Av, Ai, Ri, Ro for CE amplifier: hie=1.1k, hfe=50, hoe=25μS, Rc=2k, RL=2k, Rs=1k</h4>
+          <p><strong>Given:</strong> RL' = 2k||2k = 1kΩ, hoe×RL' = 25μ×1k = 0.025 << 1</p>
+          <p><strong>Solution:</strong> Av = -50×1k/1.1k = -45.45. Ai = 50/(1+0.025) = 48.78. Ri = 1.1kΩ. Ro = 1/(25μ) || 2k = 40k || 2k = 1.9kΩ</p>
+          <p><strong>Answer:</strong> Av=-45.45, Ai=48.78, Ri=1.1kΩ, Ro=1.9kΩ</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 2: Design 2-stage amplifier with total gain >1000, Av1=-50, find Av2 and Rc2</h4>
+          <p><strong>Given:</strong> hfe=50, hie=1.1k, Re=500Ω for stage 2</p>
+          <p><strong>Solution:</strong> Av2_min = 1000/50 = 20. Av2 = -hfe×Rc2/hie → Rc2 = -Av2×hie/hfe = 20×1.1k/50 = 440Ω. Choose Rc2=470Ω</p>
+          <p><strong>Answer:</strong> Av2=20+, Rc2≈470Ω</p>
+        </div>
+      </div>
+
+      <!-- PDF Resources -->
+      <div class="resources-section">
+        <h3>PDF RESOURCES</h3>
+        <ul>
+          <li>eee.poriyaan.in Topic 11513, 11515 (BJT amplifiers)</li>
+          <li>bestengineeringprojects.com (single/multi-stage design)</li>
+        </ul>
+      </div>
+
     
     <!-- Quiz and Navigation -->
     <div class="nav-links">
-      <a href="chap1.html" class="btn">← Previous</a>
-      <a href="chap3.html" class="btn">Next Chapter →</a>
+      <a href="chap1.html" class="btn btn-secondary"><- Chapter 1</a>
+      <a href="chap3.html" class="btn btn-primary">Chapter 3 -></a>
     </div>
     
     <div style="text-align:center; margin:32px 0;">
-      <a href="../quiz/quiz-s2.html" class="btn btn-success">✅ TAKE QUIZ</a>
+      <a href="../quiz/quiz-s2.html" class="btn btn-primary">TAKE QUIZ</a>
     </div>
     
-    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
-      <p>Subject 2: Electronics Circuit — Chapter 2 of 5</p>
+    <footer class="footer">
+      <p>Subject 2: Electronic Circuits — Chapter 2 of 5</p>
     </footer>
   </main>
-  
+   
   <script src="../assets/js/tts.js"></script>
+  <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
   <script>
+    // Mark chapter as viewed
     markChapterViewed(2, 2);
+
+    // TTS: Play chapter text with Tanglish support
+    const ttsBtn = document.getElementById('tts-play-btn');
+    if (ttsBtn) {
+      ttsBtn.addEventListener('click', () => {
+        const content = document.getElementById('chapter-content');
+        if (content) {
+          // Auto-detect Tamil content
+          if (content.innerText.match(/[\u0B80-\u0BFF]/)) {
+            TTS.currentLang = 'ta-IN';
+            TTS.tanglishMode = true;
+          }
+          TTS.speak(content.innerText);
+        }
+      });
+    }
+
+    // Toggle notes panel
+    const notesBtn = document.getElementById('notes-btn');
+    const notesPanel = document.getElementById('notes');
+    if (notesBtn && notesPanel) {
+      notesBtn.addEventListener('click', () => {
+        notesPanel.classList.toggle('show');
+      });
+    }
+
+    // Initialize Tanglish button
+    const tanglishBtn = document.getElementById('tanglish-btn');
+    if (tanglishBtn) {
+      const isTanglish = localStorage.getItem('tanglish-mode') === 'true';
+      tanglishBtn.textContent = isTanglish ? 'Tanglish: ON' : 'Tanglish: OFF';
+      tanglishBtn.addEventListener('click', () => {
+        TTS.toggleTanglish();
+        const newState = TTS.tanglishMode;
+        tanglishBtn.textContent = newState ? 'Tanglish: ON' : 'Tanglish: OFF';
+      });
+    }
   </script>
 </body>
 </html>

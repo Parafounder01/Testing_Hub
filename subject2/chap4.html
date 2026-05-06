@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 4: Switches and Relays - Electronics Circuit</title>
+  <title>AMIE ECE Learner - Chapter 4: Oscillators</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -15,93 +15,195 @@
   <main id="main-content">
     <!-- Progress Bar -->
     <section style="margin:20px 0;">
-      <p style="font-size:18px; margin-bottom:8px;">Chapter 4 of 5 — Electronics Circuit</p>
+      <p style="font-size:18px; margin-bottom:8px;">Chapter 4 of 5 — Electronic Circuits</p>
       <div class="progress-bar">
-        <div class="progress-fill" style="width:80%;"></div>
+        <div class="progress-fill" style="width:80%"></div>
       </div>
     </section>
     
-    <!-- Audio Controls -->
+    <!-- TTS Audio Controls -->
     <div class="audio-controls">
-      <button class="btn" id="listen-btn">🔊 LISTEN</button>
-      <button class="btn" id="pause-btn">⏸️ PAUSE</button>
-      <button class="btn" id="repeat-btn">🔁 REPEAT</button>
-      <button class="btn" id="notes-btn">📝 NOTES</button>
+      <button class="btn btn-primary" id="tts-play-btn" aria-label="Play chapter text">Play</button>
+      <button class="btn btn-secondary" id="tanglish-btn" aria-label="Toggle Tanglish mode">Tanglish: OFF</button>
+      <button class="btn btn-secondary" id="notes-btn" aria-label="Toggle notes panel">Notes</button>
     </div>
     
     <!-- Chapter Content -->
-    <div id="chapter-content">
-      <h1>Chapter 4: Switches and Relays</h1>
-      
-      <div class="chapter-section">
-        <h3>📌 WHAT ARE SWITCHES AND RELAYS?</h3>
-        <p>A switch is a button that turns electricity ON or OFF. A relay is a switch that uses a small electricity to control a big electricity.</p>
-        <p><strong>Simple definition:</strong> They are like water taps — turn the tap to let water flow or stop.</p>
-        <p><strong>Real-life example:</strong> The light switch at your home is a switch. When you press it UP, the light turns ON. A relay is like a servant who presses the switch for you when you are far away!</p>
+      <div id="chapter-content">
+        <h1>Chapter 4: Oscillators</h1>
+        <div class="chapter-section">
+          <p>Oscillators generate AC signals without input. RC phase shift uses resistors and capacitors. LC oscillators (Hartley/Colpitts) use inductors and capacitors for high frequency.</p>
+        </div>
       </div>
-      
-      <div class="chapter-section">
-        <h3>📌 WHY ARE THEY IMPORTANT?</h3>
-        <p>Switches and relays are important because:</p>
-        <ul style="font-size:20px; line-height:1.8; padding-left:24px;">
-          <li>They let us control when a device turns ON</li>
-          <li>Relays let small signals control big machines</li>
-          <li>Every light and fan at home uses a switch!</li>
-        </ul>
-      </div>
-      
-      <div class="chapter-section">
-        <h3>📌 HOW DOES IT WORK?</h3>
-        <p>Let me explain in simple steps:</p>
-        <ul class="steps">
-          <li><strong>Step 1:</strong> A switch connects or breaks the circuit</li>
-          <li><strong>Step 2:</strong> When connected, electricity flows → device ON</li>
-          <li><strong>Step 3:</strong> When broken, electricity stops → device OFF</li>
-          <li><strong>Step 4:</strong> A relay uses a small electricity to move the switch</li>
-        </ul>
-      </div>
-      
+
       <div class="revision-points">
-        <h3>🔁 LET'S REMEMBER:</h3>
+        <h3>LET'S REMEMBER:</h3>
         <ul>
-          <li>Switch = Turn ON/OFF</li>
-          <li>Like a water tap for electricity</li>
-          <li>Relay = Small electricity controls big</li>
-          <li>Home light switch = Simple switch</li>
+          <li>RC Phase Shift Oscillator</li>
+          <li>Hartley & Colpitts</li>
+          <li>Wein Bridge Oscillator</li>
+          <li>Crystal Oscillator</li>
         </ul>
       </div>
-      
-      <!-- Notes Panel -->
+
+      <!-- Notes Panel (with Tanglish) -->
       <div class="notes-panel" id="notes">
-        <h3>📝 SIMPLE NOTES:</h3>
+        <h3>SIMPLE NOTES (Tanglish Supported):</h3>
         <ul>
-          <li>Switch = ON/OFF button</li>
-          <li>Relay = Remote switch</li>
-          <li>Like a water tap</li>
-          <li>Home lights = Switches</li>
+          <li>RC Phase Shift Oscillator</li>
+          <li>Hartley & Colpitts</li>
+          <li>Wein Bridge Oscillator</li>
+          <li>Crystal Oscillator</li>
+          <li><strong>Tanglish:</strong> Indha oscillator-ula, input illama output signal kudukkum. RC phase shift-ula 3-stage RC ladder use pannuvom. f₀ = 1/(2πRC√6) nu nyabagam vechukonga. Hartley-ula L1+L2 use pannuvom, Colpitts-ula C1||C2 use pannuvom.</li>
         </ul>
       </div>
-    </div>
+
+      <!-- Derivation Sums -->
+      <div class="derivation-section">
+        <h3>DERIVATION SUMS (Step-by-Step)</h3>
+        <div class="derivation-card">
+          <h4>1. Frequency for RC Phase Shift Oscillator</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>3-stage RC ladder network</li>
+            <li>Each stage phase shift: φ = arctan(1/2πfRC)</li>
+            <li>Total phase shift: 3φ = 180°</li>
+            <li>f₀ = 1/(2πRC√6) for 3-stage</li>
+            <li>Gain required: A > 29 (for sustained oscillation)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>f₀ = 1/(2πRC√6)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>2. Frequency for Hartley Oscillator</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>L_eq = L1 + L2 + 2M (with mutual inductance M)</li>
+            <li>f₀ = 1/(2π√(L_eq×C))</li>
+            <li>For no mutual coupling: f₀ = 1/(2π√((L1+L2)×C))</li>
+            <li>Tapping point provides feedback</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>f₀ = 1/(2π√(L1+L2)C) (no M)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>3. Frequency for Colpitts Oscillator</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>C_eq = (C1×C2)/(C1+C2) (series combination)</li>
+            <li>f₀ = 1/(2π√(LC_eq))</li>
+            <li>Voltage divider using C1, C2 provides feedback</li>
+            <li>Gain required: A > C2/C1</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>f₀ = 1/(2π√(L×C1×C2/(C1+C2)))</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>4. Frequency for Wein Bridge Oscillator</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Lead-lag network: f₀ = 1/(2πRC)</li>
+            <li>Positive feedback through lead-lag network</li>
+            <li>Negative feedback through Rf, Re</li>
+            <li>Condition: Rf/Re = 2 for sustained oscillation</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>f₀ = 1/(2πRC), Rf = 2Re</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>5. Crystal Oscillator Q-Factor</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Crystal equivalent: L, C1, R, C0 (motional params)</li>
+            <li>Q = ωL/R = 1/(ωRC1) (very high: 10⁴-10⁶)</li>
+            <li>f₀ = 1/(2π√LC1) (series resonance)</li>
+            <li>Parallel resonance: fp = fs√(1+C1/C0)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Q = ωL/R, fs = 1/(2π√LC1)</code></p>
+        </div>
+      </div>
+
+      <!-- Numerical Problems -->
+      <div class="numerical-section">
+        <h3>NUMERICAL PROBLEMS (Solved)</h3>
+        <div class="numerical-card">
+          <h4>Problem 1: Design RC phase shift oscillator for f₀=1kHz, R=10kΩ, find C</h4>
+          <p><strong>Given:</strong> f₀ = 1/(2πRC√6) = 1000 Hz</p>
+          <p><strong>Solution:</strong> C = 1/(2π×10k×1000×2.45) = 1/(153.9×10⁶) = 6.5nF. Choose C=6.8nF standard</p>
+          <p><strong>Answer:</strong> C ≈ 6.8nF</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 2: Calculate Hartley oscillator frequency: L1=1mH, L2=1mH, C=0.01μF (no mutual coupling)</h4>
+          <p><strong>Given:</strong> L_eq = L1+L2 = 2mH</p>
+          <p><strong>Solution:</strong> f₀ = 1/(2π√(2m×0.01μ)) = 1/(2π√20n) = 1/(2π×4.47×10⁻⁵) = 3.56kHz</p>
+          <p><strong>Answer:</strong> f₀ ≈ 3.56 kHz</p>
+        </div>
+      </div>
+
+      <!-- PDF Resources -->
+      <div class="resources-section">
+        <h3>PDF RESOURCES</h3>
+        <ul>
+          <li>eee.poriyaan.in (oscillator derivations)</li>
+          <li>bestengineeringprojects.com (oscillator design)</li>
+        </ul>
+      </div>
+
     
     <!-- Quiz and Navigation -->
     <div class="nav-links">
-      <a href="chap3.html" class="btn">← Previous</a>
-      <a href="chap5.html" class="btn">Next Chapter →</a>
+      <a href="chap3.html" class="btn btn-secondary"><- Chapter 3</a>
+      <a href="chap5.html" class="btn btn-primary">Chapter 5 -></a>
     </div>
     
     <div style="text-align:center; margin:32px 0;">
-      <a href="../quiz/quiz-s2.html" class="btn btn-success">✅ TAKE QUIZ</a>
+      <a href="../quiz/quiz-s2.html" class="btn btn-primary">TAKE QUIZ</a>
     </div>
     
-    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
-      <p>Subject 2: Electronics Circuit — Chapter 4 of 5</p>
+    <footer class="footer">
+      <p>Subject 2: Electronic Circuits — Chapter 4 of 5</p>
     </footer>
   </main>
-  
+   
   <script src="../assets/js/tts.js"></script>
+  <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
   <script>
+    // Mark chapter as viewed
     markChapterViewed(2, 4);
+
+    // TTS: Play chapter text with Tanglish support
+    const ttsBtn = document.getElementById('tts-play-btn');
+    if (ttsBtn) {
+      ttsBtn.addEventListener('click', () => {
+        const content = document.getElementById('chapter-content');
+        if (content) {
+          // Auto-detect Tamil content
+          if (content.innerText.match(/[\u0B80-\u0BFF]/)) {
+            TTS.currentLang = 'ta-IN';
+            TTS.tanglishMode = true;
+          }
+          TTS.speak(content.innerText);
+        }
+      });
+    }
+
+    // Toggle notes panel
+    const notesBtn = document.getElementById('notes-btn');
+    const notesPanel = document.getElementById('notes');
+    if (notesBtn && notesPanel) {
+      notesBtn.addEventListener('click', () => {
+        notesPanel.classList.toggle('show');
+      });
+    }
+
+    // Initialize Tanglish button
+    const tanglishBtn = document.getElementById('tanglish-btn');
+    if (tanglishBtn) {
+      const isTanglish = localStorage.getItem('tanglish-mode') === 'true';
+      tanglishBtn.textContent = isTanglish ? 'Tanglish: ON' : 'Tanglish: OFF';
+      tanglishBtn.addEventListener('click', () => {
+        TTS.toggleTanglish();
+        const newState = TTS.tanglishMode;
+        tanglishBtn.textContent = newState ? 'Tanglish: ON' : 'Tanglish: OFF';
+      });
+    }
   </script>
 </body>
 </html>

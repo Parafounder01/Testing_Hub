@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 5: Testing Your Circuit - Design of Electronic Device</title>
+  <title>AMIE ECE Learner - Chapter 5: Applications & Power Circuits</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -15,93 +15,205 @@
   <main id="main-content">
     <!-- Progress Bar -->
     <section style="margin:20px 0;">
-      <p style="font-size:18px; margin-bottom:8px;">Chapter 5 of 5 — Design of Electronic Device</p>
+      <p style="font-size:18px; margin-bottom:8px;">Chapter 5 of 5 — Design of Electronic Devices & Circuits</p>
       <div class="progress-bar">
-        <div class="progress-fill" style="width:100%;"></div>
+        <div class="progress-fill" style="width:100%"></div>
       </div>
     </section>
     
-    <!-- Audio Controls -->
+    <!-- TTS Audio Controls -->
     <div class="audio-controls">
-      <button class="btn" id="listen-btn">🔊 LISTEN</button>
-      <button class="btn" id="pause-btn">⏸️ PAUSE</button>
-      <button class="btn" id="repeat-btn">🔁 REPEAT</button>
-      <button class="btn" id="notes-btn">📝 NOTES</button>
+      <button class="btn btn-primary" id="tts-play-btn" aria-label="Play chapter text">Play</button>
+      <button class="btn btn-secondary" id="tanglish-btn" aria-label="Toggle Tanglish mode">Tanglish: OFF</button>
+      <button class="btn btn-secondary" id="notes-btn" aria-label="Toggle notes panel">Notes</button>
     </div>
     
     <!-- Chapter Content -->
-    <div id="chapter-content">
-      <h1>Chapter 5: Testing Your Circuit</h1>
-      
-      <div class="chapter-section">
-        <h3>📌 WHY DO WE TEST CIRCUITS?</h3>
-        <p>Testing makes sure your circuit works correctly and safely.</p>
-        <p><strong>Simple definition:</strong> It is like checking your homework before you give it to the teacher.</p>
-        <p><strong>Real-life example:</strong> A multimeter is a tool that checks if electricity is flowing. You touch its probes to your circuit — it tells you if the circuit is good or has a problem!</p>
+      <div id="chapter-content">
+        <h1>Chapter 5: Applications & Power Circuits</h1>
+        <div class="chapter-section">
+          <p>Power circuits supply clean DC voltage. Zener diode limits voltage like a pressure relief valve. SMPS uses switches for high efficiency. Rectifiers convert AC to DC.</p>
+        </div>
       </div>
-      
-      <div class="chapter-section">
-        <h3>📌 WHY IS IT IMPORTANT?</h3>
-        <p>Testing is important because:</p>
-        <ul style="font-size:20px; line-height:1.8; padding-left:24px;">
-          <li>It finds mistakes before they cause damage</li>
-          <li>It saves money — fix now, not later</li>
-          <li>It makes sure the device is safe to use</li>
-        </ul>
-      </div>
-      
-      <div class="chapter-section">
-        <h3>📌 HOW DOES IT WORK?</h3>
-        <p>Let me explain in simple steps:</p>
-        <ul class="steps">
-          <li><strong>Step 1:</strong> Use a multimeter to check voltage</li>
-          <li><strong>Step 2:</strong> Check if electricity flows where it should</li>
-          <li><strong>Step 3:</strong> Find and fix any problems (like loose wires)</li>
-          <li><strong>Step 4:</strong> Test again — make sure it works!</li>
-        </ul>
-      </div>
-      
+
       <div class="revision-points">
-        <h3>🔁 LET'S REMEMBER:</h3>
+        <h3>LET'S REMEMBER:</h3>
         <ul>
-          <li>Testing = Checking your work</li>
-          <li>Multimeter = Tool for checking</li>
-          <li>Find mistakes early!</li>
-          <li>Test, fix, test again</li>
+          <li>Zener Regulator</li>
+          <li>SMPS Buck Converter</li>
+          <li>Rectifier Circuits</li>
+          <li>Protection Circuits</li>
         </ul>
       </div>
-      
-      <!-- Notes Panel -->
+
+      <!-- Notes Panel (with Tanglish) -->
       <div class="notes-panel" id="notes">
-        <h3>📝 SIMPLE NOTES:</h3>
+        <h3>SIMPLE NOTES (Tanglish Supported):</h3>
         <ul>
-          <li>Test before final build</li>
-          <li>Multimeter = Check tool</li>
-          <li>Find problems early</li>
-          <li>Save time and money</li>
+          <li>Zener Regulator</li>
+          <li>SMPS Buck Converter</li>
+          <li>Rectifier Circuits</li>
+          <li>Protection Circuits</li>
+          <li><strong>Tanglish:</strong> Indha Zener regulator-ula, V_out = V_Z. R_S = (V_in-V_out)/(I_L+I_Z) nu calculate pannanum. SMPS buck converter-la V_out = D×V_in. D na duty cycle. Rectifier-la AC to DC convert pannum. V_ripple = I_L/(2fC) nu formula nyabagam vechukonga. Indha power circuits romba important.</li>
         </ul>
       </div>
-    </div>
+
+      <!-- Derivation Sums -->
+      <div class="derivation-section">
+        <h3>DERIVATION SUMS (Step-by-Step)</h3>
+        <div class="derivation-card">
+          <h4>1. Zener Regulator Design</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>V_out = V_Z (Zener voltage)</li>
+            <li>I_Z(min) < I_Z < I_Z(max) for regulation</li>
+            <li>R_S = (V_in - V_Z)/(I_L + I_Z)</li>
+            <li>P_Z = V_Z × I_Z(max) (Zener power rating)</li>
+            <li>Line regulation = ΔV_out/ΔV_in</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>R_S = (V_in - V_out)/(I_L + I_Z)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>2. SMPS Buck Converter</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>V_out = D×V_in (duty cycle D)</li>
+            <li>D = t_on/T (switch on time/total period)</li>
+            <li>ΔI_L = (V_in-V_out)×D×T/L</li>
+            <li>Output ripple: ΔV_out ≈ ΔI_L×ESR</li>
+            <li>Efficiency η > 85% (much better than linear)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>V_out = D×V_in, D = t_on/T</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>3. Rectifier Ripple Voltage</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Full-wave bridge: V_ripple = I_L/(2fC)</li>
+            <li>Half-wave: V_ripple = I_L/(fC)</li>
+            <li>V_DC ≈ V_peak - V_ripple/2</li>
+            <li>Capacitor stores energy between peaks</li>
+            <li>Larger C → smaller ripple</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>V_ripple = I_L/(2fC) [full-wave], I_L/(fC) [half-wave]</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>4. Regulator Efficiency</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>η = P_out/P_in = (V_out×I_L)/(V_in×I_in)</li>
+            <li>Linear regulator: η = V_out/V_in (low, ~50%)</li>
+            <li>SMPS: η > 85% (high efficiency)</li>
+            <li>Power dissipation: P_D = (V_in-V_out)×I_L</li>
+            <li>Heat sink needed for large P_D</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>η = V_out/V_in [linear], >85% [SMPS]</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>5. Current Limiting (Protection)</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Sense resistor: V_sense = I_L×R_sense</li>
+            <li>When V_sense > V_BE: transistor turns on</li>
+            <li>Limits I_L(max) = V_BE/R_sense</li>
+            <li>Typical V_BE = 0.7V for silicon</li>
+            <li>Protects regulator from overcurrent</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>I_L(max) = V_BE/R_sense</code></p>
+        </div>
+      </div>
+
+      <!-- Numerical Problems -->
+      <div class="numerical-section">
+        <h3>NUMERICAL PROBLEMS (Solved)</h3>
+        <div class="numerical-card">
+          <h4>Problem 1: Design Zener regulator: V_out=5V, I_L=50mA, V_in=12V → find R_S, P_Z</h4>
+          <p><strong>Given:</strong> Choose I_Z = 10mA. R_S = (12-5)/(50m+10m) = 7/0.06 = 116.7Ω. Choose 120Ω standard. P_Z(max) = 5V×10mA = 50mW. Choose 0.5W Zener for safety</p>
+          <p><strong>Solution:</strong> R_S = 120Ω, P_Z = 0.5W Zener</p>
+          <p><strong>Answer:</strong> R_S≈120Ω, P_Z=0.5W</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 2: Calculate buck converter: V_in=24V, V_out=12V → find D</h4>
+          <p><strong>Given:</strong> V_out = D×V_in</p>
+          <p><strong>Solution:</strong> D = V_out/V_in = 12/24 = 0.5 = 50% duty cycle</p>
+          <p><strong>Answer:</strong> D = 0.5 (50%)</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 3: Design bridge rectifier: V_out=12V DC, I_L=1A → find C for V_ripple<0.1V</h4>
+          <p><strong>Given:</strong> Full-wave: V_ripple = I_L/(2fC), f=50Hz</p>
+          <p><strong>Solution:</strong> C = I_L/(2f×V_ripple) = 1/(2×50×0.1) = 1/10 = 0.1F = 100,000μF. Choose 100,000μF capacitor</p>
+          <p><strong>Answer:</strong> C = 100,000μF</p>
+        </div>
+      </div>
+
+      <!-- PDF Resources -->
+      <div class="resources-section">
+        <h3>PDF RESOURCES</h3>
+        <ul>
+          <li>blog.amiestudycircle.com</li>
+          <li>vaia.com (Microelectronics circuit analysis)</li>
+        </ul>
+      </div>
+
     
     <!-- Quiz and Navigation -->
     <div class="nav-links">
-      <a href="chap4.html" class="btn">← Previous</a>
-      <a href="../index.html" class="btn">Back to Home →</a>
+      <a href="chap4.html" class="btn btn-secondary"><- Chapter 4</a>
+      <a href="../index.html" class="btn btn-primary">Back to Home -></a>
     </div>
     
     <div style="text-align:center; margin:32px 0;">
-      <a href="../quiz/quiz-s3.html" class="btn btn-success">✅ TAKE QUIZ</a>
+      <a href="../quiz/quiz-s3.html" class="btn btn-primary">TAKE QUIZ</a>
     </div>
     
-    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
-      <p>Subject 3: Design of Electronic Device — Chapter 5 of 5 (Completed!)</p>
+    <footer class="footer">
+      <p>Subject 3: Design of Electronic Devices & Circuits — Chapter 5 of 5</p>
     </footer>
   </main>
-  
+   
   <script src="../assets/js/tts.js"></script>
+  <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
   <script>
+    // Mark chapter as viewed
     markChapterViewed(3, 5);
+
+    // TTS: Play chapter text with Tanglish support
+    const ttsBtn = document.getElementById('tts-play-btn');
+    if (ttsBtn) {
+      ttsBtn.addEventListener('click', () => {
+        const content = document.getElementById('chapter-content');
+        if (content) {
+          // Auto-detect Tamil content
+          if (content.innerText.match(/[\u0B80-\u0BFF]/)) {
+            TTS.currentLang = 'ta-IN';
+            TTS.tanglishMode = true;
+          }
+          TTS.speak(content.innerText);
+        }
+      });
+    }
+
+    // Toggle notes panel
+    const notesBtn = document.getElementById('notes-btn');
+    const notesPanel = document.getElementById('notes');
+    if (notesBtn && notesPanel) {
+      notesBtn.addEventListener('click', () => {
+        notesPanel.classList.toggle('show');
+      });
+    }
+
+    // Initialize Tanglish button
+    const tanglishBtn = document.getElementById('tanglish-btn');
+    if (tanglishBtn) {
+      const isTanglish = localStorage.getItem('tanglish-mode') === 'true';
+      tanglishBtn.textContent = isTanglish ? 'Tanglish: ON' : 'Tanglish: OFF';
+      tanglishBtn.addEventListener('click', () => {
+        TTS.toggleTanglish();
+        const newState = TTS.tanglishMode;
+        tanglishBtn.textContent = newState ? 'Tanglish: ON' : 'Tanglish: OFF';
+      });
+    }
   </script>
 </body>
 </html>

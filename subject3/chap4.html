@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 4: PCB Design Basics - Design of Electronic Device</title>
+  <title>AMIE ECE Learner - Chapter 4: Pulse & Wave-Shaping Circuits</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -15,93 +15,197 @@
   <main id="main-content">
     <!-- Progress Bar -->
     <section style="margin:20px 0;">
-      <p style="font-size:18px; margin-bottom:8px;">Chapter 4 of 5 — Design of Electronic Device</p>
+      <p style="font-size:18px; margin-bottom:8px;">Chapter 4 of 5 — Design of Electronic Devices & Circuits</p>
       <div class="progress-bar">
-        <div class="progress-fill" style="width:80%;"></div>
+        <div class="progress-fill" style="width:80%"></div>
       </div>
     </section>
     
-    <!-- Audio Controls -->
+    <!-- TTS Audio Controls -->
     <div class="audio-controls">
-      <button class="btn" id="listen-btn">🔊 LISTEN</button>
-      <button class="btn" id="pause-btn">⏸️ PAUSE</button>
-      <button class="btn" id="repeat-btn">🔁 REPEAT</button>
-      <button class="btn" id="notes-btn">📝 NOTES</button>
+      <button class="btn btn-primary" id="tts-play-btn" aria-label="Play chapter text">Play</button>
+      <button class="btn btn-secondary" id="tanglish-btn" aria-label="Toggle Tanglish mode">Tanglish: OFF</button>
+      <button class="btn btn-secondary" id="notes-btn" aria-label="Toggle notes panel">Notes</button>
     </div>
     
     <!-- Chapter Content -->
-    <div id="chapter-content">
-      <h1>Chapter 4: PCB Design Basics</h1>
-      
-      <div class="chapter-section">
-        <h3>📌 WHAT IS A PCB?</h3>
-        <p>PCB means Printed Circuit Board. It is a board with copper lines that connect electronic parts.</p>
-        <p><strong>Simple definition:</strong> It is like a road map made of copper for electricity to travel.</p>
-        <p><strong>Real-life example:</strong> Look at the inside of a broken toy or old phone. You will see a green board with shiny lines and parts soldered on it. That is a PCB!</p>
+      <div id="chapter-content">
+        <h1>Chapter 4: Pulse & Wave-Shaping Circuits</h1>
+        <div class="chapter-section">
+          <p>Pulse circuits shape voltage waveforms. 555 timer is like a kitchen timer that beeps periodically. Clipper cuts off voltage above/below limit. Schmitt trigger has two thresholds to avoid flicker.</p>
+        </div>
       </div>
-      
-      <div class="chapter-section">
-        <h3>📌 WHY IS IT IMPORTANT?</h3>
-        <p>PCB design is important because:</p>
-        <ul style="font-size:20px; line-height:1.8; padding-left:24px;">
-          <li>It makes circuits small and neat</li>
-          <li>You can make many copies easily</li>
-          <li>It is strong and lasts a long time</li>
-        </ul>
-      </div>
-      
-      <div class="chapter-section">
-        <h3>📌 HOW DOES IT WORK?</h3>
-        <p>Let me explain in simple steps:</p>
-        <ul class="steps">
-          <li><strong>Step 1:</strong> Draw your circuit on a computer (schematic)</li>
-          <li><strong>Step 2:</strong> The computer turns it into a PCB layout</li>
-          <li><strong>Step 3:</strong> Copper lines are printed on a board</li>
-          <li><strong>Step 4:</strong> Parts are soldered onto the board!</li>
-        </ul>
-      </div>
-      
+
       <div class="revision-points">
-        <h3>🔁 LET'S REMEMBER:</h3>
+        <h3>LET'S REMEMBER:</h3>
         <ul>
-          <li>PCB = Printed Circuit Board</li>
-          <li>Copper lines like roads for electricity</li>
-          <li>Green board with shiny lines</li>
-          <li>Computer helps design it</li>
+          <li>555 Timer (Astable/Monostable)</li>
+          <li>Clippers & Clampers</li>
+          <li>Schmitt Trigger</li>
+          <li>Multivibrators</li>
         </ul>
       </div>
-      
-      <!-- Notes Panel -->
+
+      <!-- Notes Panel (with Tanglish) -->
       <div class="notes-panel" id="notes">
-        <h3>📝 SIMPLE NOTES:</h3>
+        <h3>SIMPLE NOTES (Tanglish Supported):</h3>
         <ul>
-          <li>PCB = Circuit board</li>
-          <li>Copper lines = Roads</li>
-          <li>Green board (usually)</li>
-          <li>Solder parts on top</li>
+          <li>555 Timer (Astable/Monostable)</li>
+          <li>Clippers & Clampers</li>
+          <li>Schmitt Trigger</li>
+          <li>Multivibrators</li>
+          <li><strong>Tanglish:</strong> Indha 555 timer romba famous. Astable mode-la oscillator madiri work pannum. f = 1.44/((R₁+2R₂)C) nu nyabagam vechukonga. Monostable-la one-shot pulse tharum. T = 1.1RC. Clipper-ula voltage-a limit pannum, Schmitt trigger-la hysteresis irukum.</li>
         </ul>
       </div>
-    </div>
+
+      <!-- Derivation Sums -->
+      <div class="derivation-section">
+        <h3>DERIVATION SUMS (Step-by-Step)</h3>
+        <div class="derivation-card">
+          <h4>1. 555 Astable Frequency</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>f = 1.44/((R₁+2R₂)C) for 50% duty cycle</li>
+            <li>t_high = 0.693(R₁+R₂)C</li>
+            <li>t_low = 0.693R₂C</li>
+            <li>Duty cycle = (R₁+R₂)/(R₁+2R₂)</li>
+            <li>For 50%: R₁ << R₂</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>f = 1.44/((R₁+2R₂)C)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>2. 555 Monostable Pulse Width</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>T = 1.1×R×C (one-shot pulse)</li>
+            <li>Trigger pulse < T (shorter than output)</li>
+            <li>Pulse width independent of trigger width</li>
+            <li>Retriggerable: trigger during pulse extends T</li>
+            <li>Non-retriggerable: ignores subsequent triggers</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>T = 1.1RC</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>3. RC Time Constant</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>τ = RC (charges to 63.2% in time τ)</li>
+            <li>V_c(t) = V_cc(1-e^(-t/τ)) for charging</li>
+            <li>V_c(t) = V_0e^(-t/τ) for discharging</li>
+            <li>After 5τ: capacitor ≈ fully charged/discharged</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>τ = RC, V_c(t) = V_cc(1-e^(-t/τ))</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>4. Clipping Level (Diode Clipper)</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>V_out = V_in for V_in < V_clip</li>
+            <li>V_out = V_clip for V_in ≥ V_clip (positive clipper)</li>
+            <li>With Zener: V_clip = V_Z (reverse breakdown)</li>
+            <li>Bidirectional: two Zeners back-to-back</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>V_out = min(V_in, V_clip)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>5. Schmitt Trigger Thresholds</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>V_T+ = βV_cc (upper threshold)</li>
+            <li>V_T- = β'V_cc (lower threshold)</li>
+            <li>β = R₁/(R₁+R₂) (voltage divider)</li>
+            <li>Hysteresis = V_T+ - V_T-</li>
+            <li>Noise immunity ∝ hysteresis width</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>V_T+ = (R₁/(R₁+R₂))V_cc</code></p>
+        </div>
+      </div>
+
+      <!-- Numerical Problems -->
+      <div class="numerical-section">
+        <h3>NUMERICAL PROBLEMS (Solved)</h3>
+        <div class="numerical-card">
+          <h4>Problem 1: Design 555 astable: f=1kHz, duty cycle=60% → find R₁, R₂, C</h4>
+          <p><strong>Given:</strong> f = 1.44/((R₁+2R₂)C), duty = (R₁+R₂)/(R₁+2R₂) = 0.6</p>
+          <p><strong>Solution:</strong> Choose C=0.1μF. R₁+2R₂ = 1.44/(1000×0.1μ) = 14.4kΩ. R₁+R₂ = 0.6×14.4k = 8.64kΩ. Solve: R₂ = 14.4k-8.64k = 5.76kΩ, R₁ = 8.64k-5.76k = 2.88kΩ. Choose R₁=2.7k, R₂=5.6k standard values</p>
+          <p><strong>Answer:</strong> R₁≈2.7kΩ, R₂≈5.6kΩ, C=0.1μF</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 2: Calculate monostable pulse: R=10kΩ, C=0.1μF</h4>
+          <p><strong>Given:</strong> T = 1.1RC</p>
+          <p><strong>Solution:</strong> T = 1.1×10k×0.1μ = 1.1×10⁴×10⁻⁷ = 1.1×10⁻³ = 1.1ms</p>
+          <p><strong>Answer:</strong> T = 1.1ms</p>
+        </div>
+      </div>
+
+      <!-- PDF Resources -->
+      <div class="resources-section">
+        <h3>PDF RESOURCES</h3>
+        <ul>
+          <li>blog.amiestudycircle.com</li>
+          <li>inspirenignite.com (wave-shaping circuits)</li>
+        </ul>
+      </div>
+
     
     <!-- Quiz and Navigation -->
     <div class="nav-links">
-      <a href="chap3.html" class="btn">← Previous</a>
-      <a href="chap5.html" class="btn">Next Chapter →</a>
+      <a href="chap3.html" class="btn btn-secondary"><- Chapter 3</a>
+      <a href="chap5.html" class="btn btn-primary">Chapter 5 -></a>
     </div>
     
     <div style="text-align:center; margin:32px 0;">
-      <a href="../quiz/quiz-s3.html" class="btn btn-success">✅ TAKE QUIZ</a>
+      <a href="../quiz/quiz-s3.html" class="btn btn-primary">TAKE QUIZ</a>
     </div>
     
-    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
-      <p>Subject 3: Design of Electronic Device — Chapter 4 of 5</p>
+    <footer class="footer">
+      <p>Subject 3: Design of Electronic Devices & Circuits — Chapter 4 of 5</p>
     </footer>
   </main>
-  
+   
   <script src="../assets/js/tts.js"></script>
+  <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
   <script>
+    // Mark chapter as viewed
     markChapterViewed(3, 4);
+
+    // TTS: Play chapter text with Tanglish support
+    const ttsBtn = document.getElementById('tts-play-btn');
+    if (ttsBtn) {
+      ttsBtn.addEventListener('click', () => {
+        const content = document.getElementById('chapter-content');
+        if (content) {
+          // Auto-detect Tamil content
+          if (content.innerText.match(/[\u0B80-\u0BFF]/)) {
+            TTS.currentLang = 'ta-IN';
+            TTS.tanglishMode = true;
+          }
+          TTS.speak(content.innerText);
+        }
+      });
+    }
+
+    // Toggle notes panel
+    const notesBtn = document.getElementById('notes-btn');
+    const notesPanel = document.getElementById('notes');
+    if (notesBtn && notesPanel) {
+      notesBtn.addEventListener('click', () => {
+        notesPanel.classList.toggle('show');
+      });
+    }
+
+    // Initialize Tanglish button
+    const tanglishBtn = document.getElementById('tanglish-btn');
+    if (tanglishBtn) {
+      const isTanglish = localStorage.getItem('tanglish-mode') === 'true';
+      tanglishBtn.textContent = isTanglish ? 'Tanglish: ON' : 'Tanglish: OFF';
+      tanglishBtn.addEventListener('click', () => {
+        TTS.toggleTanglish();
+        const newState = TTS.tanglishMode;
+        tanglishBtn.textContent = newState ? 'Tanglish: ON' : 'Tanglish: OFF';
+      });
+    }
   </script>
 </body>
 </html>

@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 3: Simple Circuits - Electronics Circuit</title>
+  <title>AMIE ECE Learner - Chapter 3: Feedback Amplifiers</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -15,94 +15,194 @@
   <main id="main-content">
     <!-- Progress Bar -->
     <section style="margin:20px 0;">
-      <p style="font-size:18px; margin-bottom:8px;">Chapter 3 of 5 — Electronics Circuit</p>
+      <p style="font-size:18px; margin-bottom:8px;">Chapter 3 of 5 — Electronic Circuits</p>
       <div class="progress-bar">
-        <div class="progress-fill" style="width:60%;"></div>
+        <div class="progress-fill" style="width:60%"></div>
       </div>
     </section>
     
-    <!-- Audio Controls -->
+    <!-- TTS Audio Controls -->
     <div class="audio-controls">
-      <button class="btn" id="listen-btn">🔊 LISTEN</button>
-      <button class="btn" id="pause-btn">⏸️ PAUSE</button>
-      <button class="btn" id="repeat-btn">🔁 REPEAT</button>
-      <button class="btn" id="notes-btn">📝 NOTES</button>
+      <button class="btn btn-primary" id="tts-play-btn" aria-label="Play chapter text">Play</button>
+      <button class="btn btn-secondary" id="tanglish-btn" aria-label="Toggle Tanglish mode">Tanglish: OFF</button>
+      <button class="btn btn-secondary" id="notes-btn" aria-label="Toggle notes panel">Notes</button>
     </div>
     
     <!-- Chapter Content -->
-    <div id="chapter-content">
-      <h1>Chapter 3: Simple Circuits</h1>
-      
-      <div class="chapter-section">
-        <h3>📌 WHAT IS A SIMPLE CIRCUIT?</h3>
-        <p>A simple circuit is a circle of electricity that makes a device work.</p>
-        <p><strong>Simple definition:</strong> It is a loop that electricity travels around.</p>
-        <p><strong>Real-life example:</strong> An LED light with a battery and a switch. When you turn the switch ON, electricity goes from battery → LED → back to battery. The LED lights up!</p>
+      <div id="chapter-content">
+        <h1>Chapter 3: Feedback Amplifiers</h1>
+        <div class="chapter-section">
+          <p>Feedback means taking some output and feeding it back to input. Negative feedback reduces gain but improves stability, bandwidth, and reduces distortion.</p>
+        </div>
       </div>
-      
-      <div class="chapter-section">
-        <h3>📌 WHY IS IT IMPORTANT?</h3>
-        <p>Simple circuits are important because:</p>
-        <ul style="font-size:20px; line-height:1.8; padding-left:24px;">
-          <li>It is the start of all electronics</li>
-          <li>Every device has a circuit inside it</li>
-          <li>You can build one with just a battery and LED!</li>
-        </ul>
-      </div>
-      
-      <div class="chapter-section">
-        <h3>📌 HOW DOES IT WORK?</h3>
-        <p>Let me explain in simple steps:</p>
-        <ul class="steps">
-          <li><strong>Step 1:</strong> Connect a battery to a switch</li>
-          <li><strong>Step 2:</strong> Connect the switch to an LED light</li>
-          <li><strong>Step 3:</strong> Connect the LED back to the battery</li>
-          <li><strong>Step 4:</strong> Turn ON the switch — the circle is complete!</li>
-          <li><strong>Step 5:</strong> Electricity flows and LED lights up!</li>
-        </ul>
-      </div>
-      
+
       <div class="revision-points">
-        <h3>🔁 LET'S REMEMBER:</h3>
+        <h3>LET'S REMEMBER:</h3>
         <ul>
-          <li>Circuit = Circle of electricity</li>
-          <li>Battery → Switch → LED → Battery</li>
-          <li>Complete circle = Light turns ON</li>
-          <li>Break the circle = Light turns OFF</li>
+          <li>Negative Feedback</li>
+          <li>Gain with Feedback Af</li>
+          <li>Input/Output Impedance with Feedback</li>
+          <li>Barkhausen Criterion</li>
         </ul>
       </div>
-      
-      <!-- Notes Panel -->
+
+      <!-- Notes Panel (with Tanglish) -->
       <div class="notes-panel" id="notes">
-        <h3>📝 SIMPLE NOTES:</h3>
+        <h3>SIMPLE NOTES (Tanglish Supported):</h3>
         <ul>
-          <li>Circuit = Loop</li>
-          <li>Battery gives power</li>
-          <li>LED lights up</li>
-          <li>Circle must be complete</li>
+          <li>Negative Feedback</li>
+          <li>Gain with Feedback Af</li>
+          <li>Input/Output Impedance with Feedback</li>
+          <li>Barkhausen Criterion</li>
+          <li><strong>Tanglish:</strong> Feedback-ula, output-ai eduthu input-ku kudukkrom. Negative feedback-na gain kammi aagum, aana stable aagum. Af = A/(1+Aβ) nu formula. Barkhausen criterion: |Aβ|=1 and phase=180° na oscillation aagum.</li>
         </ul>
       </div>
-    </div>
+
+      <!-- Derivation Sums -->
+      <div class="derivation-section">
+        <h3>DERIVATION SUMS (Step-by-Step)</h3>
+        <div class="derivation-card">
+          <h4>1. Gain with Feedback Af</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Af = Vo/Vs = A/(1 + Aβ)</li>
+            <li>A = open-loop gain, β = feedback factor</li>
+            <li>If Aβ >> 1: Af ≈ 1/β (desensitized)</li>
+            <li>Desensitivity D = 1/(1+Aβ)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Af = A/(1 + Aβ)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>2. Input Impedance with Feedback</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Series feedback (voltage-series): Zif = Zi×(1+Aβ)</li>
+            <li>Shunt feedback (current-shunt): Zif = Zi/(1+Aβ)</li>
+            <li>For voltage-series: input Z increases with feedback</li>
+            <li>For current-shunt: input Z decreases with feedback</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Zif = Zi(1+Aβ) for series, Zif = Zi/(1+Aβ) for shunt</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>3. Output Impedance with Feedback</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Voltage feedback (series-shunt): Zof = Zo/(1+Aβ)</li>
+            <li>Current feedback (shunt-series): Zof = Zo×(1+Aβ)</li>
+            <li>For voltage-series: output Z decreases (better regulation)</li>
+            <li>For current-shunt: output Z increases</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Zof = Zo/(1+Aβ) for voltage, Zof = Zo(1+Aβ) for current</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>4. Barkhausen Criterion for Oscillation</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>For oscillation: Aβ = -1 (magnitude 1, phase 180°)</li>
+            <li>|Aβ| = 1 and ∠Aβ = 180° (or 360° total)</li>
+            <li>Practical: |Aβ| > 1 at ∠Aβ = 180°</li>
+            <li>Phase shift oscillator: 3 RC stages × 60° each = 180°</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Aβ = -1 for oscillation (|Aβ|=1, ∠Aβ=180°)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>5. Desensitivity D</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>D = (dA/A)/(dAf/Af) = 1/(1+Aβ)</li>
+            <li>Larger Aβ = less gain variation with temperature</li>
+            <li>Example: β=0.1, A=100 → D=1/(1+10)=0.0909</li>
+            <li>Gain variation reduced by factor D</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>D = 1/(1+Aβ)</code></p>
+        </div>
+      </div>
+
+      <!-- Numerical Problems -->
+      <div class="numerical-section">
+        <h3>NUMERICAL PROBLEMS (Solved)</h3>
+        <div class="numerical-card">
+          <h4>Problem 1: Calculate Af, Rif, Rof for voltage-series feedback: A=-100, β=0.1, Ri=1k, Ro=5k</h4>
+          <p><strong>Given:</strong> Aβ = -100×0.1 = -10</p>
+          <p><strong>Solution:</strong> Af = -100/(1-10) = -100/-9 = 11.11. Rif = 1k×(1+10) = 11kΩ. Rof = 5k/|1-10| = 5k/9 = 555.6Ω</p>
+          <p><strong>Answer:</strong> Af=11.11, Rif=11kΩ, Rof=555.6Ω</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 2: Find phase shift at f=10kHz for RC phase shift oscillator (3 stages)</h4>
+          <p><strong>Given:</strong> Each RC stage: φ = -arctan(2πfRC), R=10k, C=0.01μF</p>
+          <p><strong>Solution:</strong> f₀=1/(2πRC√6) = 1/(2π×10k×0.01μ×2.45) = 650Hz. At 10kHz: φ per stage ≈ -arctan(10k/650) ≈ -86.3°. 3 stages = -258.9° ≈ -180° (oscillates)</p>
+          <p><strong>Answer:</strong> Each stage ≈ -86.3°, Total ≈ -258.9° ≈ -180° (oscillates)</p>
+        </div>
+      </div>
+
+      <!-- PDF Resources -->
+      <div class="resources-section">
+        <h3>PDF RESOURCES</h3>
+        <ul>
+          <li>eee.poriyaan.in (feedback amplifiers)</li>
+          <li>edurev.in (h-parameter analysis)</li>
+        </ul>
+      </div>
+
     
     <!-- Quiz and Navigation -->
     <div class="nav-links">
-      <a href="chap2.html" class="btn">← Previous</a>
-      <a href="chap4.html" class="btn">Next Chapter →</a>
+      <a href="chap2.html" class="btn btn-secondary"><- Chapter 2</a>
+      <a href="chap4.html" class="btn btn-primary">Chapter 4 -></a>
     </div>
     
     <div style="text-align:center; margin:32px 0;">
-      <a href="../quiz/quiz-s2.html" class="btn btn-success">✅ TAKE QUIZ</a>
+      <a href="../quiz/quiz-s2.html" class="btn btn-primary">TAKE QUIZ</a>
     </div>
     
-    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
-      <p>Subject 2: Electronics Circuit — Chapter 3 of 5</p>
+    <footer class="footer">
+      <p>Subject 2: Electronic Circuits — Chapter 3 of 5</p>
     </footer>
   </main>
-  
+   
   <script src="../assets/js/tts.js"></script>
+  <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
   <script>
+    // Mark chapter as viewed
     markChapterViewed(2, 3);
+
+    // TTS: Play chapter text with Tanglish support
+    const ttsBtn = document.getElementById('tts-play-btn');
+    if (ttsBtn) {
+      ttsBtn.addEventListener('click', () => {
+        const content = document.getElementById('chapter-content');
+        if (content) {
+          // Auto-detect Tamil content
+          if (content.innerText.match(/[\u0B80-\u0BFF]/)) {
+            TTS.currentLang = 'ta-IN';
+            TTS.tanglishMode = true;
+          }
+          TTS.speak(content.innerText);
+        }
+      });
+    }
+
+    // Toggle notes panel
+    const notesBtn = document.getElementById('notes-btn');
+    const notesPanel = document.getElementById('notes');
+    if (notesBtn && notesPanel) {
+      notesBtn.addEventListener('click', () => {
+        notesPanel.classList.toggle('show');
+      });
+    }
+
+    // Initialize Tanglish button
+    const tanglishBtn = document.getElementById('tanglish-btn');
+    if (tanglishBtn) {
+      const isTanglish = localStorage.getItem('tanglish-mode') === 'true';
+      tanglishBtn.textContent = isTanglish ? 'Tanglish: ON' : 'Tanglish: OFF';
+      tanglishBtn.addEventListener('click', () => {
+        TTS.toggleTanglish();
+        const newState = TTS.tanglishMode;
+        tanglishBtn.textContent = newState ? 'Tanglish: ON' : 'Tanglish: OFF';
+      });
+    }
   </script>
 </body>
 </html>

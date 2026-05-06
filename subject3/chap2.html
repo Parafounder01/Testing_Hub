@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 2: Breadboard Basics - Design of Electronic Device</title>
+  <title>AMIE ECE Learner - Chapter 2: Digital Circuits & Logic Design</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -15,93 +15,199 @@
   <main id="main-content">
     <!-- Progress Bar -->
     <section style="margin:20px 0;">
-      <p style="font-size:18px; margin-bottom:8px;">Chapter 2 of 5 — Design of Electronic Device</p>
+      <p style="font-size:18px; margin-bottom:8px;">Chapter 2 of 5 — Design of Electronic Devices & Circuits</p>
       <div class="progress-bar">
-        <div class="progress-fill" style="width:40%;"></div>
+        <div class="progress-fill" style="width:40%"></div>
       </div>
     </section>
     
-    <!-- Audio Controls -->
+    <!-- TTS Audio Controls -->
     <div class="audio-controls">
-      <button class="btn" id="listen-btn">🔊 LISTEN</button>
-      <button class="btn" id="pause-btn">⏸️ PAUSE</button>
-      <button class="btn" id="repeat-btn">🔁 REPEAT</button>
-      <button class="btn" id="notes-btn">📝 NOTES</button>
+      <button class="btn btn-primary" id="tts-play-btn" aria-label="Play chapter text">Play</button>
+      <button class="btn btn-secondary" id="tanglish-btn" aria-label="Toggle Tanglish mode">Tanglish: OFF</button>
+      <button class="btn btn-secondary" id="notes-btn" aria-label="Toggle notes panel">Notes</button>
     </div>
     
     <!-- Chapter Content -->
-    <div id="chapter-content">
-      <h1>Chapter 2: Breadboard Basics</h1>
-      
-      <div class="chapter-section">
-        <h3>📌 WHAT IS A BREADBOARD?</h3>
-        <p>A breadboard is a board with holes where you can plug electronic parts without soldering.</p>
-        <p><strong>Simple definition:</strong> It is like a LEGO base plate — you can build and remove parts easily.</p>
-        <p><strong>Real-life example:</strong> When you want to test a circuit, you plug parts into a breadboard. If it doesn't work, you unplug and try again. No glue, no soldering!</p>
+      <div id="chapter-content">
+        <h1>Chapter 2: Digital Circuits & Logic Design</h1>
+        <div class="chapter-section">
+          <p>Digital circuits use 0s and 1s. Boolean algebra is math with YES/NO. Karnaugh map is a picture puzzle to simplify logic. Flip-flops are switches with memory.</p>
+        </div>
       </div>
-      
-      <div class="chapter-section">
-        <h3>📌 WHY IS IT IMPORTANT?</h3>
-        <p>Breadboards are important because:</p>
-        <ul style="font-size:20px; line-height:1.8; padding-left:24px;">
-          <li>You can test circuits without soldering</li>
-          <li>You can change the design quickly</li>
-          <li>It saves money — reuse the same board!</li>
-        </ul>
-      </div>
-      
-      <div class="chapter-section">
-        <h3>📌 HOW DOES IT WORK?</h3>
-        <p>Let me explain in simple steps:</p>
-        <ul class="steps">
-          <li><strong>Step 1:</strong> Breadboard has rows of holes connected inside</li>
-          <li><strong>Step 2:</strong> Put electronic parts into the holes</li>
-          <li><strong>Step 3:</strong> The inside connections join the parts together</li>
-          <li><strong>Step 4:</strong> Add battery and your circuit works!</li>
-        </ul>
-      </div>
-      
+
       <div class="revision-points">
-        <h3>🔁 LET'S REMEMBER:</h3>
+        <h3>LET'S REMEMBER:</h3>
         <ul>
-          <li>Breadboard = Test board (no solder)</li>
-          <li>Like LEGO — build and remove</li>
-          <li>Rows are connected inside</li>
-          <li>Test before you build final!</li>
+          <li>Boolean Algebra Laws</li>
+          <li>Karnaugh Map Simplification</li>
+          <li>Flip-Flops (D, JK, SR)</li>
+          <li>Counters & Registers</li>
         </ul>
       </div>
-      
-      <!-- Notes Panel -->
+
+      <!-- Notes Panel (with Tanglish) -->
       <div class="notes-panel" id="notes">
-        <h3>📝 SIMPLE NOTES:</h3>
+        <h3>SIMPLE NOTES (Tanglish Supported):</h3>
         <ul>
-          <li>Breadboard = No solder</li>
-          <li>Like LEGO base plate</li>
-          <li>Test circuits easily</li>
-          <li>Change design fast</li>
+          <li>Boolean Algebra Laws</li>
+          <li>Karnaugh Map Simplification</li>
+          <li>Flip-Flops (D, JK, SR)</li>
+          <li>Counters & Registers</li>
+          <li><strong>Tanglish:</strong> Indha Boolean algebra laws romba useful. De Morgan's law: (A+B)' = A'·B'. K-map use pannitu logic simplify pannalam. Flip-flop-la D, JK, SR, T types irukum. Counter modulus M = 2ⁿ. Setup time, hold time-um timing constraints.</li>
         </ul>
       </div>
-    </div>
+
+      <!-- Derivation Sums -->
+      <div class="derivation-section">
+        <h3>DERIVATION SUMS (Step-by-Step)</h3>
+        <div class="derivation-card">
+          <h4>1. Boolean Algebra Laws</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Commutative: A+B = B+A, A·B = B·A</li>
+            <li>Associative: (A+B)+C = A+(B+C)</li>
+            <li>Distributive: A+(B·C) = (A+B)·(A+C)</li>
+            <li>De Morgan: (A+B)' = A'·B', (A·B)' = A'+B'</li>
+            <li>Absorption: A+(A·B) = A, A·(A+B) = A</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>De Morgan: (A+B)' = A'·B'</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>2. Karnaugh Map Simplification</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>F = Σ(0,2,4,6) for 3-variable K-map</li>
+            <li>Group adjacent 1s in powers of 2</li>
+            <li>Group 1: m0+m2 = A'B'C'+A'BC' = A'C'</li>
+            <li>Group 2: m4+m6 = AB'C'+ABC' = BC'</li>
+            <li>F = A'C' + BC' = C'(A'+B)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>F = Σ(minterms) → group → simplified expression</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>3. Flip-Flop Characteristic Equations</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>D-FF: Q⁺ = D (next state = D input)</li>
+            <li>JK-FF: Q⁺ = JQ' + K'Q</li>
+            <li>SR-FF: Q⁺ = S + R'Q (with SR=0 constraint)</li>
+            <li>T-FF: Q⁺ = T⊕Q = TQ' + T'Q</li>
+            <li>Clocked: changes only on clock edge</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>JK-FF: Q⁺ = JQ' + K'Q</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>4. Counter Modulus</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>n-bit counter: modulus M = 2ⁿ</li>
+            <li>MOD-16 counter: n=4, M=16 states</li>
+            <li>Frequency division: f_out = f_clk/2ⁿ</li>
+            <li>Decade counter: M=10 (uses 4 bits)</li>
+            <li>Design: connect Q to reset when count=9</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>M = 2ⁿ for n-bit counter</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>5. Setup & Hold Time</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>t_setup: data must be stable BEFORE clock edge</li>
+            <li>t_hold: data must be stable AFTER clock edge</li>
+            <li>Clock period: T_clk > t_cq(max) + t_setup + t_logic</li>
+            <li>Max frequency: f_max = 1/T_clk</li>
+            <li>Violation → metastability</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>T_clk > t_cq(max) + t_logic + t_setup</code></p>
+        </div>
+      </div>
+
+      <!-- Numerical Problems -->
+      <div class="numerical-section">
+        <h3>NUMERICAL PROBLEMS (Solved)</h3>
+        <div class="numerical-card">
+          <h4>Problem 1: Simplify Boolean: F = AB + AB' + A'B using Boolean algebra</h4>
+          <p><strong>Given:</strong> Use Boolean laws</p>
+          <p><strong>Solution:</strong> F = A(B+B') + A'B = A·1 + A'B = A + A'B = A + B (by consensus)</p>
+          <p><strong>Answer:</strong> F = A + B</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 2: Design 3-bit counter using JK-FF (draw circuit, timing)</h4>
+          <p><strong>Given:</strong> MOD-8 counter: count 0 to 7</p>
+          <p><strong>Solution:</strong> Connect J=K=1 for all 3 FF. Q0 toggles every clock. Q1 toggles on Q0' edge. Q2 toggles on Q1' edge. Timing: 000→001→010→011→100→101→110→111→000</p>
+          <p><strong>Answer:</strong> 3-bit ripple counter, J=K=1 for all</p>
+        </div>
+      </div>
+
+      <!-- PDF Resources -->
+      <div class="resources-section">
+        <h3>PDF RESOURCES</h3>
+        <ul>
+          <li>blog.amiestudycircle.com</li>
+          <li>jit.ac.in (Analog Integrated Circuits Ch 9)</li>
+        </ul>
+      </div>
+
     
     <!-- Quiz and Navigation -->
     <div class="nav-links">
-      <a href="chap1.html" class="btn">← Previous</a>
-      <a href="chap3.html" class="btn">Next Chapter →</a>
+      <a href="chap1.html" class="btn btn-secondary"><- Chapter 1</a>
+      <a href="chap3.html" class="btn btn-primary">Chapter 3 -></a>
     </div>
     
     <div style="text-align:center; margin:32px 0;">
-      <a href="../quiz/quiz-s3.html" class="btn btn-success">✅ TAKE QUIZ</a>
+      <a href="../quiz/quiz-s3.html" class="btn btn-primary">TAKE QUIZ</a>
     </div>
     
-    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
-      <p>Subject 3: Design of Electronic Device — Chapter 2 of 5</p>
+    <footer class="footer">
+      <p>Subject 3: Design of Electronic Devices & Circuits — Chapter 2 of 5</p>
     </footer>
   </main>
-  
+   
   <script src="../assets/js/tts.js"></script>
+  <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
   <script>
+    // Mark chapter as viewed
     markChapterViewed(3, 2);
+
+    // TTS: Play chapter text with Tanglish support
+    const ttsBtn = document.getElementById('tts-play-btn');
+    if (ttsBtn) {
+      ttsBtn.addEventListener('click', () => {
+        const content = document.getElementById('chapter-content');
+        if (content) {
+          // Auto-detect Tamil content
+          if (content.innerText.match(/[\u0B80-\u0BFF]/)) {
+            TTS.currentLang = 'ta-IN';
+            TTS.tanglishMode = true;
+          }
+          TTS.speak(content.innerText);
+        }
+      });
+    }
+
+    // Toggle notes panel
+    const notesBtn = document.getElementById('notes-btn');
+    const notesPanel = document.getElementById('notes');
+    if (notesBtn && notesPanel) {
+      notesBtn.addEventListener('click', () => {
+        notesPanel.classList.toggle('show');
+      });
+    }
+
+    // Initialize Tanglish button
+    const tanglishBtn = document.getElementById('tanglish-btn');
+    if (tanglishBtn) {
+      const isTanglish = localStorage.getItem('tanglish-mode') === 'true';
+      tanglishBtn.textContent = isTanglish ? 'Tanglish: ON' : 'Tanglish: OFF';
+      tanglishBtn.addEventListener('click', () => {
+        TTS.toggleTanglish();
+        const newState = TTS.tanglishMode;
+        tanglishBtn.textContent = newState ? 'Tanglish: ON' : 'Tanglish: OFF';
+      });
+    }
   </script>
 </body>
 </html>

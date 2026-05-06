@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 5: Microwave Safety - Microwave Engineering</title>
+  <title>AMIE ECE Learner - Chapter 5: Microwave Integrated Circuits</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -17,91 +17,190 @@
     <section style="margin:20px 0;">
       <p style="font-size:18px; margin-bottom:8px;">Chapter 5 of 5 — Microwave Engineering</p>
       <div class="progress-bar">
-        <div class="progress-fill" style="width:100%;"></div>
+        <div class="progress-fill" style="width:100%"></div>
       </div>
     </section>
     
-    <!-- Audio Controls -->
+    <!-- TTS Audio Controls -->
     <div class="audio-controls">
-      <button class="btn" id="listen-btn">🔊 LISTEN</button>
-      <button class="btn" id="pause-btn">⏸️ PAUSE</button>
-      <button class="btn" id="repeat-btn">🔁 REPEAT</button>
-      <button class="btn" id="notes-btn">📝 NOTES</button>
+      <button class="btn btn-primary" id="tts-play-btn" aria-label="Play chapter text">Play</button>
+      <button class="btn btn-secondary" id="tanglish-btn" aria-label="Toggle Tanglish mode">Tanglish: OFF</button>
+      <button class="btn btn-secondary" id="notes-btn" aria-label="Toggle notes panel">Notes</button>
     </div>
     
     <!-- Chapter Content -->
-    <div id="chapter-content">
-      <h1>Chapter 5: Microwave Safety</h1>
-      
-      <div class="chapter-section">
-        <h3>📌 WHY DO WE NEED MICROWAVE SAFETY?</h3>
-        <p>Microwaves are powerful. We need to be careful so they don't hurt us.</p>
-        <p><strong>Simple definition:</strong> Safety rules help us use microwaves without getting hurt.</p>
-        <p><strong>Real-life example:</strong> When you fly in an airplane, they tell you to turn off your phone. Why? Because the phone's microwaves can mess with the airplane's instruments. That's microwave safety!</p>
+      <div id="chapter-content">
+        <h1>Chapter 5: Microwave Integrated Circuits</h1>
+        <div class="chapter-section">
+          <p>Microwave Integrated Circuits (MIC) put components on a single substrate. Microstrip lines are like tiny transmission lines on PCB. They're used in cell phones and WiFi devices.</p>
+        </div>
       </div>
-      
-      <div class="chapter-section">
-        <h3>📌 WHY IS IT IMPORTANT?</h3>
-        <p>Microwave safety is important because:</p>
-        <ul style="font-size:20px; line-height:1.8; padding-left:24px;">
-          <li>It keeps us safe from strong waves</li>
-          <li>It stops phones from breaking airplane systems</li>
-          <li>It protects hospital machines from interference</li>
-        </ul>
-      </div>
-      
-      <div class="chapter-section">
-        <h3>📌 SAFETY RULES — HOW DO WE STAY SAFE?</h3>
-        <p>Let me explain the simple rules:</p>
-        <ul class="steps">
-          <li><strong>Rule 1:</strong> Turn off your phone in airplanes (it's the law!)</li>
-          <li><strong>Rule 2:</strong> Don't stand too close to big microwave machines</li>
-          <li><strong>Rule 3:</strong> Never open a microwave oven while it's running</li>
-          <li><strong>Rule 4:</strong> Hospitals have special "no phone" zones for safety</li>
-        </ul>
-      </div>
-      
+
       <div class="revision-points">
-        <h3>🔁 LET'S REMEMBER:</h3>
+        <h3>LET'S REMEMBER:</h3>
         <ul>
-          <li>Microwaves are powerful — be careful</li>
-          <li>Airplanes need phones OFF for safety</li>
-          <li>Hospitals protect machines from waves</li>
-          <li>Don't open microwave oven while on</li>
+          <li>Microstrip Lines</li>
+          <li>Stripline & Coplanar</li>
+          <li>MIC & MMIC</li>
         </ul>
       </div>
-      
-      <!-- Notes Panel -->
+
+      <!-- Notes Panel (with Tanglish) -->
       <div class="notes-panel" id="notes">
-        <h3>📝 SIMPLE NOTES:</h3>
+        <h3>SIMPLE NOTES (Tanglish Supported):</h3>
         <ul>
-          <li>Microwave Safety = Stay safe</li>
-          <li>Airplane mode = No signals</li>
-          <li>Don't stand near big machines</li>
-          <li>Hospital zones = No phones</li>
+          <li>Microstrip Lines</li>
+          <li>Stripline & Coplanar</li>
+          <li>MIC & MMIC</li>
+          <li><strong>Tanglish:</strong> Indha microstrip line-oda, PCB melaya trace potu microwave signal-a poga vaikalam. Z₀ = 50Ω-nu calculate pannalam. ε_eff na effective dielectric constant. Indha RO4350 board-la 8.33 cm wavelength kedaikum.</li>
         </ul>
       </div>
-    </div>
+
+      <!-- Derivation Sums -->
+      <div class="derivation-section">
+        <h3>DERIVATION SUMS (Step-by-Step)</h3>
+        <div class="derivation-card">
+          <h4>1. Microstrip Characteristic Impedance</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>For W/h > 1: Z₀ = (87/√(εᵣ+1.41))ln(5.98h/W)</li>
+            <li>For W/h < 1: Z₀ = (60/√(εᵣ))ln(8h/W + W/4h)</li>
+            <li>εᵣ = (εᵣ+1)/2 + (εᵣ-1)/2×(1+12h/W)^(-1/2)</li>
+            <li>Effective dielectric constant</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Z₀ = (87/√(εᵣ+1.41))ln(5.98h/W) for W/h > 1</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>2. Effective Dielectric Constant</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>ε_eff = (εᵣ+1)/2 + (εᵣ-1)/2×(1+12h/W)^(-1/2)</li>
+            <li>For wide strips: ε_eff ≈ (εᵣ+1)/2</li>
+            <li>Phase velocity: vp = c/√ε_eff</li>
+            <li>Wavelength: λg = λ₀/√ε_eff</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>ε_eff = (εᵣ+1)/2 + (εᵣ-1)/2×(1+12h/W)^(-1/2)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>3. Attenuation in Microstrip</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Conductor loss: α_c = Rs/(Z₀W) nepers/m</li>
+            <li>Rs = √(πfμ/σ) = surface resistance</li>
+            <li>Dielectric loss: α_d = (π/λ)×(εᵣ/ε_eff)×(ε_eff-1)/(εᵣ-1)×tanδ</li>
+            <li>Total: α = α_c + α_d</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>α_c = Rs/(Z₀W) Np/m, Rs = √(πfμ/σ)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>4. Coupled Line Even/Odd Mode</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Even mode: Z₀e = Z₀(1+C) (higher impedance)</li>
+            <li>Odd mode: Z₀o = Z₀(1-C) (lower impedance)</li>
+            <li>Coupling: C = (Z₀e-Z₀o)/(Z₀e+Z₀o)</li>
+            <li>For directional coupler: C = 10^(-C_dB/20)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>C = (Z₀e-Z₀o)/(Z₀e+Z₀o)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>5. Butterworth Filter Design</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Low-pass prototype: |H(jω)|² = 1/(1+ω²ⁿ)</li>
+            <li>For n=3: poles at 60° intervals</li>
+            <li>g₀=g₄=1, g₁=g₃=2sin(π/2n), g₂=2sin(π/2n) for n=3</li>
+            <li>Transform to bandpass/bandstop</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>|H(jω)|² = 1/(1+(ω/ωc)²ⁿ) for Butterworth</code></p>
+        </div>
+      </div>
+
+      <!-- Numerical Problems -->
+      <div class="numerical-section">
+        <h3>NUMERICAL PROBLEMS (Solved)</h3>
+        <div class="numerical-card">
+          <h4>Problem 1: Design 50Ω microstrip on FR4 (εᵣ=4.4, h=1.6mm), find W</h4>
+          <p><strong>Given:</strong> For Z₀=50Ω, use Z₀ ≈ 60/√εᵣ × ln(8h/W) → W/h ≈ 2</p>
+          <p><strong>Solution:</strong> W = 2×1.6 = 3.2 mm (approximate)</p>
+          <p><strong>Answer:</strong> W ≈ 3.2 mm</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 2: Calculate guide wavelength at 2.4 GHz on Rogers RO4350 (εᵣ=3.48)</h4>
+          <p><strong>Given:</strong> ε_eff ≈ (3.48+1)/2 = 2.24, λg = λ₀/√ε_eff = 12.5/1.5 = 8.33 cm</p>
+          <p><strong>Solution:</strong> λg = 8.33 cm at 2.4 GHz</p>
+          <p><strong>Answer:</strong> 8.33 cm</p>
+        </div>
+      </div>
+
+      <!-- PDF Resources -->
+      <div class="resources-section">
+        <h3>PDF RESOURCES</h3>
+        <ul>
+          <li>Pozar - Microwave Engineering (Ch 7)</li>
+          <li>RF & Microwave Engineering PDF - Unit 10</li>
+        </ul>
+      </div>
+
     
     <!-- Quiz and Navigation -->
     <div class="nav-links">
-      <a href="chap4.html" class="btn">← Previous</a>
-      <a href="../subject2/chap1.html" class="btn">Next Subject →</a>
+      <a href="chap4.html" class="btn btn-secondary"><- Chapter 4</a>
+      <a href="../index.html" class="btn btn-primary">Back to Home -></a>
     </div>
     
     <div style="text-align:center; margin:32px 0;">
-      <a href="../quiz/quiz-s1.html" class="btn btn-success">✅ TAKE QUIZ</a>
+      <a href="../quiz/quiz-s1.html" class="btn btn-primary">TAKE QUIZ</a>
     </div>
     
-    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
-      <p>Subject 1: Microwave Engineering — Chapter 5 of 5 (Completed!)</p>
+    <footer class="footer">
+      <p>Subject 1: Microwave Engineering — Chapter 5 of 5</p>
     </footer>
   </main>
-  
+   
   <script src="../assets/js/tts.js"></script>
+  <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
   <script>
+    // Mark chapter as viewed
     markChapterViewed(1, 5);
+
+    // TTS: Play chapter text with Tanglish support
+    const ttsBtn = document.getElementById('tts-play-btn');
+    if (ttsBtn) {
+      ttsBtn.addEventListener('click', () => {
+        const content = document.getElementById('chapter-content');
+        if (content) {
+          // Auto-detect Tamil content
+          if (content.innerText.match(/[\u0B80-\u0BFF]/)) {
+            TTS.currentLang = 'ta-IN';
+            TTS.tanglishMode = true;
+          }
+          TTS.speak(content.innerText);
+        }
+      });
+    }
+
+    // Toggle notes panel
+    const notesBtn = document.getElementById('notes-btn');
+    const notesPanel = document.getElementById('notes');
+    if (notesBtn && notesPanel) {
+      notesBtn.addEventListener('click', () => {
+        notesPanel.classList.toggle('show');
+      });
+    }
+
+    // Initialize Tanglish button
+    const tanglishBtn = document.getElementById('tanglish-btn');
+    if (tanglishBtn) {
+      const isTanglish = localStorage.getItem('tanglish-mode') === 'true';
+      tanglishBtn.textContent = isTanglish ? 'Tanglish: ON' : 'Tanglish: OFF';
+      tanglishBtn.addEventListener('click', () => {
+        TTS.toggleTanglish();
+        const newState = TTS.tanglishMode;
+        tanglishBtn.textContent = newState ? 'Tanglish: ON' : 'Tanglish: OFF';
+      });
+    }
   </script>
 </body>
 </html>

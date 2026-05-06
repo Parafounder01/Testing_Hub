@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 1: What is Electronics? - Electronics Circuit</title>
+  <title>AMIE ECE Learner - Chapter 1: Biasing Techniques</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -15,93 +15,204 @@
   <main id="main-content">
     <!-- Progress Bar -->
     <section style="margin:20px 0;">
-      <p style="font-size:18px; margin-bottom:8px;">Chapter 1 of 5 — Electronics Circuit</p>
+      <p style="font-size:18px; margin-bottom:8px;">Chapter 1 of 5 — Electronic Circuits</p>
       <div class="progress-bar">
-        <div class="progress-fill" style="width:20%;"></div>
+        <div class="progress-fill" style="width:20%"></div>
       </div>
     </section>
     
-    <!-- Audio Controls -->
+    <!-- TTS Audio Controls -->
     <div class="audio-controls">
-      <button class="btn" id="listen-btn">🔊 LISTEN</button>
-      <button class="btn" id="pause-btn">⏸️ PAUSE</button>
-      <button class="btn" id="repeat-btn">🔁 REPEAT</button>
-      <button class="btn" id="notes-btn">📝 NOTES</button>
+      <button class="btn btn-primary" id="tts-play-btn" aria-label="Play chapter text">Play</button>
+      <button class="btn btn-secondary" id="tanglish-btn" aria-label="Toggle Tanglish mode">Tanglish: OFF</button>
+      <button class="btn btn-secondary" id="notes-btn" aria-label="Toggle notes panel">Notes</button>
     </div>
     
     <!-- Chapter Content -->
-    <div id="chapter-content">
-      <h1>Chapter 1: What is Electronics?</h1>
-      
-      <div class="chapter-section">
-        <h3>📌 WHAT IS ELECTRONICS?</h3>
-        <p>Electronics is about using electricity to make things work.</p>
-        <p><strong>Simple definition:</strong> It is the study of how to use electric power to run devices.</p>
-        <p><strong>Real-life example:</strong> When you press the button on your TV remote, electronics inside it sends a signal to turn on the TV. When you switch on a fan, electronics makes it spin!</p>
+      <div id="chapter-content">
+        <h1>Chapter 1: Biasing Techniques</h1>
+        <div class="chapter-section">
+          <p>Hello student! Today we learn about biasing. Bias means giving transistor a 'job' - set its working point so it works properly. Like setting a fan speed before using it.</p>
+        </div>
       </div>
-      
-      <div class="chapter-section">
-        <h3>📌 WHY IS IT IMPORTANT?</h3>
-        <p>Electronics is important because:</p>
-        <ul style="font-size:20px; line-height:1.8; padding-left:24px;">
-          <li>It makes your TV, fan, and bulb work</li>
-          <li>It is inside every device you use at home</li>
-          <li>It helps us control electricity safely</li>
-        </ul>
-      </div>
-      
-      <div class="chapter-section">
-        <h3>📌 HOW DOES IT WORK?</h3>
-        <p>Let me explain in simple steps:</p>
-        <ul class="steps">
-          <li><strong>Step 1:</strong> Electricity flows from a battery or plug</li>
-          <li><strong>Step 2:</strong> Wires carry the electricity like pipes carry water</li>
-          <li><strong>Step 3:</strong> Electronic parts control where the electricity goes</li>
-          <li><strong>Step 4:</strong> The device (like a fan) turns ON and works!</li>
-        </ul>
-      </div>
-      
+
       <div class="revision-points">
-        <h3>🔁 LET'S REMEMBER:</h3>
+        <h3>LET'S REMEMBER:</h3>
         <ul>
-          <li>Electronics = Using electricity to make things work</li>
-          <li>Electricity flows like water in pipes</li>
-          <li>TV remote, fan, bulb all use electronics</li>
-          <li>Wires carry electricity to devices</li>
+          <li>BJT & FET Biasing</li>
+          <li>h-Parameters</li>
+          <li>Voltage Divider Bias</li>
+          <li>Stability Factor</li>
         </ul>
       </div>
-      
-      <!-- Notes Panel -->
+
+      <!-- Notes Panel (with Tanglish) -->
       <div class="notes-panel" id="notes">
-        <h3>📝 SIMPLE NOTES:</h3>
+        <h3>SIMPLE NOTES (Tanglish Supported):</h3>
         <ul>
-          <li>Electronics = Electricity control</li>
-          <li>TV remote = Electronics</li>
-          <li>Fan, bulb = Use electronics</li>
-          <li>Wires = Like water pipes</li>
+          <li>BJT & FET Biasing</li>
+          <li>h-Parameters</li>
+          <li>Voltage Divider Bias</li>
+          <li>Stability Factor</li>
+          <li><strong>Tanglish:</strong> Indha biasing-ula, transistor-ku job kudukkradhu. Vth, Rth calculate pannanum. Stability factor S-um kammi irundha nalla irukum. hie na input impedance, hfe na current gain. Indha formulas ROMba important: S=(β+1)/(β+1+Rth/Re).</li>
         </ul>
       </div>
-    </div>
+
+      <!-- Derivation Sums -->
+      <div class="derivation-section">
+        <h3>DERIVATION SUMS (Step-by-Step)</h3>
+        <div class="derivation-card">
+          <h4>1. h-Parameters from Hybrid Model</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>V1 = h11 i1 + h12 V2</li>
+            <li>i2 = h21 i1 + h22 V2</li>
+            <li>h11 = (V1/i1) with V2=0 (input impedance)</li>
+            <li>h21 = (i2/i1) with V2=0 (forward current gain)</li>
+            <li>h12 = (V1/V2) with i1=0 (reverse voltage ratio)</li>
+            <li>h22 = (i2/V2) with i1=0 (output admittance)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Vbe = hie Ib + hre Vce, Ic = hfe Ib + hoe Vce</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>2. Stability Factor S</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>S = dIc/dβ × (β+1)/Ic</li>
+            <li>For voltage divider bias: S = (β+1)/(β+1 + Rth/Re)</li>
+            <li>Lower S = better stability against β variation</li>
+            <li>Fixed bias: S = β+1 (very poor stability)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>S = (β+1)/(β+1 + Rth/Re) for voltage divider</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>3. Thevenin Equivalent for Bias Network</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Vth = Vcc × R2/(R1+R2)</li>
+            <li>Rth = R1 || R2 = R1×R2/(R1+R2)</li>
+            <li>IE = (Vth - Vbe)/(Re + Rth/(β+1))</li>
+            <li>IC ≈ IE for large β</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Vth = Vcc×R2/(R1+R2), Rth = R1||R2</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>4. Emitter Current Derivation</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>KVL at base: Vth = Ib×Rth + Vbe + Ie×Re</li>
+            <li>Ie = (β+1)Ib</li>
+            <li>Substitute: Vth = Ib×Rth + Vbe + (β+1)Ib×Re</li>
+            <li>Solve: Ib = (Vth-Vbe)/(Rth + (β+1)Re)</li>
+            <li>Ic = β×Ib ≈ Ie</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>Ic = β(Vth-Vbe)/(Rth + (β+1)Re)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>5. h-Parameter Conversion Between Configurations</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>hie = hib × (β+1) for CE from CB</li>
+            <li>hfe = -β for CE from CB</li>
+            <li>hre = 1 - hfb for CE from CB</li>
+            <li>hoe = hoe × (β+1) for CE from CB</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>hie(CE) = hib(CB) × (β+1)</code></p>
+        </div>
+      </div>
+
+      <!-- Numerical Problems -->
+      <div class="numerical-section">
+        <h3>NUMERICAL PROBLEMS (Solved)</h3>
+        <div class="numerical-card">
+          <h4>Problem 1: Design CE amplifier bias: VCE=10V, IC=2mA, β=100, VBE=0.7V using voltage divider</h4>
+          <p><strong>Given:</strong> R2=10kΩ, Vcc=15V. Find R1, Rc, Re for stability S<10</p>
+          <p><strong>Solution:</strong> Vth = VBE + Ic(Re + Rth/(β+1)) = 0.7 + 2(Re + Rth/101). Choose Re=1kΩ → Vth=2.7+Rth/50.5. Rth=S×Re/(β+1)=10×1k/101=99Ω. R1||R2=99Ω, R2=10k → R1=100Ω. Vth=15×10k/(100+10k)=14.85V. Recalc: 14.85=0.7+2(Re+99/101) → Re=6.58kΩ. VCE=Vcc-Ic(Rc+Re) → Rc=(15-10)/2 - 6.58k = -4.08k (invalid). Redesign: Choose Rc=2kΩ → VCE=15-2(2+6.58)=15-17.16=-2.16V (sat). Choose Ic=1mA: Rc=(15-10)/1 - 6.58= -1.58k. Choose VCE=5V: Rc=(15-5)/1 - 6.58=3.42kΩ</p>
+          <p><strong>Answer:</strong> R1≈100Ω, Rc≈3.4kΩ, Re≈6.6kΩ (adjust for valid VCE)</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 2: Calculate stability factor S for fixed bias vs voltage divider bias</h4>
+          <p><strong>Given:</strong> β=100, Rb=200kΩ, Re=1kΩ for voltage divider, Rth=20kΩ</p>
+          <p><strong>Solution:</strong> Fixed bias: S=β+1=101. Voltage divider: S=(β+1)/(β+1+Rth/Re)=101/(101+20k/1k)=101/121=0.835</p>
+          <p><strong>Answer:</strong> Fixed: S=101 (poor), Divider: S=0.835 (good)</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 3: Find h-parameters from datasheet: β=150, IC=1mA → hie=?</h4>
+          <p><strong>Given:</strong> VT=26mV, hoe=20μS</p>
+          <p><strong>Solution:</strong> hie = β×VT/IC = 150×26/1 = 3900Ω = 3.9kΩ. hfe=β=150. hoe=20μS. hre≈0 (neglect)</p>
+          <p><strong>Answer:</strong> hie=3.9kΩ, hfe=150, hoe=20μS</p>
+        </div>
+      </div>
+
+      <!-- PDF Resources -->
+      <div class="resources-section">
+        <h3>PDF RESOURCES</h3>
+        <ul>
+          <li>eee.poriyaan.in Topic 11513 (h-parameter derivations)</li>
+          <li>bestengineeringprojects.com (amplifier design)</li>
+          <li>bnmv.ac.in (h-parameter equivalent circuits)</li>
+        </ul>
+      </div>
+
     
     <!-- Quiz and Navigation -->
     <div class="nav-links">
-      <a href="../index.html" class="btn">← Back to Home</a>
-      <a href="chap2.html" class="btn">Next Chapter →</a>
+      <a href="../index.html" class="btn btn-secondary"><- Back to Home</a>
+      <a href="chap2.html" class="btn btn-primary">Chapter 2 -></a>
     </div>
     
     <div style="text-align:center; margin:32px 0;">
-      <a href="../quiz/quiz-s2.html" class="btn btn-success">✅ TAKE QUIZ</a>
+      <a href="../quiz/quiz-s2.html" class="btn btn-primary">TAKE QUIZ</a>
     </div>
     
-    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
-      <p>Subject 2: Electronics Circuit — Chapter 1 of 5</p>
+    <footer class="footer">
+      <p>Subject 2: Electronic Circuits — Chapter 1 of 5</p>
     </footer>
   </main>
-  
+   
   <script src="../assets/js/tts.js"></script>
+  <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
   <script>
+    // Mark chapter as viewed
     markChapterViewed(2, 1);
+
+    // TTS: Play chapter text with Tanglish support
+    const ttsBtn = document.getElementById('tts-play-btn');
+    if (ttsBtn) {
+      ttsBtn.addEventListener('click', () => {
+        const content = document.getElementById('chapter-content');
+        if (content) {
+          // Auto-detect Tamil content
+          if (content.innerText.match(/[\u0B80-\u0BFF]/)) {
+            TTS.currentLang = 'ta-IN';
+            TTS.tanglishMode = true;
+          }
+          TTS.speak(content.innerText);
+        }
+      });
+    }
+
+    // Toggle notes panel
+    const notesBtn = document.getElementById('notes-btn');
+    const notesPanel = document.getElementById('notes');
+    if (notesBtn && notesPanel) {
+      notesBtn.addEventListener('click', () => {
+        notesPanel.classList.toggle('show');
+      });
+    }
+
+    // Initialize Tanglish button
+    const tanglishBtn = document.getElementById('tanglish-btn');
+    if (tanglishBtn) {
+      const isTanglish = localStorage.getItem('tanglish-mode') === 'true';
+      tanglishBtn.textContent = isTanglish ? 'Tanglish: ON' : 'Tanglish: OFF';
+      tanglishBtn.addEventListener('click', () => {
+        TTS.toggleTanglish();
+        const newState = TTS.tanglishMode;
+        tanglishBtn.textContent = newState ? 'Tanglish: ON' : 'Tanglish: OFF';
+      });
+    }
   </script>
 </body>
 </html>

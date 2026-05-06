@@ -312,6 +312,114 @@ p { margin-bottom: var(--space-md); }
   padding: 8px 0;
 }
 
+/* Derivation Section */
+.derivation-section {
+  background: #F0F4FF;
+  border: 2px solid #3F51B5;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.derivation-section h3 {
+  color: #3F51B5;
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.derivation-card {
+  background: white;
+  border: 1px solid #C5CAFF;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.derivation-card h4 {
+  color: #1A237E;
+  margin: 8px 0;
+  font-size: 20px;
+}
+
+.derivation-card code {
+  display: block;
+  background: #E8EAF6;
+  padding: 12px;
+  border-radius: 6px;
+  margin: 8px 0;
+  font-family: monospace;
+  font-size: 18px;
+  overflow-x: auto;
+}
+
+/* Numerical Problems Section */
+.numerical-section {
+  background: #FFF3E0;
+  border: 2px solid #FF6F00;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.numerical-section h3 {
+  color: #E65100;
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.numerical-card {
+  background: white;
+  border: 1px solid #FFCC80;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  box-shadow: var(--shadow-sm);
+}
+
+.numerical-card h4 {
+  color: #BF360C;
+  margin: 8px 0;
+  font-size: 20px;
+}
+
+.numerical-card p {
+  margin: 8px 0;
+}
+
+/* PDF Resources Section */
+.resources-section {
+  background: #E8F5E9;
+  border: 2px solid #2E7D32;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 24px 0;
+}
+
+.resources-section h3 {
+  color: #1B5E20;
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.resources-section ul {
+  padding-left: 24px;
+}
+
+.resources-section li {
+  padding: 8px 0;
+}
+
+.resources-section a {
+  color: #1565C0;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.resources-section a:hover {
+  text-decoration: underline;
+}
+
 /* Responsive */
 @media (max-width: 600px) {
   body {

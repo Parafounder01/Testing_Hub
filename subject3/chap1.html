@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 1: What is Circuit Design? - Design of Electronic Device</title>
+  <title>AMIE ECE Learner - Chapter 1: Semiconductor Devices & Physics</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Comic+Neue:wght@300;400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
@@ -15,93 +15,206 @@
   <main id="main-content">
     <!-- Progress Bar -->
     <section style="margin:20px 0;">
-      <p style="font-size:18px; margin-bottom:8px;">Chapter 1 of 5 — Design of Electronic Device</p>
+      <p style="font-size:18px; margin-bottom:8px;">Chapter 1 of 5 — Design of Electronic Devices & Circuits</p>
       <div class="progress-bar">
-        <div class="progress-fill" style="width:20%;"></div>
+        <div class="progress-fill" style="width:20%"></div>
       </div>
     </section>
     
-    <!-- Audio Controls -->
+    <!-- TTS Audio Controls -->
     <div class="audio-controls">
-      <button class="btn" id="listen-btn">🔊 LISTEN</button>
-      <button class="btn" id="pause-btn">⏸️ PAUSE</button>
-      <button class="btn" id="repeat-btn">🔁 REPEAT</button>
-      <button class="btn" id="notes-btn">📝 NOTES</button>
+      <button class="btn btn-primary" id="tts-play-btn" aria-label="Play chapter text">Play</button>
+      <button class="btn btn-secondary" id="tanglish-btn" aria-label="Toggle Tanglish mode">Tanglish: OFF</button>
+      <button class="btn btn-secondary" id="notes-btn" aria-label="Toggle notes panel">Notes</button>
     </div>
     
     <!-- Chapter Content -->
-    <div id="chapter-content">
-      <h1>Chapter 1: What is Circuit Design?</h1>
-      
-      <div class="chapter-section">
-        <h3>📌 WHAT IS CIRCUIT DESIGN?</h3>
-        <p>Circuit design is planning how to connect electronic parts to make a device work.</p>
-        <p><strong>Simple definition:</strong> It is like drawing a map before building a house.</p>
-        <p><strong>Real-life example:</strong> Before making a real circuit, you draw it on paper. You decide where the battery goes, where the LED goes, and how to connect them with wires. That drawing is circuit design!</p>
+      <div id="chapter-content">
+        <h1>Chapter 1: Semiconductor Devices & Physics</h1>
+        <div class="chapter-section">
+          <p>Hello student! Today we learn about semiconductor devices. Diode is like a one-way street for electricity. BJT uses small base current to control large collector current. MOSFET uses voltage to control current.</p>
+        </div>
       </div>
-      
-      <div class="chapter-section">
-        <h3>📌 WHY IS IT IMPORTANT?</h3>
-        <p>Circuit design is important because:</p>
-        <ul style="font-size:20px; line-height:1.8; padding-left:24px;">
-          <li>It helps you plan before building</li>
-          <li>It saves time — no mistakes later</li>
-          <li>It makes sure the circuit will work!</li>
-        </ul>
-      </div>
-      
-      <div class="chapter-section">
-        <h3>📌 HOW DOES IT WORK?</h3>
-        <p>Let me explain in simple steps:</p>
-        <ul class="steps">
-          <li><strong>Step 1:</strong> Decide what you want the circuit to do (make LED blink?)</li>
-          <li><strong>Step 2:</strong> Draw the parts you need (battery, LED, resistor)</li>
-          <li><strong>Step 3:</strong> Draw lines to show how to connect them</li>
-          <li><strong>Step 4:</strong> Check your drawing — will it work?</li>
-        </ul>
-      </div>
-      
+
       <div class="revision-points">
-        <h3>🔁 LET'S REMEMBER:</h3>
+        <h3>LET'S REMEMBER:</h3>
         <ul>
-          <li>Circuit Design = Planning before building</li>
-          <li>Like drawing a map before a trip</li>
-          <li>You draw parts and connections</li>
-          <li>Check the drawing before building!</li>
+          <li>PN Junction Diode</li>
+          <li>BJT Transistor</li>
+          <li>MOSFET & FET</li>
+          <li>h-Parameters</li>
         </ul>
       </div>
-      
-      <!-- Notes Panel -->
+
+      <!-- Notes Panel (with Tanglish) -->
       <div class="notes-panel" id="notes">
-        <h3>📝 SIMPLE NOTES:</h3>
+        <h3>SIMPLE NOTES (Tanglish Supported):</h3>
         <ul>
-          <li>Circuit Design = Plan</li>
-          <li>Draw before building</li>
-          <li>Like a house map</li>
-          <li>Check before you build</li>
+          <li>PN Junction Diode</li>
+          <li>BJT Transistor</li>
+          <li>MOSFET & FET</li>
+          <li>h-Parameters</li>
+          <li><strong>Tanglish:</strong> Indha diode equation-ula, I_D = I_S(e^(V_D/nV_T)-1) nu nyabagam vechukonga. BJT-la β = I_C/I_B. MOSFET-la I_D = (μ_nC_ox/2)(W/L)(V_GS-V_th)². Indha formulas romba important, exam-la question varum.</li>
         </ul>
       </div>
-    </div>
+
+      <!-- Derivation Sums -->
+      <div class="derivation-section">
+        <h3>DERIVATION SUMS (Step-by-Step)</h3>
+        <div class="derivation-card">
+          <h4>1. Diode Equation</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>I_D = I_S(e^(V_D/nV_T)-1)</li>
+            <li>V_T = kT/q = 26mV at 300K</li>
+            <li>I_S = reverse saturation current (very small)</li>
+            <li>For V_D >> V_T: I_D ≈ I_S e^(V_D/nV_T)</li>
+            <li>For V_D << -V_T: I_D ≈ -I_S (reverse bias)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>I_D = I_S(e^(V_D/nV_T)-1)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>2. BJT Current Gain</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>β = I_C/I_B (DC current gain)</li>
+            <li>α = I_C/I_E = β/(β+1)</li>
+            <li>I_C = βI_B + (β+1)I_CBO</li>
+            <li>For large β: I_C ≈ βI_B</li>
+            <li>I_E = I_B + I_C = (β+1)I_B</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>β = I_C/I_B, α = β/(β+1)</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>3. MOSFET Drain Current (Saturation)</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>I_D = (μ_nC_ox/2)(W/L)(V_GS-V_th)²</li>
+            <li>μ_n = electron mobility</li>
+            <li>C_ox = ε_ox/t_ox (oxide capacitance)</li>
+            <li>V_DS ≥ V_GS - V_th (saturation condition)</li>
+            <li>For λ ≠ 0: I_D = I_D0(1+λV_DS) (channel length modulation)</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>I_D = (μ_nC_ox/2)(W/L)(V_GS-V_th)²</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>4. JFET Pinch-off Voltage</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>V_p = (eN_d/2ε_s)×a² (for abrupt junction)</li>
+            <li>a = channel radius</li>
+            <li>N_d = donor concentration (n-channel)</li>
+            <li>I_D = I_DSS(1 - V_GS/V_p)² (Shockley equation)</li>
+            <li>Pinch-off: V_GS = V_p → I_D = 0</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>V_p = (eN_d/2ε_s)×a²</code></p>
+        </div>
+        <div class="derivation-card">
+          <h4>5. SCR Turn-on Condition</h4>
+          <p><strong>Steps:</strong></p>
+          <ol class="steps">
+            <li>Latching current I_L > holding current I_H</li>
+            <li>Forward bias: anode-to-cathode voltage > 0.7V</li>
+            <li>Gate current triggers turn-on</li>
+            <li>Once latched, gate loses control</li>
+            <li>Turn-off: anode current < I_H</li>
+          </ol>
+          <p><strong>Formula:</strong> <code>I_L > I_H for latching</code></p>
+        </div>
+      </div>
+
+      <!-- Numerical Problems -->
+      <div class="numerical-section">
+        <h3>NUMERICAL PROBLEMS (Solved)</h3>
+        <div class="numerical-card">
+          <h4>Problem 1: Calculate diode current: I_S=10^-12A, V_D=0.7V, T=300K</h4>
+          <p><strong>Given:</strong> V_T = kT/q = 26mV = 0.026V</p>
+          <p><strong>Solution:</strong> I_D = 10^-12 × (e^(0.7/0.026) - 1) = 10^-12 × (e^26.92 - 1) ≈ 10^-12 × 4.36×10^11 = 0.436A</p>
+          <p><strong>Answer:</strong> I_D ≈ 0.436A</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 2: Find BJT currents: I_B=20μA, β=100</h4>
+          <p><strong>Given:</strong> β = I_C/I_B = 100</p>
+          <p><strong>Solution:</strong> I_C = β×I_B = 100×20μA = 2mA. I_E = I_B + I_C = 20μA + 2mA = 2.02mA. α = β/(β+1) = 100/101 = 0.99</p>
+          <p><strong>Answer:</strong> I_C=2mA, I_E=2.02mA, α=0.99</p>
+        </div>
+        <div class="numerical-card">
+          <h4>Problem 3: Design MOSFET amplifier: V_GS=3V, V_th=1V, W/L=10, μ_nC_ox=100μA/V²</h4>
+          <p><strong>Given:</strong> I_D = (μ_nC_ox/2)(W/L)(V_GS-V_th)²</p>
+          <p><strong>Solution:</strong> I_D = (100μ/2)×10×(3-1)² = 50μ×10×4 = 2000μA = 2mA</p>
+          <p><strong>Answer:</strong> I_D = 2mA</p>
+        </div>
+      </div>
+
+      <!-- PDF Resources -->
+      <div class="resources-section">
+        <h3>PDF RESOURCES</h3>
+        <ul>
+          <li>blog.amiestudycircle.com (MCQ, short answers)</li>
+          <li>ampdesigns.tripod.com (BJT/FET design problems)</li>
+          <li>jit.ac.in (Analog Integrated Circuits)</li>
+        </ul>
+      </div>
+
     
     <!-- Quiz and Navigation -->
     <div class="nav-links">
-      <a href="../index.html" class="btn">← Back to Home</a>
-      <a href="chap2.html" class="btn">Next Chapter →</a>
+      <a href="../index.html" class="btn btn-secondary"><- Back to Home</a>
+      <a href="chap2.html" class="btn btn-primary">Chapter 2 -></a>
     </div>
     
     <div style="text-align:center; margin:32px 0;">
-      <a href="../quiz/quiz-s3.html" class="btn btn-success">✅ TAKE QUIZ</a>
+      <a href="../quiz/quiz-s3.html" class="btn btn-primary">TAKE QUIZ</a>
     </div>
     
-    <footer style="text-align:center; margin-top:60px; padding:32px 0; border-top:2px solid #ccc; font-size:18px; color:#555;">
-      <p>Subject 3: Design of Electronic Device — Chapter 1 of 5</p>
+    <footer class="footer">
+      <p>Subject 3: Design of Electronic Devices & Circuits — Chapter 1 of 5</p>
     </footer>
   </main>
-  
+   
   <script src="../assets/js/tts.js"></script>
+  <script src="../assets/js/storage.js"></script>
   <script src="../assets/js/app.js"></script>
   <script>
+    // Mark chapter as viewed
     markChapterViewed(3, 1);
+
+    // TTS: Play chapter text with Tanglish support
+    const ttsBtn = document.getElementById('tts-play-btn');
+    if (ttsBtn) {
+      ttsBtn.addEventListener('click', () => {
+        const content = document.getElementById('chapter-content');
+        if (content) {
+          // Auto-detect Tamil content
+          if (content.innerText.match(/[\u0B80-\u0BFF]/)) {
+            TTS.currentLang = 'ta-IN';
+            TTS.tanglishMode = true;
+          }
+          TTS.speak(content.innerText);
+        }
+      });
+    }
+
+    // Toggle notes panel
+    const notesBtn = document.getElementById('notes-btn');
+    const notesPanel = document.getElementById('notes');
+    if (notesBtn && notesPanel) {
+      notesBtn.addEventListener('click', () => {
+        notesPanel.classList.toggle('show');
+      });
+    }
+
+    // Initialize Tanglish button
+    const tanglishBtn = document.getElementById('tanglish-btn');
+    if (tanglishBtn) {
+      const isTanglish = localStorage.getItem('tanglish-mode') === 'true';
+      tanglishBtn.textContent = isTanglish ? 'Tanglish: ON' : 'Tanglish: OFF';
+      tanglishBtn.addEventListener('click', () => {
+        TTS.toggleTanglish();
+        const newState = TTS.tanglishMode;
+        tanglishBtn.textContent = newState ? 'Tanglish: ON' : 'Tanglish: OFF';
+      });
+    }
   </script>
 </body>
 </html>

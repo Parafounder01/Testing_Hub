@@ -1,51 +1,512 @@
 {
-  "subject": "Design of Electronic Device & Circuit",
-  "code": "S3",
+  "subject": "Design of Electronic Devices & Circuits",
+  "code": "EC 407",
   "chapters": [
     {
       "id": 1,
-      "title": "Circuit Design Basics",
+      "title": "Semiconductor Devices & Physics",
       "audio": "assets/audio/subject3/chap1.mp3",
-      "duration": "15 mins",
-      "keyPoints": ["Schematic design", "Breadboarding", "PCB layout"],
-      "content": "Designing electronic circuits starts with drawing schematics and testing on breadboards.",
-      "quiz": []
+      "duration": "28 mins",
+      "keyPoints": [
+        "PN Junction Diode",
+        "BJT Transistor",
+        "MOSFET & FET",
+        "h-Parameters"
+      ],
+      "content": "Hello student! Today we learn about semiconductor devices. Diode is like a one-way street for electricity. BJT uses small base current to control large collector current. MOSFET uses voltage to control current.",
+      "derivations": [
+        {
+          "title": "Diode Equation",
+          "steps": [
+            "I_D = I_S(e^(V_D/nV_T)-1)",
+            "V_T = kT/q = 26mV at 300K",
+            "I_S = reverse saturation current (very small)",
+            "For V_D >> V_T: I_D ≈ I_S e^(V_D/nV_T)",
+            "For V_D << -V_T: I_D ≈ -I_S (reverse bias)"
+          ],
+          "formula": "I_D = I_S(e^(V_D/nV_T)-1)"
+        },
+        {
+          "title": "BJT Current Gain",
+          "steps": [
+            "β = I_C/I_B (DC current gain)",
+            "α = I_C/I_E = β/(β+1)",
+            "I_C = βI_B + (β+1)I_CBO",
+            "For large β: I_C ≈ βI_B",
+            "I_E = I_B + I_C = (β+1)I_B"
+          ],
+          "formula": "β = I_C/I_B, α = β/(β+1)"
+        },
+        {
+          "title": "MOSFET Drain Current (Saturation)",
+          "steps": [
+            "I_D = (μ_nC_ox/2)(W/L)(V_GS-V_th)²",
+            "μ_n = electron mobility",
+            "C_ox = ε_ox/t_ox (oxide capacitance)",
+            "V_DS ≥ V_GS - V_th (saturation condition)",
+            "For λ ≠ 0: I_D = I_D0(1+λV_DS) (channel length modulation)"
+          ],
+          "formula": "I_D = (μ_nC_ox/2)(W/L)(V_GS-V_th)²"
+        },
+        {
+          "title": "JFET Pinch-off Voltage",
+          "steps": [
+            "V_p = (eN_d/2ε_s)×a² (for abrupt junction)",
+            "a = channel radius",
+            "N_d = donor concentration (n-channel)",
+            "I_D = I_DSS(1 - V_GS/V_p)² (Shockley equation)",
+            "Pinch-off: V_GS = V_p → I_D = 0"
+          ],
+          "formula": "V_p = (eN_d/2ε_s)×a²"
+        },
+        {
+          "title": "SCR Turn-on Condition",
+          "steps": [
+            "Latching current I_L > holding current I_H",
+            "Forward bias: anode-to-cathode voltage > 0.7V",
+            "Gate current triggers turn-on",
+            "Once latched, gate loses control",
+            "Turn-off: anode current < I_H"
+          ],
+          "formula": "I_L > I_H for latching"
+        }
+      ],
+      "numericalProblems": [
+        {
+          "question": "Calculate diode current: I_S=10^-12A, V_D=0.7V, T=300K",
+          "given": "V_T = kT/q = 26mV = 0.026V",
+          "solution": "I_D = 10^-12 × (e^(0.7/0.026) - 1) = 10^-12 × (e^26.92 - 1) ≈ 10^-12 × 4.36×10^11 = 0.436A",
+          "answer": "I_D ≈ 0.436A"
+        },
+        {
+          "question": "Find BJT currents: I_B=20μA, β=100",
+          "given": "β = I_C/I_B = 100",
+          "solution": "I_C = β×I_B = 100×20μA = 2mA. I_E = I_B + I_C = 20μA + 2mA = 2.02mA. α = β/(β+1) = 100/101 = 0.99",
+          "answer": "I_C=2mA, I_E=2.02mA, α=0.99"
+        },
+        {
+          "question": "Design MOSFET amplifier: V_GS=3V, V_th=1V, W/L=10, μ_nC_ox=100μA/V²",
+          "given": "I_D = (μ_nC_ox/2)(W/L)(V_GS-V_th)²",
+          "solution": "I_D = (100μ/2)×10×(3-1)² = 50μ×10×4 = 2000μA = 2mA",
+          "answer": "I_D = 2mA"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What is diode equation?",
+          "options": ["I_D = I_S(e^(V_D/nV_T)-1)", "I_D = I_S×V_D", "I_D = V_D/R"],
+          "answer": 0
+        },
+        {
+          "q": "What is β for BJT?",
+          "options": ["β = I_C/I_B", "β = I_B/I_C", "β = I_E/I_C"],
+          "answer": 0
+        }
+      ],
+      "pdfSources": [
+        "blog.amiestudycircle.com (MCQ, short answers)",
+        "ampdesigns.tripod.com (BJT/FET design problems)",
+        "jit.ac.in (Analog Integrated Circuits)"
+      ],
+      "tanglishNotes": "Indha diode equation-ula, I_D = I_S(e^(V_D/nV_T)-1) nu nyabagam vechukonga. BJT-la β = I_C/I_B. MOSFET-la I_D = (μ_nC_ox/2)(W/L)(V_GS-V_th)². Indha formulas romba important, exam-la question varum."
     },
     {
       "id": 2,
-      "title": "Analog Circuit Design",
+      "title": "Digital Circuits & Logic Design",
       "audio": "assets/audio/subject3/chap2.mp3",
-      "duration": "20 mins",
-      "keyPoints": ["Amplifier design", "Filter design", "Oscillator design"],
-      "content": "Analog circuits process continuous electrical signals.",
-      "quiz": []
+      "duration": "30 mins",
+      "keyPoints": [
+        "Boolean Algebra Laws",
+        "Karnaugh Map Simplification",
+        "Flip-Flops (D, JK, SR)",
+        "Counters & Registers"
+      ],
+      "content": "Digital circuits use 0s and 1s. Boolean algebra is math with YES/NO. Karnaugh map is a picture puzzle to simplify logic. Flip-flops are switches with memory.",
+      "derivations": [
+        {
+          "title": "Boolean Algebra Laws",
+          "steps": [
+            "Commutative: A+B = B+A, A·B = B·A",
+            "Associative: (A+B)+C = A+(B+C)",
+            "Distributive: A+(B·C) = (A+B)·(A+C)",
+            "De Morgan: (A+B)' = A'·B', (A·B)' = A'+B'",
+            "Absorption: A+(A·B) = A, A·(A+B) = A"
+          ],
+          "formula": "De Morgan: (A+B)' = A'·B'"
+        },
+        {
+          "title": "Karnaugh Map Simplification",
+          "steps": [
+            "F = Σ(0,2,4,6) for 3-variable K-map",
+            "Group adjacent 1s in powers of 2",
+            "Group 1: m0+m2 = A'B'C'+A'BC' = A'C'",
+            "Group 2: m4+m6 = AB'C'+ABC' = BC'",
+            "F = A'C' + BC' = C'(A'+B)"
+          ],
+          "formula": "F = Σ(minterms) → group → simplified expression"
+        },
+        {
+          "title": "Flip-Flop Characteristic Equations",
+          "steps": [
+            "D-FF: Q⁺ = D (next state = D input)",
+            "JK-FF: Q⁺ = JQ' + K'Q",
+            "SR-FF: Q⁺ = S + R'Q (with SR=0 constraint)",
+            "T-FF: Q⁺ = T⊕Q = TQ' + T'Q",
+            "Clocked: changes only on clock edge"
+          ],
+          "formula": "JK-FF: Q⁺ = JQ' + K'Q"
+        },
+        {
+          "title": "Counter Modulus",
+          "steps": [
+            "n-bit counter: modulus M = 2ⁿ",
+            "MOD-16 counter: n=4, M=16 states",
+            "Frequency division: f_out = f_clk/2ⁿ",
+            "Decade counter: M=10 (uses 4 bits)",
+            "Design: connect Q to reset when count=9"
+          ],
+          "formula": "M = 2ⁿ for n-bit counter"
+        },
+        {
+          "title": "Setup & Hold Time",
+          "steps": [
+            "t_setup: data must be stable BEFORE clock edge",
+            "t_hold: data must be stable AFTER clock edge",
+            "Clock period: T_clk > t_cq(max) + t_setup + t_logic",
+            "Max frequency: f_max = 1/T_clk",
+            "Violation → metastability"
+          ],
+          "formula": "T_clk > t_cq(max) + t_logic + t_setup"
+        }
+      ],
+      "numericalProblems": [
+        {
+          "question": "Simplify Boolean: F = AB + AB' + A'B using Boolean algebra",
+          "given": "Use Boolean laws",
+          "solution": "F = A(B+B') + A'B = A·1 + A'B = A + A'B = A + B (by consensus)",
+          "answer": "F = A + B"
+        },
+        {
+          "question": "Design 3-bit counter using JK-FF (draw circuit, timing)",
+          "given": "MOD-8 counter: count 0 to 7",
+          "solution": "Connect J=K=1 for all 3 FF. Q0 toggles every clock. Q1 toggles on Q0' edge. Q2 toggles on Q1' edge. Timing: 000→001→010→011→100→101→110→111→000",
+          "answer": "3-bit ripple counter, J=K=1 for all"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What is De Morgan's law?",
+          "options": ["(A+B)' = A'·B'", "(A·B)' = A'+B'", "Both are correct"],
+          "answer": 2
+        },
+        {
+          "q": "What is modulus of 4-bit counter?",
+          "options": ["16", "8", "4"],
+          "answer": 0
+        }
+      ],
+      "pdfSources": [
+        "blog.amiestudycircle.com",
+        "jit.ac.in (Analog Integrated Circuits Ch 9)"
+      ],
+      "tanglishNotes": "Indha Boolean algebra laws romba useful. De Morgan's law: (A+B)' = A'·B'. K-map use pannitu logic simplify pannalam. Flip-flop-la D, JK, SR, T types irukum. Counter modulus M = 2ⁿ. Setup time, hold time-um timing constraints."
     },
     {
       "id": 3,
-      "title": "Digital Circuit Design",
+      "title": "IC Design & Fabrication",
       "audio": "assets/audio/subject3/chap3.mp3",
-      "duration": "18 mins",
-      "keyPoints": ["Logic gates", "Flip-flops", "Microcontrollers"],
-      "content": "Digital circuits process binary signals (0s and 1s).",
-      "quiz": []
+      "duration": "32 mins",
+      "keyPoints": [
+        "CMOS Technology",
+        "Lithography Process",
+        "Oxidation & Diffusion",
+        "Layout Design Rules"
+      ],
+      "content": "IC fabrication is like building tiny houses on silicon. Lithography transfers patterns using light. Oxidation grows controlled 'rust' that becomes insulator. Diffusion implants impurities.",
+      "derivations": [
+        {
+          "title": "Lithography Resolution (Rayleigh Criterion)",
+          "steps": [
+            "R = k₁λ/NA (minimum feature size)",
+            "λ = wavelength of light",
+            "NA = n sinθ (numerical aperture)",
+            "k₁ = process-dependent constant (~0.5)",
+            "Smaller λ or larger NA → finer features"
+          ],
+          "formula": "R = k₁λ/NA"
+        },
+        {
+          "title": "Oxidation Rate (Deal-Grove Model)",
+          "steps": [
+            "Parabolic: x² = B(t+τ) for thick oxide",
+            "Linear: x = B/A·t for thin oxide",
+            "B = parabolic rate constant",
+            "A = linear rate constant",
+            "τ = time shift (initial rapid growth)"
+          ],
+          "formula": "x² = B(t+τ) [parabolic], x = (B/A)t [linear]"
+        },
+        {
+          "title": "Diffusion Profile (Constant Source)",
+          "steps": [
+            "C(x,t) = C₀erfc(x/√(4Dt))",
+            "C₀ = surface concentration",
+            "D = diffusion coefficient",
+            "erfc = complementary error function",
+            "J = -D∂C/∂x (Fick's first law)"
+          ],
+          "formula": "C(x,t) = C₀erfc(x/√(4Dt))"
+        },
+        {
+          "title": "CMOS Inverter Delay",
+          "steps": [
+            "τ = (C_L×V_DD)/I_D(sat) (switching delay)",
+            "I_D(sat) = (μ_nC_ox/2)(W/L)(V_DD-V_th)²",
+            "Propogation delay: t_pd = (t_pHL + t_pLH)/2",
+            "For equal rise/fall: W_p/W_n = μ_n/μ_p",
+            "Power: P = C_L×V_DD²×f (dynamic)"
+          ],
+          "formula": "τ = (C_L×V_DD)/I_D(sat)"
+        },
+        {
+          "title": "Layout Area for Transistor",
+          "steps": [
+            "A = (W+L)×(feature size)²",
+            "Feature size = minimum gate length L_min",
+            "Contact area adds overhead",
+            "Standard cell: fixed height, variable width",
+            "Area ∝ W×L for simple transistor"
+          ],
+          "formula": "A ≈ (W+L)×L_min²"
+        }
+      ],
+      "numericalProblems": [
+        {
+          "question": "Calculate oxide thickness: t=30min, B=0.1μm²/hr → find x",
+          "given": "x² = B(t+τ), assume τ≈0",
+          "solution": "t = 30min = 0.5hr. x = √(0.1×0.5) = √0.05 = 0.2236μm = 223.6nm",
+          "answer": "x ≈ 224nm"
+        },
+        {
+          "question": "Find diffusion depth: t=10min, D=10^-12 m²/s",
+          "given": "C(x,t) = C₀erfc(x/√(4Dt))",
+          "solution": "x = √(4Dt) for C/C₀ = erfc(1) ≈ 0.157. t = 600s. x = √(4×10^-12×600) = √2.4×10^-9 = 4.9×10^-5 m = 49μm",
+          "answer": "x ≈ 49μm at 1% of surface"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What is lithography resolution formula?",
+          "options": ["R = k₁λ/NA", "R = λ/NA", "R = k₁NA/λ"],
+          "answer": 0
+        }
+      ],
+      "pdfSources": [
+        "jit.ac.in (Analog Integrated Circuits)",
+        "vaia.com (Microelectronics circuit analysis)"
+      ],
+      "tanglishNotes": "Indha lithography process-ula, light use pannitu pattern transfer pannuvom. R = k₁λ/NA nu formula nyabagam vechukonga. Oxidation-ula SiO₂ layer valarkum. C(x,t) = C₀erfc(x/√(4Dt)) nu diffusion profile. CMOS inverter delay τ = (C_L×V_DD)/I_D."
     },
     {
       "id": 4,
-      "title": "PCB Design",
+      "title": "Pulse & Wave-Shaping Circuits",
       "audio": "assets/audio/subject3/chap4.mp3",
-      "duration": "22 mins",
-      "keyPoints": ["Footprints", "Routing", "Gerber files"],
-      "content": "Printed Circuit Boards (PCBs) connect electronic components permanently.",
-      "quiz": []
+      "duration": "28 mins",
+      "keyPoints": [
+        "555 Timer (Astable/Monostable)",
+        "Clippers & Clampers",
+        "Schmitt Trigger",
+        "Multivibrators"
+      ],
+      "content": "Pulse circuits shape voltage waveforms. 555 timer is like a kitchen timer that beeps periodically. Clipper cuts off voltage above/below limit. Schmitt trigger has two thresholds to avoid flicker.",
+      "derivations": [
+        {
+          "title": "555 Astable Frequency",
+          "steps": [
+            "f = 1.44/((R₁+2R₂)C) for 50% duty cycle",
+            "t_high = 0.693(R₁+R₂)C",
+            "t_low = 0.693R₂C",
+            "Duty cycle = (R₁+R₂)/(R₁+2R₂)",
+            "For 50%: R₁ << R₂"
+          ],
+          "formula": "f = 1.44/((R₁+2R₂)C)"
+        },
+        {
+          "title": "555 Monostable Pulse Width",
+          "steps": [
+            "T = 1.1×R×C (one-shot pulse)",
+            "Trigger pulse < T (shorter than output)",
+            "Pulse width independent of trigger width",
+            "Retriggerable: trigger during pulse extends T",
+            "Non-retriggerable: ignores subsequent triggers"
+          ],
+          "formula": "T = 1.1RC"
+        },
+        {
+          "title": "RC Time Constant",
+          "steps": [
+            "τ = RC (charges to 63.2% in time τ)",
+            "V_c(t) = V_cc(1-e^(-t/τ)) for charging",
+            "V_c(t) = V_0e^(-t/τ) for discharging",
+            "After 5τ: capacitor ≈ fully charged/discharged"
+          ],
+          "formula": "τ = RC, V_c(t) = V_cc(1-e^(-t/τ))"
+        },
+        {
+          "title": "Clipping Level (Diode Clipper)",
+          "steps": [
+            "V_out = V_in for V_in < V_clip",
+            "V_out = V_clip for V_in ≥ V_clip (positive clipper)",
+            "With Zener: V_clip = V_Z (reverse breakdown)",
+            "Bidirectional: two Zeners back-to-back"
+          ],
+          "formula": "V_out = min(V_in, V_clip)"
+        },
+        {
+          "title": "Schmitt Trigger Thresholds",
+          "steps": [
+            "V_T+ = βV_cc (upper threshold)",
+            "V_T- = β'V_cc (lower threshold)",
+            "β = R₁/(R₁+R₂) (voltage divider)",
+            "Hysteresis = V_T+ - V_T-",
+            "Noise immunity ∝ hysteresis width"
+          ],
+          "formula": "V_T+ = (R₁/(R₁+R₂))V_cc"
+        }
+      ],
+      "numericalProblems": [
+        {
+          "question": "Design 555 astable: f=1kHz, duty cycle=60% → find R₁, R₂, C",
+          "given": "f = 1.44/((R₁+2R₂)C), duty = (R₁+R₂)/(R₁+2R₂) = 0.6",
+          "solution": "Choose C=0.1μF. R₁+2R₂ = 1.44/(1000×0.1μ) = 14.4kΩ. R₁+R₂ = 0.6×14.4k = 8.64kΩ. Solve: R₂ = 14.4k-8.64k = 5.76kΩ, R₁ = 8.64k-5.76k = 2.88kΩ. Choose R₁=2.7k, R₂=5.6k standard values",
+          "answer": "R₁≈2.7kΩ, R₂≈5.6kΩ, C=0.1μF"
+        },
+        {
+          "question": "Calculate monostable pulse: R=10kΩ, C=0.1μF",
+          "given": "T = 1.1RC",
+          "solution": "T = 1.1×10k×0.1μ = 1.1×10⁴×10⁻⁷ = 1.1×10⁻³ = 1.1ms",
+          "answer": "T = 1.1ms"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What is 555 astable frequency formula?",
+          "options": ["f = 1.44/((R₁+2R₂)C)", "f = 1/(RC)", "f = 1.44/(R₁+R₂)C"],
+          "answer": 0
+        }
+      ],
+      "pdfSources": [
+        "blog.amiestudycircle.com",
+        "inspirenignite.com (wave-shaping circuits)"
+      ],
+      "tanglishNotes": "Indha 555 timer romba famous. Astable mode-la oscillator madiri work pannum. f = 1.44/((R₁+2R₂)C) nu nyabagam vechukonga. Monostable-la one-shot pulse tharum. T = 1.1RC. Clipper-ula voltage-a limit pannum, Schmitt trigger-la hysteresis irukum."
     },
     {
       "id": 5,
-      "title": "Testing & Troubleshooting",
+      "title": "Applications & Power Circuits",
       "audio": "assets/audio/subject3/chap5.mp3",
-      "duration": "20 mins",
-      "keyPoints": ["Multimeter use", "Oscilloscope use", "Debugging techniques"],
-      "content": "Testing ensures circuits work as designed and helps find faults.",
-      "quiz": []
+      "duration": "30 mins",
+      "keyPoints": [
+        "Zener Regulator",
+        "SMPS Buck Converter",
+        "Rectifier Circuits",
+        "Protection Circuits"
+      ],
+      "content": "Power circuits supply clean DC voltage. Zener diode limits voltage like a pressure relief valve. SMPS uses switches for high efficiency. Rectifiers convert AC to DC.",
+      "derivations": [
+        {
+          "title": "Zener Regulator Design",
+          "steps": [
+            "V_out = V_Z (Zener voltage)",
+            "I_Z(min) < I_Z < I_Z(max) for regulation",
+            "R_S = (V_in - V_Z)/(I_L + I_Z)",
+            "P_Z = V_Z × I_Z(max) (Zener power rating)",
+            "Line regulation = ΔV_out/ΔV_in"
+          ],
+          "formula": "R_S = (V_in - V_out)/(I_L + I_Z)"
+        },
+        {
+          "title": "SMPS Buck Converter",
+          "steps": [
+            "V_out = D×V_in (duty cycle D)",
+            "D = t_on/T (switch on time/total period)",
+            "ΔI_L = (V_in-V_out)×D×T/L",
+            "Output ripple: ΔV_out ≈ ΔI_L×ESR",
+            "Efficiency η > 85% (much better than linear)"
+          ],
+          "formula": "V_out = D×V_in, D = t_on/T"
+        },
+        {
+          "title": "Rectifier Ripple Voltage",
+          "steps": [
+            "Full-wave bridge: V_ripple = I_L/(2fC)",
+            "Half-wave: V_ripple = I_L/(fC)",
+            "V_DC ≈ V_peak - V_ripple/2",
+            "Capacitor stores energy between peaks",
+            "Larger C → smaller ripple"
+          ],
+          "formula": "V_ripple = I_L/(2fC) [full-wave], I_L/(fC) [half-wave]"
+        },
+        {
+          "title": "Regulator Efficiency",
+          "steps": [
+            "η = P_out/P_in = (V_out×I_L)/(V_in×I_in)",
+            "Linear regulator: η = V_out/V_in (low, ~50%)",
+            "SMPS: η > 85% (high efficiency)",
+            "Power dissipation: P_D = (V_in-V_out)×I_L",
+            "Heat sink needed for large P_D"
+          ],
+          "formula": "η = V_out/V_in [linear], >85% [SMPS]"
+        },
+        {
+          "title": "Current Limiting (Protection)",
+          "steps": [
+            "Sense resistor: V_sense = I_L×R_sense",
+            "When V_sense > V_BE: transistor turns on",
+            "Limits I_L(max) = V_BE/R_sense",
+            "Typical V_BE = 0.7V for silicon",
+            "Protects regulator from overcurrent"
+          ],
+          "formula": "I_L(max) = V_BE/R_sense"
+        }
+      ],
+      "numericalProblems": [
+        {
+          "question": "Design Zener regulator: V_out=5V, I_L=50mA, V_in=12V → find R_S, P_Z",
+          "given": "Choose I_Z = 10mA. R_S = (12-5)/(50m+10m) = 7/0.06 = 116.7Ω. Choose 120Ω standard. P_Z(max) = 5V×10mA = 50mW. Choose 0.5W Zener for safety",
+          "solution": "R_S = 120Ω, P_Z = 0.5W Zener",
+          "answer": "R_S≈120Ω, P_Z=0.5W"
+        },
+        {
+          "question": "Calculate buck converter: V_in=24V, V_out=12V → find D",
+          "given": "V_out = D×V_in",
+          "solution": "D = V_out/V_in = 12/24 = 0.5 = 50% duty cycle",
+          "answer": "D = 0.5 (50%)"
+        },
+        {
+          "question": "Design bridge rectifier: V_out=12V DC, I_L=1A → find C for V_ripple<0.1V",
+          "given": "Full-wave: V_ripple = I_L/(2fC), f=50Hz",
+          "solution": "C = I_L/(2f×V_ripple) = 1/(2×50×0.1) = 1/10 = 0.1F = 100,000μF. Choose 100,000μF capacitor",
+          "answer": "C = 100,000μF"
+        }
+      ],
+      "quiz": [
+        {
+          "q": "What is buck converter output formula?",
+          "options": ["V_out = D×V_in", "V_out = V_in/D", "V_out = V_in×(1-D)"],
+          "answer": 0
+        },
+        {
+          "q": "What is rectifier ripple for full-wave?",
+          "options": ["V_ripple = I_L/(2fC)", "V_ripple = I_L/(fC)", "V_ripple = 2I_L/(fC)"],
+          "answer": 0
+        }
+      ],
+      "pdfSources": [
+        "blog.amiestudycircle.com",
+        "vaia.com (Microelectronics circuit analysis)"
+      ],
+      "tanglishNotes": "Indha Zener regulator-ula, V_out = V_Z. R_S = (V_in-V_out)/(I_L+I_Z) nu calculate pannanum. SMPS buck converter-la V_out = D×V_in. D na duty cycle. Rectifier-la AC to DC convert pannum. V_ripple = I_L/(2fC) nu formula nyabagam vechukonga. Indha power circuits romba important."
     }
   ]
 }
